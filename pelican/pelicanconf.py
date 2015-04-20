@@ -4,9 +4,11 @@ from __future__ import unicode_literals
 import re
 import os
 
-AUTHOR = u'charlesreid1'
-SITENAME = u'dang-pelican-barebones'
+
 SITEURL = ''
+AUTHOR = u'charlesreid1'
+SITENAME = u'dang-sunburst'
+#SITEURL = '/dang-sunburst'
 
 PATH = 'content'
 TIMEZONE = 'America/Los_Angeles'
@@ -20,7 +22,7 @@ EXTRA_TEMPLATES_PATHS = ['angular']
 
 # template files 
 TEMPLATE_PAGES = {}
-#TEMPLATE_PAGES['hello1.html'] = 'hello1/index.html'
+TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
 
 # --------------8<---------------------
 
