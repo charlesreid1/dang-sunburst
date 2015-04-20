@@ -32,10 +32,11 @@ TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
 
 # directives:
 # letter frequencies
-TEMPLATE_PAGES['letters.html'] = 'letters/index.html'
-TEMPLATE_PAGES['letter_freq.json'] = 'letters/letter_freq.json'
-TEMPLATE_PAGES['modcontrol.js'] = 'letters/modcontrol.js'
-TEMPLATE_PAGES['sunburst.js'] = 'letters/sunburst.js'
+TEMPLATE_PAGES['letter_freq.json']      = 'letters/letter_freq.json'
+TEMPLATE_PAGES['plain.html']            = 'letters/plain.html'
+TEMPLATE_PAGES['plain_modcontrol.js']   = 'letters/plain_modcontrol.js'
+TEMPLATE_PAGES['plain_sunburst.js']     = 'letters/plain_sunburst.js'
+
 
 
 # --------------8<---------------------

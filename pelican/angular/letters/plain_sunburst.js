@@ -26,13 +26,10 @@ ng = a.directive('plainSunburstHead', function($compile) {
 
         var h1 = $("<h1 />")
             .appendTo(el);
+
         var b = $("<b />")
-            .text("English Language Letter Frequencies")
+            .text("Plain D3 Sunburst Chart")
             .appendTo(h1);
-        var descr = $("<p />", {
-            "class" : "lead"
-        }).text("Pickled Pitchfork tattooed, health goth ex Schlitz non tempor fap nostrud chia master cleanse. Slow-carb irony cornhole sustainable taxidermy shabby chic. Voluptate trust fund American Apparel, keffiyeh Brooklyn ullamco before they sold out seitan banh mi mumblecore YOLO XOXO ad. Crucifix excepteur before they sold out heirloom post-ironic labore, pop-up bicycle rights minim cold-pressed et meh sint four dollar toast Schlitz. Forage migas banh mi fixie deserunt irony. Marfa odio anim, kogi do chambray elit XOXO beard single-origin coffee McSweeney's normcore. Dolor Vice aliquip, leggings selfies Godard Marfa.")
-        .appendTo(el);
 
     }
     return {
@@ -89,6 +86,29 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
         var el = element[0];
 
+        var row = $("<div />",{
+            "class" : "row"
+        }).appendTo(el);
+
+        var col1 = $("<div />",{
+            "class" : "col-md-4",
+            "id" : "sunburst_chart"
+        }).appendTo(row);
+
+        var col2 = $("<div />",{
+            "class" : "col-md-4 col-md-offset-1",
+            "id" : "sunburst_text"
+        }).appendTo(row);
+
+        var descr = $("<p />", {
+            "class" : "lead"
+        }).text("Pickled Pitchfork tattooed, health goth ex Schlitz non tempor fap nostrud chia master cleanse. Slow-carb irony cornhole sustainable taxidermy shabby chic. Voluptate trust fund American Apparel, keffiyeh Brooklyn ullamco before they sold out seitan banh mi mumblecore YOLO XOXO ad. Crucifix excepteur before they sold out heirloom post-ironic labore, pop-up bicycle rights minim cold-pressed et meh sint four dollar toast Schlitz.")
+        .appendTo(col2);
+
+
+
+
+
         var margin = {
             top:    10, 
             right:  40, 
@@ -107,7 +127,7 @@ ng = a.directive('plainSunburstChart', function($compile) {
         var y = d3.scale.sqrt()
             .range([0, radius]);
         
-        var svg = d3.select(el).append("svg")
+        var svg = d3.select("div#sunburst_chart").append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -179,8 +199,9 @@ ng = a.directive('plainSunburstChart', function($compile) {
             .style("fill", function(d) { 
                 if(d.letter=='root') {
                     return '#ccc';
-                };
-                return color(Math.round(Math.random()*20));
+                } else {
+                    return color(d.letter);
+                }
             });
 
     }
