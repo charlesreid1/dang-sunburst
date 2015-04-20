@@ -23,6 +23,7 @@ EXTRA_TEMPLATES_PATHS = ['angular']
 # template files 
 TEMPLATE_PAGES = {}
 TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
+TEMPLATE_PAGES['index.html'] = 'index.html'
 
 # --------------8<---------------------
 
