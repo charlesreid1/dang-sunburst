@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Hello" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<div ng-app="lettersApp">
+
+    <div ng-controller="HelloController" ng-init="initialize()">
+
+        <button class="btn btn-large btn-primary" ng-click="drawChart()">
+          Draw Chart
+        </button>
+
+        <p>
+        <plain-sunburst></plain-sunburst>
+        </p>
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/letters/modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/letters/sunburst.js"></script>
+
+<script type="text/javascript">
+
+(function() {
+
+
+})();
+
+</script>
+{% endblock %}
+

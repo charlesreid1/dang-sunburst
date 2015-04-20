@@ -18,12 +18,25 @@ DEFAULT_LANG = u'en'
 THEME = 'simple-angular'
 
 # template locations 
-EXTRA_TEMPLATES_PATHS = ['angular']
+EXTRA_TEMPLATES_PATHS = ['angular',
+                         'angular/letters']
 
 # template files 
 TEMPLATE_PAGES = {}
-TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
+
+# our custom index page
 TEMPLATE_PAGES['index.html'] = 'index.html'
+
+# hello angular world
+TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
+
+# directives:
+# letter frequencies
+TEMPLATE_PAGES['letters.html'] = 'letters/index.html'
+TEMPLATE_PAGES['letter_freq.json'] = 'letters/letter_freq.json'
+TEMPLATE_PAGES['modcontrol.js'] = 'letters/modcontrol.js'
+TEMPLATE_PAGES['sunburst.js'] = 'letters/sunburst.js'
+
 
 # --------------8<---------------------
 
