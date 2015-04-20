@@ -25,7 +25,16 @@ function HelloController($scope,ldfactory) {
     $scope.initialize = function() {
         ldfactory.getLetterData().then(
             function(data) { 
-                $scope.letterData = data; 
+                // convert one dictionary to many
+                var rat = [];
+                Object.keys(data).forEach(function(d){
+                    var o = {};
+                    o['letter'] = d;
+                    o['frequency'] = data[d];
+                    rat.push(o);
+                });
+                
+                $scope.letterData = rat;
             }
         );
     }
