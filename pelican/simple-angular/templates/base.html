@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+        {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+
+        <!--
+        my CSS styles
+        -->
+        <link href="{{ SITEURL }}/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
+        <link href="{{ SITEURL }}/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
+        <link href="{{ SITEURL }}/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
+        {% endblock head %}
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+    </header>
+
+    <div class="container">
+        <h1>{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></h1>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer id="contentinfo" class="body">
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/angular-1.3.15.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/bootstrap-3.3.4.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/d3-3.5.5.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/leaflet.ajax.min.js"></script>
+    </footer><!-- /#contentinfo -->
+</body>
+</html>
