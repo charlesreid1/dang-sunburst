@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Sunburst of Orthogonal Dimensions" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/breakdown/orthog.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="orthogonalApp">
+
+    <div ng-controller="OrthogonalController" ng-init="initialize()">
+
+        <p>
+        <orthog-sunburst-head></orthog-sunburst-head>
+        <orthog-sunburst-controls></orthog-sunburst-controls>
+        <orthog-sunburst-chart></orthog-sunburst-chart>
+        </p>
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/breakdown/orthog_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/breakdown/orthog_sunburst.js"></script>
+
+{% endblock %}
+
