@@ -20,7 +20,7 @@ ng = a.directive('bigram2SunburstHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("Interactive Sunburst: Bigram Frequencies")
+            .text("Interactive Sunburst: Bi-gram Frequencies")
             .appendTo(h1);
 
     }
@@ -62,13 +62,17 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
 
         function doStuff() { 
             if(!scope.$parent.bigramData) { return }
-            updateChart(element, scope.$parent.bigramData);
+            updateChart(element, scope.$parent);
         }
 
     };
 
-    function updateChart(element,data) {
+    function updateChart(element,pscope) {
+
         console.log('updating chart');
+
+        var data = pscope.bigramData;
+
 
         /////////////////////////////////////////
         // Create chart
@@ -88,12 +92,12 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
             }).appendTo(el);
 
         var col1 = $("<div />",{
-                "class" : "col-md-4",
+                "class" : "col-sm-6",
                 "id" : "sunburst_chart"
             }).appendTo(row);
 
         var col2 = $("<div />",{
-                "class" : "col-md-6 col-md-offset-1",
+                "class" : "col-sm-6",
                 "id" : "sunburst_text"
             }).appendTo(row);
 
@@ -101,20 +105,57 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
             .text("This chart adds interactivity - clicking on partitions on the chart will zoom in to that partition.")
             .appendTo(col2);
 
-        /*
-        var quote = $("<blockquote />", {
-                "class" : "normal"
+
+        // --------------------------
+        // add display for details 
+        // about current mouseover selection
+        
+        // assemble the tags, 
+        // then compile the html
+        // select element of interest with angular.element
+        // and append the compiled tags
+
+
+        var panel = $("<div />", {
+                "class" : "panel panel-primary"
+            });
+
+
+
+        var panelhead = $("<div />", {
+                "class" : "panel-heading"
+            }).appendTo(panel);
+        
+        var h3 = $("<h3 />", {
+                "class" : "panel-title"
+            }).text("Selected Bi-Gram")
+            .appendTo(panelhead);
+
+
+
+        var panelbody = $("<div />", {
+                "class" : "panel-body"
+            }).appendTo(panel);
+
+        var maindiv = $("<div />", {
+                /*"ng-show" : "selectedPoint"*/
+            }).appendTo(panelbody);
+
+        var h = $("<h3 />")
+            .html("Bi-gram: [[selectedPoint.letter]]")
+            .appendTo(maindiv);
+
+        var p = $("<p />", {
+                "class" : "lead"
             })
-            .appendTo(col2);
+            .html("Letter: [[selectedPoint.letter1]] <br />" +
+                  "Total Count: [[selectedPoint.total]]")
+            .appendTo(maindiv);
 
-        var text = $("<p />")
-            .text('Below is a table of all 26 × 26 = 676 bigrams; in each cell the orange bar is proportional to the frequency, and if you hover you can see the exact counts and percentage. There are only seven bigrams that do not occur among the 2.8 trillion mentions: JQ, QG, QK, QY, QZ, WQ, and WZ.')
-            .appendTo(quote);
 
-        var source = $("<small />")
-            .html('<cite><a href="http://norvig.com/mayzner.html">Peter Norvig on English Letter Frequency Counts</a></cite>')
-            .appendTo(quote);
-        */
+
+        angular.element(col2).append($compile(panel)(pscope));
+
 
 
 
@@ -240,12 +281,15 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         var color = d3.scale.category20c();
 
         // this is where the magic happens
+        //
+        // bind the data to the g elements
         var g = svg
             .datum(data)
             .selectAll("g")
             .data(partition.nodes(node))
             .enter().append("g");
 
+        // add paths (arcs) to g, and bind click action
         var path = g.append("path")
             .attr("d",arc)
             .style("fill",function(d,i) {
@@ -256,8 +300,24 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
                 }
             })
             .on("click",click)
+            .on('mouseover', function(d){
+                if(d.letter!="root") {
+                    pscope.$apply(function(){
+                        pscope.selectedPoint = d;
+                    });
+                }
+                d3.selectAll('path').classed('active',function(e){
+                    var dlet = d['letter'];
+                    var elet = e['letter'];
+                    return dlet==elet;
+                });
+            })
+            .on('mouseout', function(){
+                d3.selectAll('g.point').classed('active',false);
+            })
             .each(stash);
 
+        // add text labels, and set visibility
         var text = g.append("text")
             .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
             .attr("x", function(d) { return y(d.y); })
@@ -288,8 +348,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
 
         // animate zooming into partition when clicked 
         function click(d) {
-            text
-                .transition()
+            text.transition()
                 .attr("opacity", 0);
 
             node = d;
@@ -354,7 +413,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
     return {
         link: link,
         restrict: "E",
-        scope: {}
+        scope: { }
     };
 });
 dir.push(ng);

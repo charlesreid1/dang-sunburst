@@ -10,3 +10,6 @@
     opacity: 1;
 }
 
+.active {
+  stroke: black;
+}

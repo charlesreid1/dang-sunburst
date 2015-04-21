@@ -56,6 +56,7 @@ root_children = []
 for letter in letter1list:
     d1 = {}
     d1['letter'] = letter
+    d1['letter1'] = letter
     d1['level'] = 1
     root_children.append(d1)
 
@@ -72,6 +73,7 @@ for child in root['children']:
     for d in ds:
         if(d['letter1']==letter):
             grandchild = {}
+            grandchild['letter1'] = d['letter1']
             grandchild['letter'] = d['bigram']
             grandchild['level'] = 2
             grandchild['total'] = d['total']
