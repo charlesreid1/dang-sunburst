@@ -16,7 +16,7 @@ var hipster_ipsum = function(N,tagname) {
 // that use D3 to draw sunburst charts.
 // 
 
-ng = a.directive('plainSunburstHead', function($compile) {
+ng = a.directive('bigramSunburstHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -28,7 +28,7 @@ ng = a.directive('plainSunburstHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("English Language Letter Frequencies ")
+            .text("English Language Bigram Frequencies ")
             .appendTo(h1);
 
     }
@@ -45,7 +45,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Controls
 
-ng = a.directive('plainSunburstControls', function($compile) {
+ng = a.directive('bigramSunburstControls', function($compile) {
     function link(scope, element, attr) { }
     return {
         restrict: "E",
@@ -62,20 +62,21 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Chart
 
-ng = a.directive('plainSunburstChart', function($compile) {
+ng = a.directive('bigramSunburstChart', function($compile) {
 
     function link(scope, element, attr) {
 
-        scope.$parent.$watch('letterData',doStuff);
+        scope.$parent.$watch('bigramData',doStuff);
 
         function doStuff() { 
-            if(!scope.$parent.letterData) { return }
-            updateChart(element, scope.$parent.letterData);
+            if(!scope.$parent.bigramData) { return }
+            updateChart(element, scope.$parent.bigramData);
         }
 
     };
 
     function updateChart(element,data) {
+        console.log('updating chart');
 
         /////////////////////////////////////////
         // Create chart
@@ -106,16 +107,16 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
         var descr = $("<p />", {
             "class" : "normal"
-        }).text("The following sunburst chart contains a single level of information, and shows " +
-                "the relative frequencies of letters in the English language. From Wikipedia:")
+        }).text("The following sunburst chart contains two-level information, and shows " +
+                "the relative frequencies of bigrams in the English language. From Peter Norvig's web site on English letter frequency counts:")
         .appendTo(col2);
         var quote = $("<blockquote />", {
             "class" : "normal"
         })
         .appendTo(col2);
-        var text = $("<p />").text('The frequency of letters in text has been studied for use in cryptanalysis, and frequency analysis in particular, dating back to the Iraqi mathematician Al-Kindi (c. 801–873 CE), who formally developed the method (the ciphers breakable by this technique go back at least to the Caesar cipher invented by Julius Caesar, so this method could have been explored in classical times).')
+        var text = $("<p />").text('Below is a table of all 26 × 26 = 676 bigrams; in each cell the orange bar is proportional to the frequency, and if you hover you can see the exact counts and percentage. There are only seven bigrams that do not occur among the 2.8 trillion mentions: JQ, QG, QK, QY, QZ, WQ, and WZ.')
             .appendTo(quote);
-        var source = $("<small />").html('<cite><a href="http://en.wikipedia.org/wiki/Letter_frequency">Wikipedia article on Letter Frequency</a></cite>')
+        var source = $("<small />").html('<cite><a href="http://norvig.com/mayzner.html">Peter Norvig on English Letter Frequency Counts</a></cite>')
             .appendTo(quote);
 
 
@@ -158,7 +159,9 @@ ng = a.directive('plainSunburstChart', function($compile) {
         // default sort method: count
         var partition = d3.layout.partition()
             .sort(null)
-            .value(function(d) { return d.frequency; });
+            .value(function(d) { 
+                return d.total; 
+            });
 
         var arc = d3.svg.arc()
             .startAngle( function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
@@ -198,11 +201,7 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
         svg.selectAll("path").remove();
 
-        var realdata = {};
-        realdata['letter'] = 'root';
-        realdata['children'] = data;
-
-        node = realdata;
+        node = data;
 
         var N = 26;
         var color = d3.scale.ordinal()
@@ -213,13 +212,15 @@ ng = a.directive('plainSunburstChart', function($compile) {
                     .range(["steelblue","pink"])
                     .interpolate(d3.interpolateLab))
             );
+        var color = d3.scale.category20c();
 
         // this is where the magic happens
         var g = svg
-            .datum(realdata)
+            .datum(data)
             .selectAll("g")
             .data(partition.nodes(node))
-            .enter().append("g");
+            .enter().append("g")
+            .each(function(d){console.log(d)});
 
         var path = g.append("path")
             .attr("d",arc)
@@ -227,8 +228,7 @@ ng = a.directive('plainSunburstChart', function($compile) {
                 if(d.letter=='root') {
                     return '#ccc';
                 } else {
-                    // colors are assigned in first-come-first-serve order
-                    return color(i);
+                    return color((d.children ? d : d.parent).letter); 
                 }
             });
 
@@ -239,14 +239,15 @@ ng = a.directive('plainSunburstChart', function($compile) {
             .attr("dy", ".35em") // vertical-align
             .text(function(d) { 
                 if(d.letter!='root') {
-                    return d.letter; 
+                    if(d.children) {
+                        return d.letter;
+                    }
                 }
             });
 
           function computeTextRotation(d) {
                 return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
           }
-
     }
 
     return {

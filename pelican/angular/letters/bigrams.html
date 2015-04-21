@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Bigrams" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<div ng-app="bigramsApp">
+
+    <div ng-controller="HelloController" ng-init="initialize()">
+
+        <p>
+        <bigram-sunburst-head></bigram-sunburst-head>
+        <bigram-sunburst-controls></bigram-sunburst-controls>
+        <bigram-sunburst-chart></bigram-sunburst-chart>
+        </p>
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/letters/bigrams_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/letters/bigrams_sunburst.js"></script>
+
+<script type="text/javascript">
+
+(function() {
+
+
+})();
+
+</script>
+{% endblock %}
+
