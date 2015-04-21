@@ -28,7 +28,7 @@ ng = a.directive('plainSunburstHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("Plain D3 Sunburst Chart")
+            .text("English Language Letter Frequencies ")
             .appendTo(h1);
 
     }
@@ -86,6 +86,10 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
         var el = element[0];
 
+
+        // --------------------------
+        // start with title and filler text 
+
         var row = $("<div />",{
             "class" : "row"
         }).appendTo(el);
@@ -96,18 +100,31 @@ ng = a.directive('plainSunburstChart', function($compile) {
         }).appendTo(row);
 
         var col2 = $("<div />",{
-            "class" : "col-md-4 col-md-offset-1",
+            "class" : "col-md-6 col-md-offset-1",
             "id" : "sunburst_text"
         }).appendTo(row);
 
         var descr = $("<p />", {
-            "class" : "lead"
-        }).text("Pickled Pitchfork tattooed, health goth ex Schlitz non tempor fap nostrud chia master cleanse. Slow-carb irony cornhole sustainable taxidermy shabby chic. Voluptate trust fund American Apparel, keffiyeh Brooklyn ullamco before they sold out seitan banh mi mumblecore YOLO XOXO ad. Crucifix excepteur before they sold out heirloom post-ironic labore, pop-up bicycle rights minim cold-pressed et meh sint four dollar toast Schlitz.")
+            "class" : "normal"
+        }).text("The following sunburst chart contains a single level of information, and shows " +
+                "the relative frequencies of letters in the English language. From Wikipedia:")
         .appendTo(col2);
+        var quote = $("<blockquote />", {
+            "class" : "normal"
+        })
+        .appendTo(col2);
+        var text = $("<p />").text('The frequency of letters in text has been studied for use in cryptanalysis, and frequency analysis in particular, dating back to the Iraqi mathematician Al-Kindi (c. 801–873 CE), who formally developed the method (the ciphers breakable by this technique go back at least to the Caesar cipher invented by Julius Caesar, so this method could have been explored in classical times).')
+            .appendTo(quote);
+        var source = $("<small />").html('<cite><a href="http://en.wikipedia.org/wiki/Letter_frequency">Wikipedia article on Letter Frequency</a></cite>')
+            .appendTo(quote);
 
 
 
+        ///////////////////////////////////
+        // now draw the svg with d3
 
+        // ---------------
+        // the chart itself:
 
         var margin = {
             top:    10, 
@@ -135,13 +152,13 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
 
         // ---------------
-        // more chart-specific, 
+        // chart-specific, 
         // data-independent variables:
 
         // default sort method: count
         var partition = d3.layout.partition()
             .sort(null)
-            .value(function(d) { return 1; });
+            .value(function(d) { return d.frequency; });
 
         var arc = d3.svg.arc()
             .startAngle( function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
@@ -187,22 +204,46 @@ ng = a.directive('plainSunburstChart', function($compile) {
 
         node = realdata;
 
-        var color = d3.scale.category20c(); 
+        var color = d3.scale.ordinal()
+            .domain(data)
+            .range(d3.range(data.length).map(
+                    d3.scale.linear()
+                    .domain([0, data.length - 1])
+                    .range(["steelblue","pink"])
+                    .interpolate(d3.interpolateLab))
+            );
 
         // this is where the magic happens
-        var path = svg
+        var g = svg
             .datum(realdata)
-            .selectAll("path")
+            .selectAll("g")
             .data(partition.nodes(node))
-            .enter().append("path")
-            .attr("d", arc)
-            .style("fill", function(d) { 
+            .enter().append("g");
+
+        var path = g.append("path")
+            .attr("d",arc)
+            .style("fill",function(d) {
                 if(d.letter=='root') {
                     return '#ccc';
                 } else {
                     return color(d.letter);
                 }
             });
+
+        var text = g.append("text")
+            .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+            .attr("x", function(d) { return y(d.y); })
+            .attr("dx", "6") // margin
+            .attr("dy", ".35em") // vertical-align
+            .text(function(d) { 
+                if(d.letter!='root') {
+                    return d.letter; 
+                }
+            });
+
+          function computeTextRotation(d) {
+                return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
+          }
 
     }
 
