@@ -4,2808 +4,3504 @@
             "children": [
                 {
                     "letter": "TH",
+                    "level": 2,
                     "total": "100272945963"
                 },
                 {
                     "letter": "TI",
+                    "level": 2,
                     "total": "37856196209"
                 },
                 {
                     "letter": "TE",
+                    "level": 2,
                     "total": "33973261529"
                 },
                 {
                     "letter": "TO",
+                    "level": 2,
                     "total": "29360205581"
                 },
                 {
                     "letter": "TA",
+                    "level": 2,
                     "total": "14941000711"
                 },
                 {
                     "letter": "TR",
+                    "level": 2,
                     "total": "12006693396"
                 },
                 {
                     "letter": "TS",
+                    "level": 2,
                     "total": "9516029773"
                 },
                 {
                     "letter": "TU",
+                    "level": 2,
                     "total": "7187510085"
                 },
                 {
                     "letter": "TY",
+                    "level": 2,
                     "total": "6408447994"
                 },
                 {
                     "letter": "TT",
+                    "level": 2,
                     "total": "4812693687"
                 },
                 {
                     "letter": "TL",
+                    "level": 2,
                     "total": "2775935006"
                 },
                 {
                     "letter": "TW",
+                    "level": 2,
                     "total": "2322619238"
                 },
                 {
                     "letter": "TM",
+                    "level": 2,
                     "total": "746621025"
                 },
                 {
                     "letter": "TC",
+                    "level": 2,
                     "total": "736955048"
                 },
                 {
                     "letter": "TN",
+                    "level": 2,
                     "total": "282266629"
                 },
                 {
                     "letter": "TF",
+                    "level": 2,
                     "total": "159626603"
                 },
                 {
                     "letter": "TP",
+                    "level": 2,
                     "total": "121089391"
                 },
                 {
                     "letter": "TZ",
+                    "level": 2,
                     "total": "108527540"
                 },
                 {
                     "letter": "TB",
+                    "level": 2,
                     "total": "71746167"
                 },
                 {
                     "letter": "TG",
+                    "level": 2,
                     "total": "55522877"
                 },
                 {
                     "letter": "TD",
+                    "level": 2,
                     "total": "36539510"
                 },
                 {
                     "letter": "TV",
+                    "level": 2,
                     "total": "32805751"
                 },
                 {
                     "letter": "TK",
+                    "level": 2,
                     "total": "13081991"
                 },
                 {
                     "letter": "TX",
+                    "level": 2,
                     "total": "3328898"
                 },
                 {
                     "letter": "TJ",
+                    "level": 2,
                     "total": "3169658"
                 },
                 {
                     "letter": "TQ",
+                    "level": 2,
                     "total": "2517400"
                 }
             ],
-            "letter": "T"
+            "letter": "T",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "HE",
+                    "level": 2,
                     "total": "86697336727"
                 },
                 {
                     "letter": "HA",
+                    "level": 2,
                     "total": "26103411208"
                 },
                 {
                     "letter": "HI",
+                    "level": 2,
                     "total": "21520845924"
                 },
                 {
                     "letter": "HO",
+                    "level": 2,
                     "total": "13672603513"
                 },
                 {
                     "letter": "HT",
+                    "level": 2,
                     "total": "3670802795"
                 },
                 {
                     "letter": "HR",
+                    "level": 2,
                     "total": "2379584978"
                 },
                 {
                     "letter": "HU",
+                    "level": 2,
                     "total": "2077887429"
                 },
                 {
                     "letter": "HY",
+                    "level": 2,
                     "total": "1412343465"
                 },
                 {
                     "letter": "HN",
+                    "level": 2,
                     "total": "726288117"
                 },
                 {
                     "letter": "HS",
+                    "level": 2,
                     "total": "414044112"
                 },
                 {
                     "letter": "HM",
+                    "level": 2,
                     "total": "359316447"
                 },
                 {
                     "letter": "HL",
+                    "level": 2,
                     "total": "355049620"
                 },
                 {
                     "letter": "HW",
+                    "level": 2,
                     "total": "134615178"
                 },
                 {
                     "letter": "HB",
+                    "level": 2,
                     "total": "123778334"
                 },
                 {
                     "letter": "HD",
+                    "level": 2,
                     "total": "80544316"
                 },
                 {
                     "letter": "HF",
+                    "level": 2,
                     "total": "63249924"
                 },
                 {
                     "letter": "HC",
+                    "level": 2,
                     "total": "34631551"
                 },
                 {
                     "letter": "HP",
+                    "level": 2,
                     "total": "16696129"
                 },
                 {
                     "letter": "HH",
+                    "level": 2,
                     "total": "14730425"
                 },
                 {
                     "letter": "HQ",
+                    "level": 2,
                     "total": "11925353"
                 },
                 {
                     "letter": "HZ",
+                    "level": 2,
                     "total": "10729982"
                 },
                 {
                     "letter": "HG",
+                    "level": 2,
                     "total": "7789748"
                 },
                 {
                     "letter": "HK",
+                    "level": 2,
                     "total": "6595610"
                 },
                 {
                     "letter": "HV",
+                    "level": 2,
                     "total": "6292998"
                 },
                 {
                     "letter": "HJ",
+                    "level": 2,
                     "total": "1282370"
                 },
                 {
                     "letter": "HX",
+                    "level": 2,
                     "total": "263997"
                 }
             ],
-            "letter": "H"
+            "letter": "H",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "IN",
+                    "level": 2,
                     "total": "68595215308"
                 },
                 {
                     "letter": "IS",
+                    "level": 2,
                     "total": "31817918249"
                 },
                 {
                     "letter": "IT",
+                    "level": 2,
                     "total": "31672532308"
                 },
                 {
                     "letter": "IO",
+                    "level": 2,
                     "total": "23542263265"
                 },
                 {
                     "letter": "IC",
+                    "level": 2,
                     "total": "19701195496"
                 },
                 {
                     "letter": "IL",
+                    "level": 2,
                     "total": "12167821320"
                 },
                 {
                     "letter": "IE",
+                    "level": 2,
                     "total": "10845731320"
                 },
                 {
                     "letter": "IM",
+                    "level": 2,
                     "total": "8959759181"
                 },
                 {
                     "letter": "IR",
+                    "level": 2,
                     "total": "8886799024"
                 },
                 {
                     "letter": "ID",
+                    "level": 2,
                     "total": "8332214014"
                 },
                 {
                     "letter": "IV",
+                    "level": 2,
                     "total": "8116349309"
                 },
                 {
                     "letter": "IA",
+                    "level": 2,
                     "total": "8072199471"
                 },
                 {
                     "letter": "IG",
+                    "level": 2,
                     "total": "7189051323"
                 },
                 {
                     "letter": "IF",
+                    "level": 2,
                     "total": "5731148470"
                 },
                 {
                     "letter": "IB",
+                    "level": 2,
                     "total": "2780268452"
                 },
                 {
                     "letter": "IP",
+                    "level": 2,
                     "total": "2515455253"
                 },
                 {
                     "letter": "IZ",
+                    "level": 2,
                     "total": "1814164135"
                 },
                 {
                     "letter": "IK",
+                    "level": 2,
                     "total": "1209994695"
                 },
                 {
                     "letter": "II",
+                    "level": 2,
                     "total": "642384029"
                 },
                 {
                     "letter": "IX",
+                    "level": 2,
                     "total": "621227893"
                 },
                 {
                     "letter": "IU",
+                    "level": 2,
                     "total": "490874936"
                 },
                 {
                     "letter": "IQ",
+                    "level": 2,
                     "total": "318727904"
                 },
                 {
                     "letter": "IH",
+                    "level": 2,
                     "total": "58966344"
                 },
                 {
                     "letter": "IJ",
+                    "level": 2,
                     "total": "31324465"
                 },
                 {
                     "letter": "IW",
+                    "level": 2,
                     "total": "17611969"
                 },
                 {
                     "letter": "IY",
+                    "level": 2,
                     "total": "6247588"
                 }
             ],
-            "letter": "I"
+            "letter": "I",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ER",
+                    "level": 2,
                     "total": "57754162106"
                 },
                 {
                     "letter": "EN",
+                    "level": 2,
                     "total": "41004903554"
                 },
                 {
                     "letter": "ES",
+                    "level": 2,
                     "total": "37766388079"
                 },
                 {
                     "letter": "ED",
+                    "level": 2,
                     "total": "32937140633"
                 },
                 {
                     "letter": "EA",
+                    "level": 2,
                     "total": "19403941063"
                 },
                 {
                     "letter": "EL",
+                    "level": 2,
                     "total": "14952716079"
                 },
                 {
                     "letter": "EC",
+                    "level": 2,
                     "total": "13457763533"
                 },
                 {
                     "letter": "ET",
+                    "level": 2,
                     "total": "11634161334"
                 },
                 {
                     "letter": "EE",
+                    "level": 2,
                     "total": "10647199443"
                 },
                 {
                     "letter": "EM",
+                    "level": 2,
                     "total": "10536054813"
                 },
                 {
                     "letter": "EV",
+                    "level": 2,
                     "total": "7184041787"
                 },
                 {
                     "letter": "EX",
+                    "level": 2,
                     "total": "6035335807"
                 },
                 {
                     "letter": "EI",
+                    "level": 2,
                     "total": "5169898489"
                 },
                 {
                     "letter": "EP",
+                    "level": 2,
                     "total": "4837800987"
                 },
                 {
                     "letter": "EF",
+                    "level": 2,
                     "total": "4588497002"
                 },
                 {
                     "letter": "EY",
+                    "level": 2,
                     "total": "4053144855"
                 },
                 {
                     "letter": "EG",
+                    "level": 2,
                     "total": "3370515965"
                 },
                 {
                     "letter": "EW",
+                    "level": 2,
                     "total": "3293529190"
                 },
                 {
                     "letter": "EO",
+                    "level": 2,
                     "total": "2044268477"
                 },
                 {
                     "letter": "EQ",
+                    "level": 2,
                     "total": "1614312175"
                 },
                 {
                     "letter": "EU",
+                    "level": 2,
                     "total": "878402090"
                 },
                 {
                     "letter": "EB",
+                    "level": 2,
                     "total": "763383542"
                 },
                 {
                     "letter": "EH",
+                    "level": 2,
                     "total": "742240059"
                 },
                 {
                     "letter": "EK",
+                    "level": 2,
                     "total": "464449289"
                 },
                 {
                     "letter": "EJ",
+                    "level": 2,
                     "total": "128194584"
                 },
                 {
                     "letter": "EZ",
+                    "level": 2,
                     "total": "127540198"
                 }
             ],
-            "letter": "E"
+            "letter": "E",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "AN",
+                    "level": 2,
                     "total": "55974567611"
                 },
                 {
                     "letter": "AT",
+                    "level": 2,
                     "total": "41920838452"
                 },
                 {
                     "letter": "AL",
+                    "level": 2,
                     "total": "30662410438"
                 },
                 {
                     "letter": "AR",
+                    "level": 2,
                     "total": "30308513014"
                 },
                 {
                     "letter": "AS",
+                    "level": 2,
                     "total": "24561944198"
                 },
                 {
                     "letter": "AC",
+                    "level": 2,
                     "total": "12625666388"
                 },
                 {
                     "letter": "AD",
+                    "level": 2,
                     "total": "10375130449"
                 },
                 {
                     "letter": "AI",
+                    "level": 2,
                     "total": "8922759715"
                 },
                 {
                     "letter": "AM",
+                    "level": 2,
                     "total": "8032259916"
                 },
                 {
                     "letter": "AB",
+                    "level": 2,
                     "total": "6479202253"
                 },
                 {
                     "letter": "AY",
+                    "level": 2,
                     "total": "6128842727"
                 },
                 {
                     "letter": "AV",
+                    "level": 2,
                     "total": "5778409728"
                 },
                 {
                     "letter": "AG",
+                    "level": 2,
                     "total": "5772552144"
                 },
                 {
                     "letter": "AP",
+                    "level": 2,
                     "total": "5719570727"
                 },
                 {
                     "letter": "AU",
+                    "level": 2,
                     "total": "3356322923"
                 },
                 {
                     "letter": "AK",
+                    "level": 2,
                     "total": "2952167845"
                 },
                 {
                     "letter": "AF",
+                    "level": 2,
                     "total": "2092395523"
                 },
                 {
                     "letter": "AW",
+                    "level": 2,
                     "total": "1689436638"
                 },
                 {
                     "letter": "AX",
+                    "level": 2,
                     "total": "531206960"
                 },
                 {
                     "letter": "AH",
+                    "level": 2,
                     "total": "384694919"
                 },
                 {
                     "letter": "AE",
+                    "level": 2,
                     "total": "349540062"
                 },
                 {
                     "letter": "AZ",
+                    "level": 2,
                     "total": "334669428"
                 },
                 {
                     "letter": "AJ",
+                    "level": 2,
                     "total": "331384552"
                 },
                 {
                     "letter": "AO",
+                    "level": 2,
                     "total": "130442323"
                 },
                 {
                     "letter": "AA",
+                    "level": 2,
                     "total": "79794787"
                 },
                 {
                     "letter": "AQ",
+                    "level": 2,
                     "total": "63283982"
                 }
             ],
-            "letter": "A"
+            "letter": "A",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "RE",
+                    "level": 2,
                     "total": "52285662239"
                 },
                 {
                     "letter": "RI",
+                    "level": 2,
                     "total": "20516398905"
                 },
                 {
                     "letter": "RO",
+                    "level": 2,
                     "total": "20491179118"
                 },
                 {
                     "letter": "RA",
+                    "level": 2,
                     "total": "19332539912"
                 },
                 {
                     "letter": "RS",
+                    "level": 2,
                     "total": "11180732354"
                 },
                 {
                     "letter": "RT",
+                    "level": 2,
                     "total": "10198055461"
                 },
                 {
                     "letter": "RY",
+                    "level": 2,
                     "total": "6985436186"
                 },
                 {
                     "letter": "RD",
+                    "level": 2,
                     "total": "5338083783"
                 },
                 {
                     "letter": "RM",
+                    "level": 2,
                     "total": "4938158020"
                 },
                 {
                     "letter": "RN",
+                    "level": 2,
                     "total": "4521640992"
                 },
                 {
                     "letter": "RU",
+                    "level": 2,
                     "total": "3618438291"
                 },
                 {
                     "letter": "RC",
+                    "level": 2,
                     "total": "3422694015"
                 },
                 {
                     "letter": "RR",
+                    "level": 2,
                     "total": "3404547067"
                 },
                 {
                     "letter": "RG",
+                    "level": 2,
                     "total": "2813274913"
                 },
                 {
                     "letter": "RK",
+                    "level": 2,
                     "total": "2736041446"
                 },
                 {
                     "letter": "RL",
+                    "level": 2,
                     "total": "2432373251"
                 },
                 {
                     "letter": "RV",
+                    "level": 2,
                     "total": "1953555667"
                 },
                 {
                     "letter": "RP",
+                    "level": 2,
                     "total": "1173542093"
                 },
                 {
                     "letter": "RF",
+                    "level": 2,
                     "total": "909634941"
                 },
                 {
                     "letter": "RB",
+                    "level": 2,
                     "total": "753194669"
                 },
                 {
                     "letter": "RH",
+                    "level": 2,
                     "total": "426095630"
                 },
                 {
                     "letter": "RW",
+                    "level": 2,
                     "total": "359714599"
                 },
                 {
                     "letter": "RX",
+                    "level": 2,
                     "total": "32990613"
                 },
                 {
                     "letter": "RQ",
+                    "level": 2,
                     "total": "28152573"
                 },
                 {
                     "letter": "RZ",
+                    "level": 2,
                     "total": "17993128"
                 },
                 {
                     "letter": "RJ",
+                    "level": 2,
                     "total": "15598009"
                 }
             ],
-            "letter": "R"
+            "letter": "R",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ON",
+                    "level": 2,
                     "total": "49570981965"
                 },
                 {
                     "letter": "OR",
+                    "level": 2,
                     "total": "35994097756"
                 },
                 {
                     "letter": "OF",
+                    "level": 2,
                     "total": "33130341561"
                 },
                 {
                     "letter": "OU",
+                    "level": 2,
                     "total": "24531132241"
                 },
                 {
                     "letter": "OM",
+                    "level": 2,
                     "total": "15402602484"
                 },
                 {
                     "letter": "OT",
+                    "level": 2,
                     "total": "12465822481"
                 },
                 {
                     "letter": "OL",
+                    "level": 2,
                     "total": "10305660447"
                 },
                 {
                     "letter": "OW",
+                    "level": 2,
                     "total": "9318366591"
                 },
                 {
                     "letter": "OS",
+                    "level": 2,
                     "total": "8176085241"
                 },
                 {
                     "letter": "OP",
+                    "level": 2,
                     "total": "6313536754"
                 },
                 {
                     "letter": "OO",
+                    "level": 2,
                     "total": "5928601045"
                 },
                 {
                     "letter": "OD",
+                    "level": 2,
                     "total": "5511014957"
                 },
                 {
                     "letter": "OV",
+                    "level": 2,
                     "total": "5021440160"
                 },
                 {
                     "letter": "OC",
+                    "level": 2,
                     "total": "4692062395"
                 },
                 {
                     "letter": "OB",
+                    "level": 2,
                     "total": "2725791138"
                 },
                 {
                     "letter": "OG",
+                    "level": 2,
                     "total": "2651165734"
                 },
                 {
                     "letter": "OI",
+                    "level": 2,
                     "total": "2474275212"
                 },
                 {
                     "letter": "OK",
+                    "level": 2,
                     "total": "1813376076"
                 },
                 {
                     "letter": "OA",
+                    "level": 2,
                     "total": "1620913259"
                 },
                 {
                     "letter": "OE",
+                    "level": 2,
                     "total": "1089254517"
                 },
                 {
                     "letter": "OY",
+                    "level": 2,
                     "total": "1020190223"
                 },
                 {
                     "letter": "OH",
+                    "level": 2,
                     "total": "602121281"
                 },
                 {
                     "letter": "OX",
+                    "level": 2,
                     "total": "523764012"
                 },
                 {
                     "letter": "OJ",
+                    "level": 2,
                     "total": "196696657"
                 },
                 {
                     "letter": "OZ",
+                    "level": 2,
                     "total": "97904996"
                 },
                 {
                     "letter": "OQ",
+                    "level": 2,
                     "total": "29227658"
                 }
             ],
-            "letter": "O"
+            "letter": "O",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ND",
+                    "level": 2,
                     "total": "38129777631"
                 },
                 {
                     "letter": "NT",
+                    "level": 2,
                     "total": "29359771944"
                 },
                 {
                     "letter": "NG",
+                    "level": 2,
                     "total": "26871805511"
                 },
                 {
                     "letter": "NE",
+                    "level": 2,
                     "total": "19504235770"
                 },
                 {
                     "letter": "NS",
+                    "level": 2,
                     "total": "14350320288"
                 },
                 {
                     "letter": "NO",
+                    "level": 2,
                     "total": "13099447521"
                 },
                 {
                     "letter": "NC",
+                    "level": 2,
                     "total": "11722631112"
                 },
                 {
                     "letter": "NA",
+                    "level": 2,
                     "total": "9790855551"
                 },
                 {
                     "letter": "NI",
+                    "level": 2,
                     "total": "9564648232"
                 },
                 {
                     "letter": "NY",
+                    "level": 2,
                     "total": "2760941827"
                 },
                 {
                     "letter": "NU",
+                    "level": 2,
                     "total": "2217508482"
                 },
                 {
                     "letter": "NN",
+                    "level": 2,
                     "total": "2051719074"
                 },
                 {
                     "letter": "NF",
+                    "level": 2,
                     "total": "1894270041"
                 },
                 {
                     "letter": "NL",
+                    "level": 2,
                     "total": "1798491132"
                 },
                 {
                     "letter": "NV",
+                    "level": 2,
                     "total": "1466426243"
                 },
                 {
                     "letter": "NK",
+                    "level": 2,
                     "total": "1455100124"
                 },
                 {
                     "letter": "NM",
+                    "level": 2,
                     "total": "782441941"
                 },
                 {
                     "letter": "NJ",
+                    "level": 2,
                     "total": "312598990"
                 },
                 {
                     "letter": "NH",
+                    "level": 2,
                     "total": "306883963"
                 },
                 {
                     "letter": "NR",
+                    "level": 2,
                     "total": "258048421"
                 },
                 {
                     "letter": "NP",
+                    "level": 2,
                     "total": "170186564"
                 },
                 {
                     "letter": "NQ",
+                    "level": 2,
                     "total": "167770304"
                 },
                 {
                     "letter": "NW",
+                    "level": 2,
                     "total": "163456000"
                 },
                 {
                     "letter": "NZ",
+                    "level": 2,
                     "total": "123192934"
                 },
                 {
                     "letter": "NB",
+                    "level": 2,
                     "total": "122258836"
                 },
                 {
                     "letter": "NX",
+                    "level": 2,
                     "total": "73899576"
                 }
             ],
-            "letter": "N"
+            "letter": "N",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ST",
+                    "level": 2,
                     "total": "29704461829"
                 },
                 {
                     "letter": "SE",
+                    "level": 2,
                     "total": "26282488562"
                 },
                 {
                     "letter": "SI",
+                    "level": 2,
                     "total": "15509759748"
                 },
                 {
                     "letter": "SS",
+                    "level": 2,
                     "total": "11421755201"
                 },
                 {
                     "letter": "SO",
+                    "level": 2,
                     "total": "11214705934"
                 },
                 {
                     "letter": "SH",
+                    "level": 2,
                     "total": "8888705287"
                 },
                 {
                     "letter": "SU",
+                    "level": 2,
                     "total": "8774129154"
                 },
                 {
                     "letter": "SA",
+                    "level": 2,
                     "total": "6147356936"
                 },
                 {
                     "letter": "SP",
+                    "level": 2,
                     "total": "5392724233"
                 },
                 {
                     "letter": "SC",
+                    "level": 2,
                     "total": "4363410770"
                 },
                 {
                     "letter": "SM",
+                    "level": 2,
                     "total": "1838392669"
                 },
                 {
                     "letter": "SY",
+                    "level": 2,
                     "total": "1602829285"
                 },
                 {
                     "letter": "SL",
+                    "level": 2,
                     "total": "1575646777"
                 },
                 {
                     "letter": "SK",
+                    "level": 2,
                     "total": "1112771273"
                 },
                 {
                     "letter": "SW",
+                    "level": 2,
                     "total": "663415953"
                 },
                 {
                     "letter": "SF",
+                    "level": 2,
                     "total": "483979931"
                 },
                 {
                     "letter": "SN",
+                    "level": 2,
                     "total": "258702825"
                 },
                 {
                     "letter": "SB",
+                    "level": 2,
                     "total": "223212317"
                 },
                 {
                     "letter": "SQ",
+                    "level": 2,
                     "total": "209894196"
                 },
                 {
                     "letter": "SR",
+                    "level": 2,
                     "total": "168896339"
                 },
                 {
                     "letter": "SD",
+                    "level": 2,
                     "total": "148275222"
                 },
                 {
                     "letter": "SG",
+                    "level": 2,
                     "total": "69588685"
                 },
                 {
                     "letter": "SV",
+                    "level": 2,
                     "total": "35005005"
                 },
                 {
                     "letter": "SJ",
+                    "level": 2,
                     "total": "7621847"
                 },
                 {
                     "letter": "SZ",
+                    "level": 2,
                     "total": "7041052"
                 },
                 {
                     "letter": "SX",
+                    "level": 2,
                     "total": "503772"
                 }
             ],
-            "letter": "S"
+            "letter": "S",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "LE",
+                    "level": 2,
                     "total": "23382173640"
                 },
                 {
                     "letter": "LI",
+                    "level": 2,
                     "total": "17604626629"
                 },
                 {
                     "letter": "LL",
+                    "level": 2,
                     "total": "16257360474"
                 },
                 {
                     "letter": "LA",
+                    "level": 2,
                     "total": "14874551789"
                 },
                 {
                     "letter": "LY",
+                    "level": 2,
                     "total": "11983948242"
                 },
                 {
                     "letter": "LO",
+                    "level": 2,
                     "total": "10908830081"
                 },
                 {
                     "letter": "LD",
+                    "level": 2,
                     "total": "7122648226"
                 },
                 {
                     "letter": "LS",
+                    "level": 2,
                     "total": "3990203351"
                 },
                 {
                     "letter": "LU",
+                    "level": 2,
                     "total": "3811884104"
                 },
                 {
                     "letter": "LT",
+                    "level": 2,
                     "total": "3486149365"
                 },
                 {
                     "letter": "LF",
+                    "level": 2,
                     "total": "1507867867"
                 },
                 {
                     "letter": "LV",
+                    "level": 2,
                     "total": "984229060"
                 },
                 {
                     "letter": "LM",
+                    "level": 2,
                     "total": "649112313"
                 },
                 {
                     "letter": "LK",
+                    "level": 2,
                     "total": "555883002"
                 },
                 {
                     "letter": "LP",
+                    "level": 2,
                     "total": "536595562"
                 },
                 {
                     "letter": "LW",
+                    "level": 2,
                     "total": "356374125"
                 },
                 {
                     "letter": "LC",
+                    "level": 2,
                     "total": "333338045"
                 },
                 {
                     "letter": "LR",
+                    "level": 2,
                     "total": "283411884"
                 },
                 {
                     "letter": "LB",
+                    "level": 2,
                     "total": "188643782"
                 },
                 {
                     "letter": "LG",
+                    "level": 2,
                     "total": "171657388"
                 },
                 {
                     "letter": "LN",
+                    "level": 2,
                     "total": "165509578"
                 },
                 {
                     "letter": "LH",
+                    "level": 2,
                     "total": "45643026"
                 },
                 {
                     "letter": "LZ",
+                    "level": 2,
                     "total": "11767790"
                 },
                 {
                     "letter": "LX",
+                    "level": 2,
                     "total": "8612462"
                 },
                 {
                     "letter": "LQ",
+                    "level": 2,
                     "total": "3582930"
                 },
                 {
                     "letter": "LJ",
+                    "level": 2,
                     "total": "3169833"
                 }
             ],
-            "letter": "L"
+            "letter": "L",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "VE",
+                    "level": 2,
                     "total": "23270129573"
                 },
                 {
                     "letter": "VI",
+                    "level": 2,
                     "total": "7600241898"
                 },
                 {
                     "letter": "VA",
+                    "level": 2,
                     "total": "3946966167"
                 },
                 {
                     "letter": "VO",
+                    "level": 2,
                     "total": "2004982879"
                 },
                 {
                     "letter": "VY",
+                    "level": 2,
                     "total": "138085211"
                 },
                 {
                     "letter": "VU",
+                    "level": 2,
                     "total": "62384927"
                 },
                 {
                     "letter": "VR",
+                    "level": 2,
                     "total": "24701238"
                 },
                 {
                     "letter": "VS",
+                    "level": 2,
                     "total": "16263248"
                 },
                 {
                     "letter": "VL",
+                    "level": 2,
                     "total": "11621019"
                 },
                 {
                     "letter": "VD",
+                    "level": 2,
                     "total": "8430332"
                 },
                 {
                     "letter": "VC",
+                    "level": 2,
                     "total": "6570845"
                 },
                 {
                     "letter": "VT",
+                    "level": 2,
                     "total": "6181932"
                 },
                 {
                     "letter": "VP",
+                    "level": 2,
                     "total": "5510046"
                 },
                 {
                     "letter": "VN",
+                    "level": 2,
                     "total": "4317772"
                 },
                 {
                     "letter": "VM",
+                    "level": 2,
                     "total": "3178223"
                 },
                 {
                     "letter": "VG",
+                    "level": 2,
                     "total": "2960268"
                 },
                 {
                     "letter": "VH",
+                    "level": 2,
                     "total": "2691078"
                 },
                 {
                     "letter": "VV",
+                    "level": 2,
                     "total": "2622571"
                 },
                 {
                     "letter": "VB",
+                    "level": 2,
                     "total": "2496014"
                 },
                 {
                     "letter": "VF",
+                    "level": 2,
                     "total": "1550317"
                 },
                 {
                     "letter": "VW",
+                    "level": 2,
                     "total": "742188"
                 },
                 {
                     "letter": "VJ",
+                    "level": 2,
                     "total": "724370"
                 },
                 {
                     "letter": "VZ",
+                    "level": 2,
                     "total": "501189"
                 },
                 {
                     "letter": "VX",
+                    "level": 2,
                     "total": "449854"
                 },
                 {
                     "letter": "VK",
+                    "level": 2,
                     "total": "337545"
                 },
                 {
                     "letter": "VQ",
+                    "level": 2,
                     "total": "212856"
                 }
             ],
-            "letter": "V"
+            "letter": "V",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "CO",
+                    "level": 2,
                     "total": "22384167777"
                 },
                 {
                     "letter": "CE",
+                    "level": 2,
                     "total": "18367773425"
                 },
                 {
                     "letter": "CH",
+                    "level": 2,
                     "total": "16854985236"
                 },
                 {
                     "letter": "CA",
+                    "level": 2,
                     "total": "15174413181"
                 },
                 {
                     "letter": "CT",
+                    "level": 2,
                     "total": "12997849406"
                 },
                 {
                     "letter": "CI",
+                    "level": 2,
                     "total": "7936922442"
                 },
                 {
                     "letter": "CU",
+                    "level": 2,
                     "total": "4585165906"
                 },
                 {
                     "letter": "CR",
+                    "level": 2,
                     "total": "4214150542"
                 },
                 {
                     "letter": "CL",
+                    "level": 2,
                     "total": "4201617719"
                 },
                 {
                     "letter": "CK",
+                    "level": 2,
                     "total": "3316660134"
                 },
                 {
                     "letter": "CC",
+                    "level": 2,
                     "total": "2344219345"
                 },
                 {
                     "letter": "CY",
+                    "level": 2,
                     "total": "1176324279"
                 },
                 {
                     "letter": "CS",
+                    "level": 2,
                     "total": "643530723"
                 },
                 {
                     "letter": "CQ",
+                    "level": 2,
                     "total": "154363546"
                 },
                 {
                     "letter": "CM",
+                    "level": 2,
                     "total": "75144874"
                 },
                 {
                     "letter": "CD",
+                    "level": 2,
                     "total": "62905910"
                 },
                 {
                     "letter": "CF",
+                    "level": 2,
                     "total": "39704311"
                 },
                 {
                     "letter": "CP",
+                    "level": 2,
                     "total": "37067423"
                 },
                 {
                     "letter": "CG",
+                    "level": 2,
                     "total": "24975673"
                 },
                 {
                     "letter": "CN",
+                    "level": 2,
                     "total": "24249641"
                 },
                 {
                     "letter": "CZ",
+                    "level": 2,
                     "total": "20601701"
                 },
                 {
                     "letter": "CB",
+                    "level": 2,
                     "total": "17751935"
                 },
                 {
                     "letter": "CV",
+                    "level": 2,
                     "total": "5869407"
                 },
                 {
                     "letter": "CW",
+                    "level": 2,
                     "total": "3909223"
                 },
                 {
                     "letter": "CJ",
+                    "level": 2,
                     "total": "2962048"
                 },
                 {
                     "letter": "CX",
+                    "level": 2,
                     "total": "876736"
                 }
             ],
-            "letter": "C"
+            "letter": "C",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ME",
+                    "level": 2,
                     "total": "22360109325"
                 },
                 {
                     "letter": "MA",
+                    "level": 2,
                     "total": "15938689768"
                 },
                 {
                     "letter": "MO",
+                    "level": 2,
                     "total": "9498813191"
                 },
                 {
                     "letter": "MI",
+                    "level": 2,
                     "total": "8957825538"
                 },
                 {
                     "letter": "MP",
+                    "level": 2,
                     "total": "6743935008"
                 },
                 {
                     "letter": "MU",
+                    "level": 2,
                     "total": "3231856188"
                 },
                 {
                     "letter": "MM",
+                    "level": 2,
                     "total": "2708822249"
                 },
                 {
                     "letter": "MS",
+                    "level": 2,
                     "total": "2617582287"
                 },
                 {
                     "letter": "MB",
+                    "level": 2,
                     "total": "2544901434"
                 },
                 {
                     "letter": "MY",
+                    "level": 2,
                     "total": "1753447198"
                 },
                 {
                     "letter": "MN",
+                    "level": 2,
                     "total": "247850339"
                 },
                 {
                     "letter": "ML",
+                    "level": 2,
                     "total": "129888836"
                 },
                 {
                     "letter": "MC",
+                    "level": 2,
                     "total": "121591374"
                 },
                 {
                     "letter": "MF",
+                    "level": 2,
                     "total": "107664447"
                 },
                 {
                     "letter": "MR",
+                    "level": 2,
                     "total": "87580303"
                 },
                 {
                     "letter": "MT",
+                    "level": 2,
                     "total": "38538709"
                 },
                 {
                     "letter": "MG",
+                    "level": 2,
                     "total": "34537023"
                 },
                 {
                     "letter": "MD",
+                    "level": 2,
                     "total": "18929019"
                 },
                 {
                     "letter": "MW",
+                    "level": 2,
                     "total": "16465357"
                 },
                 {
                     "letter": "MH",
+                    "level": 2,
                     "total": "15033898"
                 },
                 {
                     "letter": "MV",
+                    "level": 2,
                     "total": "8172535"
                 },
                 {
                     "letter": "MK",
+                    "level": 2,
                     "total": "3956883"
                 },
                 {
                     "letter": "MJ",
+                    "level": 2,
                     "total": "2923325"
                 },
                 {
                     "letter": "MX",
+                    "level": 2,
                     "total": "994334"
                 },
                 {
                     "letter": "MZ",
+                    "level": 2,
                     "total": "970282"
                 },
                 {
                     "letter": "MQ",
+                    "level": 2,
                     "total": "708424"
                 }
             ],
-            "letter": "M"
+            "letter": "M",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "DE",
+                    "level": 2,
                     "total": "21565300071"
                 },
                 {
                     "letter": "DI",
+                    "level": 2,
                     "total": "13899990598"
                 },
                 {
                     "letter": "DO",
+                    "level": 2,
                     "total": "5307591560"
                 },
                 {
                     "letter": "DA",
+                    "level": 2,
                     "total": "4259590348"
                 },
                 {
                     "letter": "DU",
+                    "level": 2,
                     "total": "4186093215"
                 },
                 {
                     "letter": "DS",
+                    "level": 2,
                     "total": "3560125353"
                 },
                 {
                     "letter": "DR",
+                    "level": 2,
                     "total": "2409399231"
                 },
                 {
                     "letter": "DY",
+                    "level": 2,
                     "total": "1421751251"
                 },
                 {
                     "letter": "DD",
+                    "level": 2,
                     "total": "1205446875"
                 },
                 {
                     "letter": "DL",
+                    "level": 2,
                     "total": "911886482"
                 },
                 {
                     "letter": "DG",
+                    "level": 2,
                     "total": "874188188"
                 },
                 {
                     "letter": "DV",
+                    "level": 2,
                     "total": "537221821"
                 },
                 {
                     "letter": "DM",
+                    "level": 2,
                     "total": "512522701"
                 },
                 {
                     "letter": "DW",
+                    "level": 2,
                     "total": "230152384"
                 },
                 {
                     "letter": "DN",
+                    "level": 2,
                     "total": "213431654"
                 },
                 {
                     "letter": "DH",
+                    "level": 2,
                     "total": "153344431"
                 },
                 {
                     "letter": "DJ",
+                    "level": 2,
                     "total": "134832736"
                 },
                 {
                     "letter": "DT",
+                    "level": 2,
                     "total": "81648332"
                 },
                 {
                     "letter": "DF",
+                    "level": 2,
                     "total": "78347492"
                 },
                 {
                     "letter": "DB",
+                    "level": 2,
                     "total": "78190243"
                 },
                 {
                     "letter": "DC",
+                    "level": 2,
                     "total": "71030077"
                 },
                 {
                     "letter": "DP",
+                    "level": 2,
                     "total": "48855638"
                 },
                 {
                     "letter": "DQ",
+                    "level": 2,
                     "total": "19927900"
                 },
                 {
                     "letter": "DK",
+                    "level": 2,
                     "total": "9494027"
                 },
                 {
                     "letter": "DZ",
+                    "level": 2,
                     "total": "2200704"
                 },
                 {
                     "letter": "DX",
+                    "level": 2,
                     "total": "1296277"
                 }
             ],
-            "letter": "D"
+            "letter": "D",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "BE",
+                    "level": 2,
                     "total": "16249257887"
                 },
                 {
                     "letter": "BL",
+                    "level": 2,
                     "total": "6581097936"
                 },
                 {
                     "letter": "BO",
+                    "level": 2,
                     "total": "5509918152"
                 },
                 {
                     "letter": "BU",
+                    "level": 2,
                     "total": "5214802738"
                 },
                 {
                     "letter": "BY",
+                    "level": 2,
                     "total": "4975814759"
                 },
                 {
                     "letter": "BA",
+                    "level": 2,
                     "total": "4122472992"
                 },
                 {
                     "letter": "BR",
+                    "level": 2,
                     "total": "3145611704"
                 },
                 {
                     "letter": "BI",
+                    "level": 2,
                     "total": "3005679357"
                 },
                 {
                     "letter": "BS",
+                    "level": 2,
                     "total": "1292319275"
                 },
                 {
                     "letter": "BJ",
+                    "level": 2,
                     "total": "654853039"
                 },
                 {
                     "letter": "BT",
+                    "level": 2,
                     "total": "482272940"
                 },
                 {
                     "letter": "BB",
+                    "level": 2,
                     "total": "308276690"
                 },
                 {
                     "letter": "BV",
+                    "level": 2,
                     "total": "108385069"
                 },
                 {
                     "letter": "BM",
+                    "level": 2,
                     "total": "88228719"
                 },
                 {
                     "letter": "BD",
+                    "level": 2,
                     "total": "69761165"
                 },
                 {
                     "letter": "BN",
+                    "level": 2,
                     "total": "59062122"
                 },
                 {
                     "letter": "BC",
+                    "level": 2,
                     "total": "53278096"
                 },
                 {
                     "letter": "BH",
+                    "level": 2,
                     "total": "29797934"
                 },
                 {
                     "letter": "BP",
+                    "level": 2,
                     "total": "15427250"
                 },
                 {
                     "letter": "BW",
+                    "level": 2,
                     "total": "8319869"
                 },
                 {
                     "letter": "BG",
+                    "level": 2,
                     "total": "7203255"
                 },
                 {
                     "letter": "BF",
+                    "level": 2,
                     "total": "4108696"
                 },
                 {
                     "letter": "BK",
+                    "level": 2,
                     "total": "2639491"
                 },
                 {
                     "letter": "BZ",
+                    "level": 2,
                     "total": "1007374"
                 },
                 {
                     "letter": "BX",
+                    "level": 2,
                     "total": "778622"
                 },
                 {
                     "letter": "BQ",
+                    "level": 2,
                     "total": "346506"
                 }
             ],
-            "letter": "B"
+            "letter": "B",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "UR",
+                    "level": 2,
                     "total": "15303657594"
                 },
                 {
                     "letter": "US",
+                    "level": 2,
                     "total": "12808517567"
                 },
                 {
                     "letter": "UT",
+                    "level": 2,
                     "total": "11423899818"
                 },
                 {
                     "letter": "UN",
+                    "level": 2,
                     "total": "11121118166"
                 },
                 {
                     "letter": "UL",
+                    "level": 2,
                     "total": "9751225781"
                 },
                 {
                     "letter": "UC",
+                    "level": 2,
                     "total": "5291161134"
                 },
                 {
                     "letter": "UE",
+                    "level": 2,
                     "total": "4158448570"
                 },
                 {
                     "letter": "UM",
+                    "level": 2,
                     "total": "3901923211"
                 },
                 {
                     "letter": "UA",
+                    "level": 2,
                     "total": "3844138094"
                 },
                 {
                     "letter": "UP",
+                    "level": 2,
                     "total": "3835093459"
                 },
                 {
                     "letter": "UG",
+                    "level": 2,
                     "total": "3606562400"
                 },
                 {
                     "letter": "UI",
+                    "level": 2,
                     "total": "2852182384"
                 },
                 {
                     "letter": "UD",
+                    "level": 2,
                     "total": "2577213760"
                 },
                 {
                     "letter": "UB",
+                    "level": 2,
                     "total": "2497666762"
                 },
                 {
                     "letter": "UF",
+                    "level": 2,
                     "total": "522547858"
                 },
                 {
                     "letter": "UO",
+                    "level": 2,
                     "total": "300484143"
                 },
                 {
                     "letter": "UK",
+                    "level": 2,
                     "total": "129819900"
                 },
                 {
                     "letter": "UY",
+                    "level": 2,
                     "total": "128782521"
                 },
                 {
                     "letter": "UX",
+                    "level": 2,
                     "total": "110947766"
                 },
                 {
                     "letter": "UV",
+                    "level": 2,
                     "total": "82252351"
                 },
                 {
                     "letter": "UZ",
+                    "level": 2,
                     "total": "53873803"
                 },
                 {
                     "letter": "UH",
+                    "level": 2,
                     "total": "30097154"
                 },
                 {
                     "letter": "UU",
+                    "level": 2,
                     "total": "22006895"
                 },
                 {
                     "letter": "UJ",
+                    "level": 2,
                     "total": "14548024"
                 },
                 {
                     "letter": "UW",
+                    "level": 2,
                     "total": "7824504"
                 },
                 {
                     "letter": "UQ",
+                    "level": 2,
                     "total": "7235727"
                 }
             ],
-            "letter": "U"
+            "letter": "U",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "FO",
+                    "level": 2,
                     "total": "13753006196"
                 },
                 {
                     "letter": "FI",
+                    "level": 2,
                     "total": "8024355222"
                 },
                 {
                     "letter": "FE",
+                    "level": 2,
                     "total": "6670566518"
                 },
                 {
                     "letter": "FR",
+                    "level": 2,
                     "total": "6011200185"
                 },
                 {
                     "letter": "FA",
+                    "level": 2,
                     "total": "4624241031"
                 },
                 {
                     "letter": "FF",
+                    "level": 2,
                     "total": "4125634219"
                 },
                 {
                     "letter": "FU",
+                    "level": 2,
                     "total": "2706168901"
                 },
                 {
                     "letter": "FT",
+                    "level": 2,
                     "total": "2302659749"
                 },
                 {
                     "letter": "FL",
+                    "level": 2,
                     "total": "1830098844"
                 },
                 {
                     "letter": "FY",
+                    "level": 2,
                     "total": "256535008"
                 },
                 {
                     "letter": "FS",
+                    "level": 2,
                     "total": "155349948"
                 },
                 {
                     "letter": "FM",
+                    "level": 2,
                     "total": "19340776"
                 },
                 {
                     "letter": "FC",
+                    "level": 2,
                     "total": "16254390"
                 },
                 {
                     "letter": "FG",
+                    "level": 2,
                     "total": "14424524"
                 },
                 {
                     "letter": "FD",
+                    "level": 2,
                     "total": "13966832"
                 },
                 {
                     "letter": "FN",
+                    "level": 2,
                     "total": "11823066"
                 },
                 {
                     "letter": "FB",
+                    "level": 2,
                     "total": "7730842"
                 },
                 {
                     "letter": "FW",
+                    "level": 2,
                     "total": "6451511"
                 },
                 {
                     "letter": "FP",
+                    "level": 2,
                     "total": "6262895"
                 },
                 {
                     "letter": "FH",
+                    "level": 2,
                     "total": "5166165"
                 },
                 {
                     "letter": "FK",
+                    "level": 2,
                     "total": "3293208"
                 },
                 {
                     "letter": "FJ",
+                    "level": 2,
                     "total": "2065436"
                 },
                 {
                     "letter": "FX",
+                    "level": 2,
                     "total": "812116"
                 },
                 {
                     "letter": "FV",
+                    "level": 2,
                     "total": "807297"
                 },
                 {
                     "letter": "FZ",
+                    "level": 2,
                     "total": "263860"
                 },
                 {
                     "letter": "FQ",
+                    "level": 2,
                     "total": "149430"
                 }
             ],
-            "letter": "F"
+            "letter": "F",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "PE",
+                    "level": 2,
                     "total": "13477683504"
                 },
                 {
                     "letter": "PR",
+                    "level": 2,
                     "total": "13378480175"
                 },
                 {
                     "letter": "PO",
+                    "level": 2,
                     "total": "10189505383"
                 },
                 {
                     "letter": "PA",
+                    "level": 2,
                     "total": "9123652775"
                 },
                 {
                     "letter": "PL",
+                    "level": 2,
                     "total": "7415349106"
                 },
                 {
                     "letter": "PP",
+                    "level": 2,
                     "total": "3850125519"
                 },
                 {
                     "letter": "PI",
+                    "level": 2,
                     "total": "3470838749"
                 },
                 {
                     "letter": "PT",
+                    "level": 2,
                     "total": "2982699529"
                 },
                 {
                     "letter": "PU",
+                    "level": 2,
                     "total": "2947681332"
                 },
                 {
                     "letter": "PH",
+                    "level": 2,
                     "total": "2661480326"
                 },
                 {
                     "letter": "PS",
+                    "level": 2,
                     "total": "1538723474"
                 },
                 {
                     "letter": "PM",
+                    "level": 2,
                     "total": "449910017"
                 },
                 {
                     "letter": "PY",
+                    "level": 2,
                     "total": "331698156"
                 },
                 {
                     "letter": "PF",
+                    "level": 2,
                     "total": "41022263"
                 },
                 {
                     "letter": "PB",
+                    "level": 2,
                     "total": "36901495"
                 },
                 {
                     "letter": "PW",
+                    "level": 2,
                     "total": "34037460"
                 },
                 {
                     "letter": "PD",
+                    "level": 2,
                     "total": "33798376"
                 },
                 {
                     "letter": "PN",
+                    "level": 2,
                     "total": "33536129"
                 },
                 {
                     "letter": "PC",
+                    "level": 2,
                     "total": "33156666"
                 },
                 {
                     "letter": "PK",
+                    "level": 2,
                     "total": "23099462"
                 },
                 {
                     "letter": "PG",
+                    "level": 2,
                     "total": "13354952"
                 },
                 {
                     "letter": "PZ",
+                    "level": 2,
                     "total": "6382200"
                 },
                 {
                     "letter": "PV",
+                    "level": 2,
                     "total": "6222096"
                 },
                 {
                     "letter": "PJ",
+                    "level": 2,
                     "total": "2810773"
                 },
                 {
                     "letter": "PX",
+                    "level": 2,
                     "total": "1473468"
                 },
                 {
                     "letter": "PQ",
+                    "level": 2,
                     "total": "1075049"
                 }
             ],
-            "letter": "P"
+            "letter": "P",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "WA",
+                    "level": 2,
                     "total": "10865206430"
                 },
                 {
                     "letter": "WH",
+                    "level": 2,
                     "total": "10680697684"
                 },
                 {
                     "letter": "WI",
+                    "level": 2,
                     "total": "10557401491"
                 },
                 {
                     "letter": "WE",
+                    "level": 2,
                     "total": "10176141608"
                 },
                 {
                     "letter": "WO",
+                    "level": 2,
                     "total": "6252724050"
                 },
                 {
                     "letter": "WN",
+                    "level": 2,
                     "total": "2227183930"
                 },
                 {
                     "letter": "WS",
+                    "level": 2,
                     "total": "989253674"
                 },
                 {
                     "letter": "WR",
+                    "level": 2,
                     "total": "867361010"
                 },
                 {
                     "letter": "WL",
+                    "level": 2,
                     "total": "429185823"
                 },
                 {
                     "letter": "WT",
+                    "level": 2,
                     "total": "184446342"
                 },
                 {
                     "letter": "WD",
+                    "level": 2,
                     "total": "99767462"
                 },
                 {
                     "letter": "WY",
+                    "level": 2,
                     "total": "68368953"
                 },
                 {
                     "letter": "WF",
+                    "level": 2,
                     "total": "45330551"
                 },
                 {
                     "letter": "WM",
+                    "level": 2,
                     "total": "30732232"
                 },
                 {
                     "letter": "WK",
+                    "level": 2,
                     "total": "30095733"
                 },
                 {
                     "letter": "WB",
+                    "level": 2,
                     "total": "29929113"
                 },
                 {
                     "letter": "WP",
+                    "level": 2,
                     "total": "20982546"
                 },
                 {
                     "letter": "WU",
+                    "level": 2,
                     "total": "19601657"
                 },
                 {
                     "letter": "WC",
+                    "level": 2,
                     "total": "19008254"
                 },
                 {
                     "letter": "WW",
+                    "level": 2,
                     "total": "7377619"
                 },
                 {
                     "letter": "WG",
+                    "level": 2,
                     "total": "2751783"
                 },
                 {
                     "letter": "WJ",
+                    "level": 2,
                     "total": "914179"
                 },
                 {
                     "letter": "WV",
+                    "level": 2,
                     "total": "389123"
                 },
                 {
                     "letter": "WX",
+                    "level": 2,
                     "total": "150637"
                 }
             ],
-            "letter": "W"
+            "letter": "W",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "GE",
+                    "level": 2,
                     "total": "10861045622"
                 },
                 {
                     "letter": "GH",
+                    "level": 2,
                     "total": "6414827751"
                 },
                 {
                     "letter": "GR",
+                    "level": 2,
                     "total": "5548472398"
                 },
                 {
                     "letter": "GI",
+                    "level": 2,
                     "total": "4275639800"
                 },
                 {
                     "letter": "GA",
+                    "level": 2,
                     "total": "4175274057"
                 },
                 {
                     "letter": "GO",
+                    "level": 2,
                     "total": "3725558729"
                 },
                 {
                     "letter": "GU",
+                    "level": 2,
                     "total": "2418410978"
                 },
                 {
                     "letter": "GN",
+                    "level": 2,
                     "total": "1850801359"
                 },
                 {
                     "letter": "GL",
+                    "level": 2,
                     "total": "1709752272"
                 },
                 {
                     "letter": "GS",
+                    "level": 2,
                     "total": "1443474876"
                 },
                 {
                     "letter": "GY",
+                    "level": 2,
                     "total": "731420025"
                 },
                 {
                     "letter": "GG",
+                    "level": 2,
                     "total": "697999944"
                 },
                 {
                     "letter": "GT",
+                    "level": 2,
                     "total": "434302509"
                 },
                 {
                     "letter": "GM",
+                    "level": 2,
                     "total": "277966576"
                 },
                 {
                     "letter": "GD",
+                    "level": 2,
                     "total": "89087728"
                 },
                 {
                     "letter": "GF",
+                    "level": 2,
                     "total": "33962536"
                 },
                 {
                     "letter": "GW",
+                    "level": 2,
                     "total": "18260884"
                 },
                 {
                     "letter": "GB",
+                    "level": 2,
                     "total": "13944852"
                 },
                 {
                     "letter": "GP",
+                    "level": 2,
                     "total": "11612944"
                 },
                 {
                     "letter": "GK",
+                    "level": 2,
                     "total": "7338894"
                 },
                 {
                     "letter": "GC",
+                    "level": 2,
                     "total": "6455066"
                 },
                 {
                     "letter": "GZ",
+                    "level": 2,
                     "total": "3431194"
                 },
                 {
                     "letter": "GV",
+                    "level": 2,
                     "total": "1192366"
                 },
                 {
                     "letter": "GJ",
+                    "level": 2,
                     "total": "1093028"
                 },
                 {
                     "letter": "GX",
+                    "level": 2,
                     "total": "557030"
                 },
                 {
                     "letter": "GQ",
+                    "level": 2,
                     "total": "345624"
                 }
             ],
-            "letter": "G"
+            "letter": "G",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "KE",
+                    "level": 2,
                     "total": "6027536039"
                 },
                 {
                     "letter": "KI",
+                    "level": 2,
                     "total": "2759841743"
                 },
                 {
                     "letter": "KN",
+                    "level": 2,
                     "total": "1450401608"
                 },
                 {
                     "letter": "KS",
+                    "level": 2,
                     "total": "1339590722"
                 },
                 {
                     "letter": "KA",
+                    "level": 2,
                     "total": "478095427"
                 },
                 {
                     "letter": "KL",
+                    "level": 2,
                     "total": "298033281"
                 },
                 {
                     "letter": "KO",
+                    "level": 2,
                     "total": "171324962"
                 },
                 {
                     "letter": "KY",
+                    "level": 2,
                     "total": "167761726"
                 },
                 {
                     "letter": "KH",
+                    "level": 2,
                     "total": "89811517"
                 },
                 {
                     "letter": "KU",
+                    "level": 2,
                     "total": "85313841"
                 },
                 {
                     "letter": "KR",
+                    "level": 2,
                     "total": "76743394"
                 },
                 {
                     "letter": "KG",
+                    "level": 2,
                     "total": "72267691"
                 },
                 {
                     "letter": "KW",
+                    "level": 2,
                     "total": "61416538"
                 },
                 {
                     "letter": "KM",
+                    "level": 2,
                     "total": "50449220"
                 },
                 {
                     "letter": "KF",
+                    "level": 2,
                     "total": "44759608"
                 },
                 {
                     "letter": "KT",
+                    "level": 2,
                     "total": "29132180"
                 },
                 {
                     "letter": "KB",
+                    "level": 2,
                     "total": "25406204"
                 },
                 {
                     "letter": "KP",
+                    "level": 2,
                     "total": "20492678"
                 },
                 {
                     "letter": "KD",
+                    "level": 2,
                     "total": "18894758"
                 },
                 {
                     "letter": "KK",
+                    "level": 2,
                     "total": "12782664"
                 },
                 {
                     "letter": "KC",
+                    "level": 2,
                     "total": "6326022"
                 },
                 {
                     "letter": "KV",
+                    "level": 2,
                     "total": "4414960"
                 },
                 {
                     "letter": "KJ",
+                    "level": 2,
                     "total": "3471162"
                 },
                 {
                     "letter": "KX",
+                    "level": 2,
                     "total": "555422"
                 },
                 {
                     "letter": "KQ",
+                    "level": 2,
                     "total": "187242"
                 },
                 {
                     "letter": "KZ",
+                    "level": 2,
                     "total": "150760"
                 }
             ],
-            "letter": "K"
+            "letter": "K",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "YO",
+                    "level": 2,
                     "total": "4226720021"
                 },
                 {
                     "letter": "YS",
+                    "level": 2,
                     "total": "2730343336"
                 },
                 {
                     "letter": "YE",
+                    "level": 2,
                     "total": "2612941418"
                 },
                 {
                     "letter": "YI",
+                    "level": 2,
                     "total": "812619095"
                 },
                 {
                     "letter": "YP",
+                    "level": 2,
                     "total": "702499946"
                 },
                 {
                     "letter": "YM",
+                    "level": 2,
                     "total": "667551857"
                 },
                 {
                     "letter": "YT",
+                    "level": 2,
                     "total": "470429861"
                 },
                 {
                     "letter": "YA",
+                    "level": 2,
                     "total": "444542870"
                 },
                 {
                     "letter": "YL",
+                    "level": 2,
                     "total": "416082307"
                 },
                 {
                     "letter": "YC",
+                    "level": 2,
                     "total": "380670476"
                 },
                 {
                     "letter": "YN",
+                    "level": 2,
                     "total": "372595315"
                 },
                 {
                     "letter": "YR",
+                    "level": 2,
                     "total": "219696469"
                 },
                 {
                     "letter": "YD",
+                    "level": 2,
                     "total": "192245315"
                 },
                 {
                     "letter": "YB",
+                    "level": 2,
                     "total": "121220723"
                 },
                 {
                     "letter": "YW",
+                    "level": 2,
                     "total": "95070267"
                 },
                 {
                     "letter": "YG",
+                    "level": 2,
                     "total": "73102462"
                 },
                 {
                     "letter": "YZ",
+                    "level": 2,
                     "total": "51097953"
                 },
                 {
                     "letter": "YU",
+                    "level": 2,
                     "total": "37436235"
                 },
                 {
                     "letter": "YF",
+                    "level": 2,
                     "total": "21246637"
                 },
                 {
                     "letter": "YH",
+                    "level": 2,
                     "total": "14682887"
                 },
                 {
                     "letter": "YK",
+                    "level": 2,
                     "total": "9292584"
                 },
                 {
                     "letter": "YV",
+                    "level": 2,
                     "total": "5115763"
                 },
                 {
                     "letter": "YX",
+                    "level": 2,
                     "total": "4211192"
                 },
                 {
                     "letter": "YY",
+                    "level": 2,
                     "total": "1993017"
                 },
                 {
                     "letter": "YJ",
+                    "level": 2,
                     "total": "561334"
                 },
                 {
                     "letter": "YQ",
+                    "level": 2,
                     "total": "384882"
                 }
             ],
-            "letter": "Y"
+            "letter": "Y",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "QU",
+                    "level": 2,
                     "total": "4160167957"
                 },
                 {
                     "letter": "QI",
+                    "level": 2,
                     "total": "8954617"
                 },
                 {
                     "letter": "QL",
+                    "level": 2,
                     "total": "6708919"
                 },
                 {
                     "letter": "QS",
+                    "level": 2,
                     "total": "4448602"
                 },
                 {
                     "letter": "QA",
+                    "level": 2,
                     "total": "4298294"
                 },
                 {
                     "letter": "QN",
+                    "level": 2,
                     "total": "1859810"
                 },
                 {
                     "letter": "QR",
+                    "level": 2,
                     "total": "1744325"
                 },
                 {
                     "letter": "QQ",
+                    "level": 2,
                     "total": "1712219"
                 },
                 {
                     "letter": "QT",
+                    "level": 2,
                     "total": "1385505"
                 },
                 {
                     "letter": "QO",
+                    "level": 2,
                     "total": "1324363"
                 },
                 {
                     "letter": "QC",
+                    "level": 2,
                     "total": "1127399"
                 },
                 {
                     "letter": "QB",
+                    "level": 2,
                     "total": "1083443"
                 },
                 {
                     "letter": "QM",
+                    "level": 2,
                     "total": "989868"
                 },
                 {
                     "letter": "QF",
+                    "level": 2,
                     "total": "947879"
                 },
                 {
                     "letter": "QV",
+                    "level": 2,
                     "total": "635514"
                 },
                 {
                     "letter": "QE",
+                    "level": 2,
                     "total": "572443"
                 },
                 {
                     "letter": "QD",
+                    "level": 2,
                     "total": "519921"
                 },
                 {
                     "letter": "QP",
+                    "level": 2,
                     "total": "272180"
                 },
                 {
                     "letter": "QH",
+                    "level": 2,
                     "total": "263509"
                 },
                 {
                     "letter": "QJ",
+                    "level": 2,
                     "total": "236928"
                 },
                 {
                     "letter": "QW",
+                    "level": 2,
                     "total": "163292"
                 },
                 {
                     "letter": "QX",
+                    "level": 2,
                     "total": "159505"
                 }
             ],
-            "letter": "Q"
+            "letter": "Q",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "XP",
+                    "level": 2,
                     "total": "1885334638"
                 },
                 {
                     "letter": "XT",
+                    "level": 2,
                     "total": "1315669490"
                 },
                 {
                     "letter": "XI",
+                    "level": 2,
                     "total": "1111463633"
                 },
                 {
                     "letter": "XA",
+                    "level": 2,
                     "total": "834649781"
                 },
                 {
                     "letter": "XC",
+                    "level": 2,
                     "total": "746076293"
                 },
                 {
                     "letter": "XE",
+                    "level": 2,
                     "total": "614533122"
                 },
                 {
                     "letter": "XU",
+                    "level": 2,
                     "total": "134528161"
                 },
                 {
                     "letter": "XH",
+                    "level": 2,
                     "total": "117618666"
                 },
                 {
                     "letter": "XX",
+                    "level": 2,
                     "total": "79068246"
                 },
                 {
                     "letter": "XO",
+                    "level": 2,
                     "total": "76097183"
                 },
                 {
                     "letter": "XY",
+                    "level": 2,
                     "total": "72645837"
                 },
                 {
                     "letter": "XV",
+                    "level": 2,
                     "total": "55076715"
                 },
                 {
                     "letter": "XF",
+                    "level": 2,
                     "total": "52374239"
                 },
                 {
                     "letter": "XL",
+                    "level": 2,
                     "total": "16728256"
                 },
                 {
                     "letter": "XQ",
+                    "level": 2,
                     "total": "8225536"
                 },
                 {
                     "letter": "XM",
+                    "level": 2,
                     "total": "6569222"
                 },
                 {
                     "letter": "XW",
+                    "level": 2,
                     "total": "6292525"
                 },
                 {
                     "letter": "XB",
+                    "level": 2,
                     "total": "2164724"
                 },
                 {
                     "letter": "XS",
+                    "level": 2,
                     "total": "1804740"
                 },
                 {
                     "letter": "XN",
+                    "level": 2,
                     "total": "1613611"
                 },
                 {
                     "letter": "XR",
+                    "level": 2,
                     "total": "907409"
                 },
                 {
                     "letter": "XG",
+                    "level": 2,
                     "total": "542548"
                 },
                 {
                     "letter": "XJ",
+                    "level": 2,
                     "total": "511074"
                 },
                 {
                     "letter": "XK",
+                    "level": 2,
                     "total": "281255"
                 },
                 {
                     "letter": "XD",
+                    "level": 2,
                     "total": "168263"
                 },
                 {
                     "letter": "XZ",
+                    "level": 2,
                     "total": "136521"
                 }
             ],
-            "letter": "X"
+            "letter": "X",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "JU",
+                    "level": 2,
                     "total": "1655210582"
                 },
                 {
                     "letter": "JO",
+                    "level": 2,
                     "total": "1516687319"
                 },
                 {
                     "letter": "JE",
+                    "level": 2,
                     "total": "1463052212"
                 },
                 {
                     "letter": "JA",
+                    "level": 2,
                     "total": "729206855"
                 },
                 {
                     "letter": "JI",
+                    "level": 2,
                     "total": "77899882"
                 },
                 {
                     "letter": "JR",
+                    "level": 2,
                     "total": "6846578"
                 },
                 {
                     "letter": "JP",
+                    "level": 2,
                     "total": "6129447"
                 },
                 {
                     "letter": "JN",
+                    "level": 2,
                     "total": "4150888"
                 },
                 {
                     "letter": "JM",
+                    "level": 2,
                     "total": "3659540"
                 },
                 {
                     "letter": "JH",
+                    "level": 2,
                     "total": "3541869"
                 },
                 {
                     "letter": "JC",
+                    "level": 2,
                     "total": "3447571"
                 },
                 {
                     "letter": "JS",
+                    "level": 2,
                     "total": "3329038"
                 },
                 {
                     "letter": "JL",
+                    "level": 2,
                     "total": "3192327"
                 },
                 {
                     "letter": "JJ",
+                    "level": 2,
                     "total": "2979950"
                 },
                 {
                     "letter": "JT",
+                    "level": 2,
                     "total": "2917850"
                 },
                 {
                     "letter": "JD",
+                    "level": 2,
                     "total": "2615147"
                 },
                 {
                     "letter": "JF",
+                    "level": 2,
                     "total": "2421784"
                 },
                 {
                     "letter": "JB",
+                    "level": 2,
                     "total": "2126115"
                 },
                 {
                     "letter": "JK",
+                    "level": 2,
                     "total": "1740133"
                 },
                 {
                     "letter": "JV",
+                    "level": 2,
                     "total": "1719726"
                 },
                 {
                     "letter": "JW",
+                    "level": 2,
                     "total": "1165914"
                 },
                 {
                     "letter": "JY",
+                    "level": 2,
                     "total": "1120221"
                 },
                 {
                     "letter": "JG",
+                    "level": 2,
                     "total": "1034900"
                 },
                 {
                     "letter": "JZ",
+                    "level": 2,
                     "total": "220675"
                 },
                 {
                     "letter": "JX",
+                    "level": 2,
                     "total": "161750"
                 }
             ],
-            "letter": "J"
+            "letter": "J",
+            "level": 1
         },
         {
             "children": [
                 {
                     "letter": "ZE",
+                    "level": 2,
                     "total": "1402290616"
                 },
                 {
                     "letter": "ZA",
+                    "level": 2,
                     "total": "702199296"
                 },
                 {
                     "letter": "ZI",
+                    "level": 2,
                     "total": "341671190"
                 },
                 {
                     "letter": "ZO",
+                    "level": 2,
                     "total": "202480511"
                 },
                 {
                     "letter": "ZZ",
+                    "level": 2,
                     "total": "75012595"
                 },
                 {
                     "letter": "ZY",
+                    "level": 2,
                     "total": "66473188"
                 },
                 {
                     "letter": "ZU",
+                    "level": 2,
                     "total": "60692846"
                 },
                 {
                     "letter": "ZL",
+                    "level": 2,
                     "total": "35456851"
                 },
                 {
                     "letter": "ZH",
+                    "level": 2,
                     "total": "18782710"
                 },
                 {
                     "letter": "ZS",
+                    "level": 2,
                     "total": "8395904"
                 },
                 {
                     "letter": "ZT",
+                    "level": 2,
                     "total": "6627349"
                 },
                 {
                     "letter": "ZW",
+                    "level": 2,
                     "total": "6279286"
                 },
                 {
                     "letter": "ZB",
+                    "level": 2,
                     "total": "5858211"
                 },
                 {
                     "letter": "ZR",
+                    "level": 2,
                     "total": "5320518"
                 },
                 {
                     "letter": "ZG",
+                    "level": 2,
                     "total": "4726653"
                 },
                 {
                     "letter": "ZM",
+                    "level": 2,
                     "total": "4713608"
                 },
                 {
                     "letter": "ZV",
+                    "level": 2,
                     "total": "4618705"
                 },
                 {
                     "letter": "ZN",
+                    "level": 2,
                     "total": "4300522"
                 },
                 {
                     "letter": "ZC",
+                    "level": 2,
                     "total": "2100797"
                 },
                 {
                     "letter": "ZD",
+                    "level": 2,
                     "total": "1415016"
                 },
                 {
                     "letter": "ZP",
+                    "level": 2,
                     "total": "1361846"
                 },
                 {
                     "letter": "ZQ",
+                    "level": 2,
                     "total": "913036"
                 },
                 {
                     "letter": "ZK",
+                    "level": 2,
                     "total": "906537"
                 },
                 {
                     "letter": "ZF",
+                    "level": 2,
                     "total": "608389"
                 },
                 {
                     "letter": "ZJ",
+                    "level": 2,
                     "total": "309029"
                 },
                 {
                     "letter": "ZX",
+                    "level": 2,
                     "total": "108224"
                 }
             ],
-            "letter": "Z"
+            "letter": "Z",
+            "level": 1
         }
     ],
-    "letter": "root"
+    "letter": "root",
+    "level": 0
 }

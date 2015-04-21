@@ -37,6 +37,22 @@ TEMPLATE_PAGES['plain.html']            = 'letters/plain.html'
 TEMPLATE_PAGES['plain_modcontrol.js']   = 'letters/plain_modcontrol.js'
 TEMPLATE_PAGES['plain_sunburst.js']     = 'letters/plain_sunburst.js'
 
+# bigrams
+TEMPLATE_PAGES['bigrams.json']           = 'letters/bigrams.json'
+
+TEMPLATE_PAGES['bigrams.html']           = 'letters/bigrams.html'
+TEMPLATE_PAGES['bigrams_modcontrol.js']  = 'letters/bigrams_modcontrol.js'
+TEMPLATE_PAGES['bigrams_sunburst.js']    = 'letters/bigrams_sunburst.js'
+
+TEMPLATE_PAGES['bigrams2.html']          = 'letters/bigrams2.html'
+TEMPLATE_PAGES['bigrams2.css']           = 'letters/bigrams2.css'
+TEMPLATE_PAGES['bigrams2_modcontrol.js'] = 'letters/bigrams2_modcontrol.js'
+TEMPLATE_PAGES['bigrams2_sunburst.js']   = 'letters/bigrams2_sunburst.js'
+
+
+
+
+
 
 
 # --------------8<---------------------

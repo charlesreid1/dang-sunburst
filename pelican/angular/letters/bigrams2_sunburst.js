@@ -1,14 +1,6 @@
 var ng;
 dir = [];
 
-// hipster jesus api
-// for some hipster ipsum
-var hipster_ipsum = function(N,tagname) {
-    $.getJSON('http://hipsterjesus.com/api?paras='+N+'&html=true', function(data) {
-        $(tagname).html( data.text );
-    });
-};
-
 //////////////////////////////////////
 // Sunburst Directives
 //
@@ -16,7 +8,7 @@ var hipster_ipsum = function(N,tagname) {
 // that use D3 to draw sunburst charts.
 // 
 
-ng = a.directive('bigramSunburstHead', function($compile) {
+ng = a.directive('bigram2SunburstHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -28,7 +20,7 @@ ng = a.directive('bigramSunburstHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("Sunburst: English Language Bigram Frequencies ")
+            .text("Interactive Sunburst: Bigram Frequencies")
             .appendTo(h1);
 
     }
@@ -45,7 +37,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Controls
 
-ng = a.directive('bigramSunburstControls', function($compile) {
+ng = a.directive('bigram2SunburstControls', function($compile) {
     function link(scope, element, attr) { }
     return {
         restrict: "E",
@@ -62,7 +54,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Chart
 
-ng = a.directive('bigramSunburstChart', function($compile) {
+ng = a.directive('bigram2SunburstChart', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -105,13 +97,11 @@ ng = a.directive('bigramSunburstChart', function($compile) {
                 "id" : "sunburst_text"
             }).appendTo(row);
 
-        var descr = $("<p />", {
-                "class" : "normal"
-            }).text("The following sunburst chart contains two-level information, and shows " +
-                    "the relative frequencies of bigrams in the English language. From Peter Norvig's web site on English letter frequency counts:")
+        var descr = $("<p />")
+            .text("This chart adds interactivity - clicking on partitions on the chart will zoom in to that partition.")
             .appendTo(col2);
 
-
+        /*
         var quote = $("<blockquote />", {
                 "class" : "normal"
             })
@@ -124,35 +114,9 @@ ng = a.directive('bigramSunburstChart', function($compile) {
         var source = $("<small />")
             .html('<cite><a href="http://norvig.com/mayzner.html">Peter Norvig on English Letter Frequency Counts</a></cite>')
             .appendTo(quote);
+        */
 
 
-        ///////////////////////////////////
-        // drop in an alert to let the user know
-        // there is a better version of this plot
-
-            var alrt = $("<div />", {
-                    "id" : "myAlert",
-                    "class" : "alert alert-dismissible alert-warning fade"
-                }).appendTo(col2);
-            
-            var button = $("<button />", {
-                    "class" : "close",
-                    "data-dismiss" : "alert"
-                })
-                .text("x")
-                .appendTo(alrt);
-
-            var h4 = $("<h4 />")
-                .html("This Chart Is Not Optimal!")
-                .appendTo(alrt);
-
-            var p = $("<p />")
-                .html("There is a better, interactive version of this page available at the <a href='bigrams2.html'>Bigrams Interactive Sunburst Chart</a> page.")
-                .appendTo(alrt);
-
-        window.setTimeout(function() {
-            $("#myAlert").addClass("in")
-        }, 2000);
 
 
         ///////////////////////////////////
@@ -203,6 +167,14 @@ ng = a.directive('bigramSunburstChart', function($compile) {
             .innerRadius(function(d) { return Math.max(0, y(d.y)); })
             .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
+        var smallArc_zoom0 = 0.010,
+            smallArc_zoom1 = 0.002;
+
+        function stash(d) {
+            d.x0 = d.x;
+            d.dx0 = d.dx;
+        }
+
         // Tween from zero 
         function arcTweenZero(a, i) {
             var oi = d3.interpolate({x: 0, dx: 0}, a);
@@ -226,26 +198,45 @@ ng = a.directive('bigramSunburstChart', function($compile) {
         }
 
 
+
+        // When zooming: interpolate the scales.
+        function arcTweenZoom(d) {
+            var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+                yd = d3.interpolate(y.domain(), [d.y, 1]),
+                yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+            return function(d, i) {
+                return i
+                  ? function(t) { return arc(d); }
+                  : function(t) { 
+                      x.domain(xd(t)); 
+                      y.domain(yd(t)).range(yr(t)); 
+                      return arc(d); };
+            };
+        }
+
+
+
         //////////////////////////////////////////
         // On with the show:
-        // just draw the damn thing.
+        // draw the damn thing.
 
         // Keep track of the node that is currently being displayed as the root.
         var node;
+
 
         svg.selectAll("path").remove();
 
         node = data;
 
-        var N = 26;
-        var color = d3.scale.ordinal()
-            .domain([0, N-1])
-            .range(d3.range(data.length).map(
-                    d3.scale.linear()
-                    .domain([0, data.length - 1])
-                    .range(["steelblue","pink"])
-                    .interpolate(d3.interpolateLab))
-            );
+        //var N = 26;
+        //var color = d3.scale.ordinal()
+        //    .domain([0, N-1])
+        //    .range(d3.range(data.length).map(
+        //            d3.scale.linear()
+        //            .domain([0, data.length - 1])
+        //            .range(["steelblue","pink"])
+        //            .interpolate(d3.interpolateLab))
+        //    );
         var color = d3.scale.category20c();
 
         // this is where the magic happens
@@ -263,7 +254,9 @@ ng = a.directive('bigramSunburstChart', function($compile) {
                 } else {
                     return color((d.children ? d : d.parent).letter); 
                 }
-            });
+            })
+            .on("click",click)
+            .each(stash);
 
         var text = g.append("text")
             .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
@@ -271,16 +264,91 @@ ng = a.directive('bigramSunburstChart', function($compile) {
             .attr("dx", "6") // margin
             .attr("dy", ".35em") // vertical-align
             .text(function(d) { 
-                if(d.letter!='root') {
-                    if(d.children) {
-                        return d.letter;
+                return d.letter;
+            })
+            .attr("visibility",function(d) {
+                if(node.level==0) {
+                    if(d.dx < smallArc_zoom0) { 
+                        return "hidden";
+                    } else {
+                        return "visible";
+                    }
+                } else {
+                    if(d.letter=="root") { 
+                        return "hidden";
+                    } else if(d.dx < smallArc_zoom1) { 
+                        return "hidden";
+                    } else {
+                        return "visible";
                     }
                 }
             });
 
-          function computeTextRotation(d) {
+
+
+        // animate zooming into partition when clicked 
+        function click(d) {
+            text
+                .transition()
+                .attr("opacity", 0);
+
+            node = d;
+
+            path.transition()
+                .duration(1000)
+                .attrTween("d", arcTweenZoom(d))
+                .each("end",function(e,i) {
+                    // check if the animated element's data e lies within the visible angle span given in d
+                    if (e.x >= d.x && e.x < (d.x + d.dx)) {
+
+                        // get a selection of the associated text element
+                        var arcText = d3.select(this.parentNode).select("text");
+
+                        // fade in the text element and recalculate positions
+                        arcText.transition().duration(750)
+                            .attr("visibility",function(d) {
+                                if(node.level==0) {
+                                    if(d.dx < smallArc_zoom0) { 
+                                        return "hidden";
+                                    } else {
+                                        return "visible";
+                                    }
+                                } else {
+                                    if(d.letter=="root") { 
+                                        return "hidden";
+                                    } else if(d.dx < smallArc_zoom1) { 
+                                        return "hidden";
+                                    } else {
+                                        return "visible";
+                                    }
+                                }
+                            })
+                            .attr("opacity", 1)
+                            .attr("transform", function() { 
+                                if(d.dx==e.dx) { 
+                                    return "rotate(0)";
+                                } else {
+                                    return "rotate(" + computeTextRotation(e) + ")" ;
+                                }
+                            })
+                            .attr("x", function(d) { return y(d.y); });
+
+                    }
+                });
+        }
+
+
+        function computeTextRotation(d) {
+            // if our arc takes up more than half a circle,
+            // orient the text horizontally.
+            //console.log(x(d.dx) > Math.PI);
+            if(x(d.dx) > Math.PI) {
+                return 0;
+            } else {
                 return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
-          }
+            }
+        }
+
     }
 
     return {
