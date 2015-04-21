@@ -19,7 +19,8 @@ THEME = 'simple-angular'
 
 # template locations 
 EXTRA_TEMPLATES_PATHS = ['angular',
-                         'angular/letters']
+                         'angular/letters',
+                         'angular/breakdown']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -33,9 +34,14 @@ TEMPLATE_PAGES['hello.html'] = 'hello/index.html'
 # directives:
 # letter frequencies
 TEMPLATE_PAGES['letter_freq.json']      = 'letters/letter_freq.json'
+
 TEMPLATE_PAGES['plain.html']            = 'letters/plain.html'
 TEMPLATE_PAGES['plain_modcontrol.js']   = 'letters/plain_modcontrol.js'
 TEMPLATE_PAGES['plain_sunburst.js']     = 'letters/plain_sunburst.js'
+
+TEMPLATE_PAGES['plain2.html']            = 'letters/plain2.html'
+TEMPLATE_PAGES['plain2_modcontrol.js']   = 'letters/plain2_modcontrol.js'
+TEMPLATE_PAGES['plain2_sunburst.js']     = 'letters/plain2_sunburst.js'
 
 # bigrams
 TEMPLATE_PAGES['bigrams.json']           = 'letters/bigrams.json'
@@ -50,7 +56,10 @@ TEMPLATE_PAGES['bigrams2_modcontrol.js'] = 'letters/bigrams2_modcontrol.js'
 TEMPLATE_PAGES['bigrams2_sunburst.js']   = 'letters/bigrams2_sunburst.js'
 
 
-
+# breakdown
+TEMPLATE_PAGES['orthog.html']       = 'breakdown/orthog.html'
+TEMPLATE_PAGES['nest.html']         = 'breakdown/nest.html'
+TEMPLATE_PAGES['nestorthog.html']   = 'breakdown/nestorthog.html'
 
 
 

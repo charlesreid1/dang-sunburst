@@ -20,15 +20,43 @@
 
 <p>&nbsp;</p>
 
-<h2><b>Sunburst Directives</b></h2>
+<h2><b>Sunburst Angular.js Directives</b></h2>
 
 <p class="lead">A plain D3 sunburst chart built by an Angular.js directive:</p>
 
 <p><a class="btn btn-large btn-primary" href="letters/plain.html">Plain Sunburst: English Language Letter Frequencies</a></p>
 
-<p><a class="btn btn-large btn-primary" href="letters/bigrams.html">Sunburst: English Language Bigram Frequencies</a></p>
+<p><a class="btn btn-large btn-primary" href="letters/plain2.html">Interactive Sunburst: English Language Letter Frequencies</a></p>
 
-<p><a class="btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bigram Frequencies</a></p>
+<p class="lead">D3 sunburst charts of two-level information about bi-gram frequencies:</p>
+
+<p><a class="btn btn-large btn-primary" href="letters/bigrams.html">Plain Sunburst: English Language Bi-Gram Frequencies</a></p>
+
+<p><a class="btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bi-Gram Frequencies</a></p>
+
+<p>&nbsp;</p>
+
+<h2><b>Exploring Sunburst Charts</b></h2>
+
+<p class="lead">There are a number of ways to construct suncharts from multidimensional data.</p>
+
+<p class="lead"><b>Orthogonal Dimensions</b> - The first way is by displaying different, orthogonal dimensions on different 
+radians, or radial rings. Ring 1 contains x, Ring 2 contains y, etc.:</p>
+<p><a class="btn btn-large btn-primary" href="breakdown/orthog.html">Sunburst of Orthogonal Dimensions</a></p>
+<p>&nbsp;</p>
+
+<p class="lead"><b>Nested Dimensions</b> - Another method is using radians to display nested information. In this case, radians
+display increasing levels of detail about the same dimension. Ring 1 contains x broken down into 
+10 groups, Ring 2 contains x broken down into 100 groups, etc.:</p>
+<p><a class="btn btn-large btn-primary" href="breakdown/nest.html">Sunburst of Nested Dimensions</a></p>
+<p>&nbsp;</p>
+
+<p class="lead"><b>Nested Orthogonal Dimensions</b> - A third method is a mix of the two. These sunbursts display information about the same dimension
+across radians, but it applies the dimension repeatedly, in an orthogonal way, when sub-partitioning each partition.
+</p>
+<p><a class="btn btn-large btn-primary" href="breakdown/nestorthog.html">Sunburst of Nested Orthogonal Dimensions</a></p>
+<p>&nbsp;</p>
+
 
 {% endblock %}
 
