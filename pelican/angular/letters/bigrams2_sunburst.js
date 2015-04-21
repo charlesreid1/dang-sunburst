@@ -102,7 +102,12 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
             }).appendTo(row);
 
         var descr = $("<p />")
-            .text("This chart adds interactivity - clicking on partitions on the chart will zoom in to that partition.")
+            .text("The following sunburst chart contains two-level information, and shows " +
+                   "the relative frequencies of bigrams in the English language. " + 
+                   "Data from Peter Norvig's web site on English letter frequency counts. " +
+                   "This chart adds interactivity - clicking on partitions on the chart will " +
+                   "zoom in to that partition, and hovering over arcs will display detailed inforrmation " +
+                   "about that arc.")
             .appendTo(col2);
 
 
