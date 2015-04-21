@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>dang-sunburst</title>
+        <title>Sunburst Chart: Bigrams</title>
         <meta charset="utf-8" />
 
         <!--
@@ -24,25 +24,23 @@
         <hr />
 
 
-<h2><b>Welcome!</b></h2>
+<div ng-app="bigramsApp">
 
-<p class="lead">This page contains experiments with D3, Angular, and Pelican.</p>
+    <div ng-controller="HelloController" ng-init="initialize()">
 
-<p class="lead">Let's start with a simple Angular.js Hello World:</p>
+        <p>
+        <bigram-sunburst-head></bigram-sunburst-head>
+        <bigram-sunburst-controls></bigram-sunburst-controls>
+        <bigram-sunburst-chart></bigram-sunburst-chart>
+        </p>
+    
+    
+    </div>
 
-<p><a class="btn btn-large btn-primary" href="hello/">Hello Angular World</a></p>
+</div>
 
-<p>&nbsp;</p>
-
-<h2><b>Sunburst Directives</b></h2>
-
-<p class="lead">A plain D3 sunburst chart built by an Angular.js directive:</p>
-
-<p><a class="btn btn-large btn-primary" href="letters/plain.html">Plain Sunburst: English Language Letter Frequencies</a></p>
-
-<p><a class="btn btn-large btn-primary" href="letters/bigrams.html">Sunburst: English Language Bigram Frequencies</a></p>
-
-<p><a class="btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bigram Frequencies</a></p>
+<script type="text/javascript" src="/dang-sunburst/letters/bigrams_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-sunburst/letters/bigrams_sunburst.js"></script>
 
     </div>
 
