@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Sunburst of Nested Dimensions" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/breakdown/nest.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="nestApp">
+
+    <div ng-controller="NestController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <nest-sunburst-head></nest-sunburst-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <nest-sunburst-controls></nest-sunburst-controls>
+                <nest-sunburst-chart></nest-sunburst-chart>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+                {% include 'nest.md' %}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/breakdown/nest_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/breakdown/nest_sunburst.js"></script>
+
+{% endblock %}
+

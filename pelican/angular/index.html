@@ -22,15 +22,21 @@
 
 <h2><b>Sunburst Angular.js Directives</b></h2>
 
-<p class="lead">A plain D3 sunburst chart built by an Angular.js directive:</p>
+<p class="lead">These examples use Angular.js directives to define directives like <code><sunburst></sunburst></code> 
+to build charts. Here is a D3 sunburst chart built by an Angular.js directive:</p>
 
+<!--
 <p><a class="btn btn-large btn-primary" href="letters/plain.html">Plain Sunburst: English Language Letter Frequencies</a></p>
+-->
 
 <p><a class="btn btn-large btn-primary" href="letters/plain2.html">Interactive Sunburst: English Language Letter Frequencies</a></p>
 
-<p class="lead">D3 sunburst charts of two-level information about bi-gram frequencies:</p>
+<p class="lead">This D3 sunburst chart shows two-level information about bi-gram frequencies (that is, the frequencies of 
+occurrences of two letter combinations in the English language):</p>
 
+<!--
 <p><a class="btn btn-large btn-primary" href="letters/bigrams.html">Plain Sunburst: English Language Bi-Gram Frequencies</a></p>
+-->
 
 <p><a class="btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bi-Gram Frequencies</a></p>
 
@@ -51,11 +57,17 @@ display increasing levels of detail about the same dimension. Ring 1 contains x 
 <p><a class="btn btn-large btn-primary" href="breakdown/nest.html">Sunburst of Nested Dimensions</a></p>
 <p>&nbsp;</p>
 
-<p class="lead"><b>Nested Orthogonal Dimensions</b> - A third method is a mix of the two. These sunbursts display information about the same dimension
-across radians, but it applies the dimension repeatedly, in an orthogonal way, when sub-partitioning each partition.
-</p>
-<p><a class="btn btn-large btn-primary" href="breakdown/nestorthog.html">Sunburst of Nested Orthogonal Dimensions</a></p>
 <p>&nbsp;</p>
+
+<h2><b>Dynamic Sunburst Charts</b></h2>
+
+<p class="lead">A picture is worth a thousand words, but an interactive chart is worth a million.</p>
+
+<p class="lead"><b>Pushing and Popping</b> - Deals with data changing due to pushing/popping of nodes in the underlying tree.
+</p>
+<p><a class="btn btn-large btn-primary" href="dynamic/pushpop.html">Push/Pop Dynamic Sunburst</a></p>
+<p>&nbsp;</p>
+
 
 
 {% endblock %}

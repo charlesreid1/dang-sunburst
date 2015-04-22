@@ -43,42 +43,29 @@ dir.push(ng);
 
 ng = a.directive('orthogSunburstControls', function($compile) {
 
-    function link(pscope, element, attr) { 
+    function link(scope, element, attr) { 
+
+        pscope = scope.$parent;
 
         var el = element[0];
 
-        pscope.counttot_btn = "total";
-        pscope.counttot_current = "count";
+        pscope.countval_btn = "count";
+        pscope.countval_current = "frequency";
 
         
         var div = $("<div />");
 
         var alrt_t = $("<p />")
-            .html("Data is currently binned by [[counttot_current]].")
+            .html("Data is currently binned by [[countval_current]].")
             .appendTo(div);
 
         var alrt_p = $("<p />").appendTo(alrt_t);
 
         var alrt_b = $("<a />", {
-                "class" : "btn btn-large btn-default"
+                "class" : "btn btn-large btn-default",
+                "countval" : ""
             })
-            .bind('click',function() {
-
-                if( pscope.counttot_btn=="total" ) {
-                    pscope.counttot_btn = "count";
-                } else if( pscope.counttot_btn=="count" ) {
-                    pscope.counttot_btn = "total";
-                }
-
-                if( pscope.counttot_current=="total" ) {
-                    pscope.counttot_current = "count";
-                } else if( pscope.counttot_current=="count" ) {
-                    pscope.counttot_current = "total";
-                }
-
-                pscope.$apply();
-            })
-            .html("Group by [[counttot_btn]]")
+            .html("Group by [[countval_btn]]")
             .appendTo(alrt_p);
 
         angular.element(el).append($compile(div)(pscope));
@@ -89,6 +76,38 @@ ng = a.directive('orthogSunburstControls', function($compile) {
         restrict: "E",
         link: link,
         scope: {}
+    }
+});
+dir.push(ng);
+
+
+
+
+///////////////////////////////////////////////
+// Plain Sunburst Control action directive
+
+ng = a.directive("countval", function($compile){
+    return function(pscope, element, attrs){
+        element.bind("click", function(){
+
+            if( pscope.countval_btn=="frequency" ) {
+                pscope.countval_btn = "count";
+            } else if( pscope.countval_btn=="count" ) {
+                pscope.countval_btn = "frequency";
+            }
+
+            if( pscope.countval_current=="frequency" ) {
+                pscope.countval_current = "count";
+            } else if( pscope.countval_current=="count" ) {
+                pscope.countval_current = "frequency";
+            }
+
+            var key = pscope.countval_current;
+            pscope.updateFilter(key)
+
+            pscope.$apply();
+
+        });
     }
 });
 dir.push(ng);
@@ -118,7 +137,6 @@ ng = a.directive('orthogSunburstChart', function($compile) {
         console.log('updating chart');
 
         var data = pscope.orthogData;
-        console.log(data);
 
 
         /////////////////////////////////////////
@@ -176,9 +194,8 @@ ng = a.directive('orthogSunburstChart', function($compile) {
         var p = $("<p />", {
                 "class" : "lead"
             })
-            .html("Value: [[selectedPoint.value]]")
+            .html("Value: [[selectedPoint.freq | number:4]]")
             .appendTo(maindiv);
-
 
 
         angular.element(txt).prepend($compile(panel)(pscope));
@@ -221,11 +238,15 @@ ng = a.directive('orthogSunburstChart', function($compile) {
         // chart-specific, 
         // data-independent variables:
 
-        // default sort method: count
+        // default sort method
         var partition = d3.layout.partition()
             .sort(null)
             .value(function(d) { 
-                return d.value; 
+                if( pscope.countval_current=="frequency" ) {
+                    return d.freq;
+                } else { 
+                    return 1;
+                }
             });
 
         var arc = d3.svg.arc()
@@ -265,6 +286,28 @@ ng = a.directive('orthogSunburstChart', function($compile) {
         }
 
 
+        // When switching data: interpolate the arcs in data space.                  
+        function arcTweenData(a, i) {                                                
+            var oi = d3.interpolate({x: a.x0, dx: a.dx0}, a);                          
+            function tween(t) {                                                        
+              var b = oi(t);                                                           
+              a.x0 = b.x;                                                              
+              a.dx0 = b.dx;                                                            
+              return arc(b);                                                           
+            }                                                                          
+            if (i == 0) {                                                              
+             // If we are on the first arc, adjust the x domain to match the root node 
+             // at the current zoom level. (We only need to do this once.)             
+              var xd = d3.interpolate(x.domain(), [node.x, node.x + node.dx]);         
+              return function(t) {                                                     
+                x.domain(xd(t));                                                       
+                return tween(t);                                                       
+              };                                                                       
+            } else {                                                                   
+              return tween;                                                            
+            }                                                                          
+        }                                                                            
+
 
         // When zooming: interpolate the scales.
         function arcTweenZoom(d) {
@@ -280,7 +323,6 @@ ng = a.directive('orthogSunburstChart', function($compile) {
                       return arc(d); };
             };
         }
-
 
 
         //////////////////////////////////////////
@@ -433,12 +475,40 @@ ng = a.directive('orthogSunburstChart', function($compile) {
         function computeTextRotation(d) {
             // if our arc takes up more than half a circle,
             // orient the text horizontally.
-            //console.log(x(d.dx) > Math.PI);
             if(x(d.dx) > Math.PI) {
                 return 0;
             } else {
                 return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
             }
+        }
+
+
+        // watch for user clicking total/count switch
+        //
+        // this changes how arc lengths are computed
+        // (based on value or based on count)
+        // 
+        // update how arc lengths are computed
+        // and how data is binned
+        //
+        // value = arc length proportional to value field
+        // count = arc length uniform for each count 
+        //
+        pscope.updateFilter = function(key) { 
+
+            // load the new data values and animate
+
+            var valuef;
+            if(key=="frequency") { 
+                valuef = function(v) { return v.freq };
+            } else {
+                valuef = function() { return 1 };
+            }
+
+            path.data(partition.value(valuef).nodes)
+                .transition()
+                .duration(1000)
+                .attrTween('d',arcTweenData);
         }
 
     }
@@ -450,12 +520,5 @@ ng = a.directive('orthogSunburstChart', function($compile) {
     };
 });
 dir.push(ng);
-
-
-
-
-
-
-
 
 
