@@ -16,11 +16,24 @@
 
     <div ng-controller="OrthogonalController" ng-init="initialize()">
 
-        <p>
-        <orthog-sunburst-head></orthog-sunburst-head>
-        <orthog-sunburst-controls></orthog-sunburst-controls>
-        <orthog-sunburst-chart></orthog-sunburst-chart>
-        </p>
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <orthog-sunburst-head></orthog-sunburst-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <orthog-sunburst-controls></orthog-sunburst-controls>
+                <orthog-sunburst-chart></orthog-sunburst-chart>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+                {% include 'orthog.md' %}
+            </div>
+        </div>
+
+        
+        <div class="row">
     
     
     </div>

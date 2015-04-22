@@ -14,13 +14,13 @@ var a = angular.module("orthogonalApp", [], function($interpolateProvider) {
 var datafactory = a.factory('datafactory', function($http, $q) {
 
     return {
-        getBigramData : function() {
+        getOrthogData : function() {
             var deferred = $q.defer();
 
-            $http.get('bigrams.json').success(function(data) {
+            $http.get('orthog_tree.json').success(function(data) {
                 deferred.resolve(data);
             }).error(function(){
-                console.log('error loading bigrams.json');
+                console.log('error loading orthog.json');
                 deferred.reject();
             });
 
@@ -31,9 +31,9 @@ var datafactory = a.factory('datafactory', function($http, $q) {
 
 function OrthogonalController($scope,datafactory) {
     $scope.initialize = function() {
-        datafactory.getBigramData().then(
+        datafactory.getOrthogData().then(
             function(data) { 
-                $scope.bigramData = data;
+                $scope.orthogData = data;
             }
         );
     }

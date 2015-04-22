@@ -8,7 +8,7 @@ dir = [];
 // that use D3 to draw sunburst charts.
 // 
 
-ng = a.directive('bigram2SunburstHead', function($compile) {
+ng = a.directive('orthogSunburstHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -16,12 +16,16 @@ ng = a.directive('bigram2SunburstHead', function($compile) {
 
         $(el).empty();
 
-        var h1 = $("<h1 />")
-            .appendTo(el);
+        var dir = $("div#sunburst_title");
+
+        var h1 = $("<h1 />");
 
         var b = $("<b />")
-            .text("Interactive Sunburst: Bi-gram Frequencies")
+            .text("Sunburst of Orthogonal Dimensions")
             .appendTo(h1);
+
+        h1.appendTo(dir);
+        
 
     }
     return {
@@ -37,8 +41,50 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Controls
 
-ng = a.directive('bigram2SunburstControls', function($compile) {
-    function link(scope, element, attr) { }
+ng = a.directive('orthogSunburstControls', function($compile) {
+
+    function link(pscope, element, attr) { 
+
+        var el = element[0];
+
+        pscope.counttot_btn = "total";
+        pscope.counttot_current = "count";
+
+        
+        var div = $("<div />");
+
+        var alrt_t = $("<p />")
+            .html("Data is currently binned by [[counttot_current]].")
+            .appendTo(div);
+
+        var alrt_p = $("<p />").appendTo(alrt_t);
+
+        var alrt_b = $("<a />", {
+                "class" : "btn btn-large btn-default"
+            })
+            .bind('click',function() {
+
+                if( pscope.counttot_btn=="total" ) {
+                    pscope.counttot_btn = "count";
+                } else if( pscope.counttot_btn=="count" ) {
+                    pscope.counttot_btn = "total";
+                }
+
+                if( pscope.counttot_current=="total" ) {
+                    pscope.counttot_current = "count";
+                } else if( pscope.counttot_current=="count" ) {
+                    pscope.counttot_current = "total";
+                }
+
+                pscope.$apply();
+            })
+            .html("Group by [[counttot_btn]]")
+            .appendTo(alrt_p);
+
+        angular.element(el).append($compile(div)(pscope));
+
+
+    }
     return {
         restrict: "E",
         link: link,
@@ -54,14 +100,14 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Chart
 
-ng = a.directive('bigram2SunburstChart', function($compile) {
+ng = a.directive('orthogSunburstChart', function($compile) {
 
     function link(scope, element, attr) {
 
-        scope.$parent.$watch('bigramData',doStuff);
+        scope.$parent.$watch('orthogData',doStuff);
 
         function doStuff() { 
-            if(!scope.$parent.bigramData) { return }
+            if(!scope.$parent.orthogData) { return }
             updateChart(element, scope.$parent);
         }
 
@@ -71,7 +117,8 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
 
         console.log('updating chart');
 
-        var data = pscope.bigramData;
+        var data = pscope.orthogData;
+        console.log(data);
 
 
         /////////////////////////////////////////
@@ -83,32 +130,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
 
         var el = element[0];
 
-
-        // --------------------------
-        // start with title and filler text 
-
-        var row = $("<div />",{
-                "class" : "row"
-            }).appendTo(el);
-
-        var col1 = $("<div />",{
-                "class" : "col-sm-6",
-                "id" : "sunburst_chart"
-            }).appendTo(row);
-
-        var col2 = $("<div />",{
-                "class" : "col-sm-6",
-                "id" : "sunburst_text"
-            }).appendTo(row);
-
-        var descr = $("<p />")
-            .text("The following sunburst chart contains two-level information, and shows " +
-                   "the relative frequencies of bigrams in the English language. " + 
-                   "Data from Peter Norvig's web site on English letter frequency counts. " +
-                   "This chart adds interactivity - clicking on partitions on the chart will " +
-                   "zoom in to that partition, and hovering over arcs will display detailed inforrmation " +
-                   "about that arc.")
-            .appendTo(col2);
+        var txt = $("div#sunburst_chart");
 
 
         // --------------------------
@@ -119,13 +141,14 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         // then compile the html
         // select element of interest with angular.element
         // and append the compiled tags
+        //
+        var br = $("<br />").appendTo(txt);
 
 
         var panel = $("<div />", {
-                "class" : "panel panel-primary"
+                "class" : "panel panel-primary",
+                "id" : "selectedPointPanel"
             });
-
-
 
         var panelhead = $("<div />", {
                 "class" : "panel-heading"
@@ -133,7 +156,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         
         var h3 = $("<h3 />", {
                 "class" : "panel-title"
-            }).text("Selected Bi-Gram")
+            }).text("Selected Arc")
             .appendTo(panelhead);
 
 
@@ -147,20 +170,18 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("Bi-gram: [[selectedPoint.letter]]")
+            .html("Name: [[selectedPoint.name]]")
             .appendTo(maindiv);
 
         var p = $("<p />", {
                 "class" : "lead"
             })
-            .html("Letter: [[selectedPoint.letter1]] <br />" +
-                  "Total Count: [[selectedPoint.total]]")
+            .html("Value: [[selectedPoint.value]]")
             .appendTo(maindiv);
 
 
 
-        angular.element(col2).append($compile(panel)(pscope));
-
+        angular.element(txt).prepend($compile(panel)(pscope));
 
 
 
@@ -204,7 +225,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         var partition = d3.layout.partition()
             .sort(null)
             .value(function(d) { 
-                return d.total; 
+                return d.value; 
             });
 
         var arc = d3.svg.arc()
@@ -283,7 +304,7 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         //            .range(["steelblue","pink"])
         //            .interpolate(d3.interpolateLab))
         //    );
-        var color = d3.scale.category20c();
+        var color = d3.scale.category10();
 
         // this is where the magic happens
         //
@@ -298,23 +319,30 @@ ng = a.directive('bigram2SunburstChart', function($compile) {
         var path = g.append("path")
             .attr("d",arc)
             .style("fill",function(d,i) {
-                if(d.letter=='root') {
-                    return '#ccc';
+                if(d.name=="root") {
+                    return "#ccc";
+                } else if(d.depth<2) {
+                    return color(d.name);
                 } else {
-                    return color((d.children ? d : d.parent).letter); 
+                    return color(d.parent.name);
+                }
+            })
+            .attr("opacity",function(d,i) {
+                if(d.depth<2) {
+                    return 0.6;
+                } else {
+                    return 0.8;
                 }
             })
             .on("click",click)
             .on('mouseover', function(d){
-                if(d.letter!="root") {
-                    pscope.$apply(function(){
-                        pscope.selectedPoint = d;
-                    });
-                }
+                pscope.$apply(function(){
+                    pscope.selectedPoint = d;
+                });
                 d3.selectAll('path').classed('active',function(e){
-                    var dlet = d['letter'];
-                    var elet = e['letter'];
-                    return dlet==elet;
+                    var dname = d['name'];
+                    var ename = e['name'];
+                    return dname==ename;
                 });
             })
             .on('mouseout', function(){

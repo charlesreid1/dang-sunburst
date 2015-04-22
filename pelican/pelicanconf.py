@@ -57,9 +57,15 @@ TEMPLATE_PAGES['bigrams2_sunburst.js']   = 'letters/bigrams2_sunburst.js'
 
 
 # breakdown
-TEMPLATE_PAGES['orthog.html']       = 'breakdown/orthog.html'
-TEMPLATE_PAGES['nest.html']         = 'breakdown/nest.html'
-TEMPLATE_PAGES['nestorthog.html']   = 'breakdown/nestorthog.html'
+TEMPLATE_PAGES['orthog_tree.json']     = 'breakdown/orthog_tree.json'
+
+TEMPLATE_PAGES['orthog.html']          = 'breakdown/orthog.html'
+TEMPLATE_PAGES['orthog.css']           = 'breakdown/orthog.css'
+TEMPLATE_PAGES['orthog_modcontrol.js'] = 'breakdown/orthog_modcontrol.js'
+TEMPLATE_PAGES['orthog_sunburst.js']   = 'breakdown/orthog_sunburst.js'
+
+TEMPLATE_PAGES['nest.html']            = 'breakdown/nest.html'
+TEMPLATE_PAGES['nestorthog.html']      = 'breakdown/nestorthog.html'
 
 
 
