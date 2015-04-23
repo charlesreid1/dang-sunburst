@@ -437,7 +437,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             // Keep track of the node that is currently being displayed as the root.
             var node;
 
-
             svg.selectAll("path").remove();
             svg.selectAll("text").remove();
 
@@ -462,12 +461,13 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 .datum(data)
                 .selectAll("g")
                 .data(partition.nodes(node))
-                .enter()
-                .append("g");
+                .enter();
+
+            //    .append("g");
 
             //console.log(data);
             //console.log(partition.nodes(node)[25]);
-            //console.log(g);
+            console.log(g);
 
             //// g is null after a click.
 
