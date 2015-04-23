@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Slider Interactive Sunburst" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/dynamic/slider.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="sliderApp">
+
+    <div ng-controller="SliderController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <slider-sunburst-head></slider-sunburst-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <div class="row" id="sunburst_chartchart">
+                    <slider-sunburst-chart></slider-sunburst-chart>
+                </div>
+                <div class="row" id="sunburst_controls">
+                    <slider-sunburst-controls></slider-sunburst-controls>
+                </div>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+                {% include 'slider.md' %}
+            </div>
+        </div>
+
+        
+        <div class="row">
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/dynamic/slider_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/dynamic/slider_sunburst.js"></script>
+
+{% endblock %}
+

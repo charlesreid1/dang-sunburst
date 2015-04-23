@@ -20,7 +20,8 @@ THEME = 'simple-angular'
 # template locations 
 EXTRA_TEMPLATES_PATHS = ['angular',
                          'angular/letters',
-                         'angular/breakdown']
+                         'angular/breakdown',
+                         'angular/dynamic']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -38,10 +39,6 @@ TEMPLATE_PAGES['letter_freq.json']      = 'letters/letter_freq.json'
 TEMPLATE_PAGES['plain.html']            = 'letters/plain.html'
 TEMPLATE_PAGES['plain_modcontrol.js']   = 'letters/plain_modcontrol.js'
 TEMPLATE_PAGES['plain_sunburst.js']     = 'letters/plain_sunburst.js'
-
-TEMPLATE_PAGES['plain2.html']            = 'letters/plain2.html'
-TEMPLATE_PAGES['plain2_modcontrol.js']   = 'letters/plain2_modcontrol.js'
-TEMPLATE_PAGES['plain2_sunburst.js']     = 'letters/plain2_sunburst.js'
 
 # bigrams
 TEMPLATE_PAGES['bigrams.json']           = 'letters/bigrams.json'
@@ -75,6 +72,19 @@ TEMPLATE_PAGES['nest_modcontrol.js']   = 'breakdown/nest_modcontrol.js'
 TEMPLATE_PAGES['nest_sunburst.js']     = 'breakdown/nest_sunburst.js'
 
 TEMPLATE_PAGES['nestorthog.html']      = 'breakdown/nestorthog.html'
+
+
+# dynamic
+
+# slider
+TEMPLATE_PAGES['slider_tree.json']      = 'dynamic/slider_tree.json'
+
+TEMPLATE_PAGES['slider.html']           = 'dynamic/slider.html'
+TEMPLATE_PAGES['slider.css']            = 'dynamic/slider.css'
+TEMPLATE_PAGES['slider.md']             = 'dynamic/slider.md'
+
+TEMPLATE_PAGES['slider_modcontrol.js']  = 'dynamic/slider_modcontrol.js'
+TEMPLATE_PAGES['slider_sunburst.js']    = 'dynamic/slider_sunburst.js'
 
 
 

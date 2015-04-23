@@ -10,35 +10,38 @@
 
 {% block content %}
 
+<style>
+    img.index_img {
+        width: 500px;
+        border-style: solid;
+        border-color: #ddd;
+        border-width: thin;
+    }
+    a.index_btn {
+        margin-top: 10px;
+    }
+</style>
+
 <h2><b>Welcome!</b></h2>
 
 <p class="lead">This page contains experiments with D3, Angular, and Pelican.</p>
 
 <p class="lead">Let's start with a simple Angular.js Hello World:</p>
 
-<p><a class="btn btn-large btn-primary" href="hello/">Hello Angular World</a></p>
+<p><a class="index_btn btn btn-large btn-primary" href="hello/">Hello Angular World</a></p>
 
 <p>&nbsp;</p>
 
 <h2><b>Sunburst Angular.js Directives</b></h2>
 
-<p class="lead">These examples use Angular.js directives to define directives like <code><sunburst></sunburst></code> 
-to build charts. Here is a D3 sunburst chart built by an Angular.js directive:</p>
-
-<!--
-<p><a class="btn btn-large btn-primary" href="letters/plain.html">Plain Sunburst: English Language Letter Frequencies</a></p>
--->
-
-<p><a class="btn btn-large btn-primary" href="letters/plain2.html">Interactive Sunburst: English Language Letter Frequencies</a></p>
+<p class="lead">These examples use Angular.js directives to define directives like <code>&lt;sunburst&gt;&lt;/sunburst&gt;</code> 
+to build charts. Here are some examples.</p>
 
 <p class="lead">This D3 sunburst chart shows two-level information about bi-gram frequencies (that is, the frequencies of 
 occurrences of two letter combinations in the English language):</p>
 
-<!--
-<p><a class="btn btn-large btn-primary" href="letters/bigrams.html">Plain Sunburst: English Language Bi-Gram Frequencies</a></p>
--->
-
-<p><a class="btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bi-Gram Frequencies</a></p>
+<img src="{{SITEURL}}/images/bigrams2.png" class="index_img img-responsive" />
+<p><a class="index_btn btn btn-large btn-primary" href="letters/bigrams2.html">Interactive Sunburst: English Language Bi-Gram Frequencies</a></p>
 
 <p>&nbsp;</p>
 
@@ -48,24 +51,31 @@ occurrences of two letter combinations in the English language):</p>
 
 <p class="lead"><b>Orthogonal Dimensions</b> - The first way is by displaying different, orthogonal dimensions on different 
 radians, or radial rings. Ring 1 contains x, Ring 2 contains y, etc.:</p>
-<p><a class="btn btn-large btn-primary" href="breakdown/orthog.html">Sunburst of Orthogonal Dimensions</a></p>
+<img src="{{SITEURL}}/images/orthogonal.png" class="index_img img-responsive" />
+<p><a class="index_btn btn btn-large btn-primary" href="breakdown/orthog.html">Sunburst of Orthogonal Dimensions</a></p>
 <p>&nbsp;</p>
 
 <p class="lead"><b>Nested Dimensions</b> - Another method is using radians to display nested information. In this case, radians
 display increasing levels of detail about the same dimension. Ring 1 contains x broken down into 
 10 groups, Ring 2 contains x broken down into 100 groups, etc.:</p>
-<p><a class="btn btn-large btn-primary" href="breakdown/nest.html">Sunburst of Nested Dimensions</a></p>
+<img src="{{SITEURL}}/images/nested.png" class="index_img img-responsive" />
+<p><a class="index_btn btn btn-large btn-primary" href="breakdown/nest.html">Sunburst of Nested Dimensions</a></p>
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
 <h2><b>Dynamic Sunburst Charts</b></h2>
 
-<p class="lead">A picture is worth a thousand words, but an interactive chart is worth a million.</p>
+<p class="lead">A picture is worth a thousand words, but an interactive chart is worth a bazillion.</p>
+
+<p class="lead"><b>Sliders</b> - Allows the user to select parts of the chart and change their value and size.
+</p>
+<p><a class="index_btn btn btn-large btn-primary" href="dynamic/slider.html">Sliders: Dynamic Sunburst</a></p>
+<p>&nbsp;</p>
 
 <p class="lead"><b>Pushing and Popping</b> - Deals with data changing due to pushing/popping of nodes in the underlying tree.
 </p>
-<p><a class="btn btn-large btn-primary" href="dynamic/pushpop.html">Push/Pop Dynamic Sunburst</a></p>
+<p><a class="index_btn btn btn-large btn-primary" href="dynamic/pushpop.html">Push/Pop: Dynamic Sunburst</a></p>
 <p>&nbsp;</p>
 
 
