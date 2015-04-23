@@ -1,0 +1,110 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "magnitude": 20,
+                    "name": "AW"
+                },
+                {
+                    "magnitude": 5,
+                    "name": "AX"
+                },
+                {
+                    "magnitude": 10,
+                    "name": "AY"
+                },
+                {
+                    "magnitude": 50,
+                    "name": "AZ"
+                }
+            ],
+            "name": "A"
+        },
+        {
+            "children": [
+                {
+                    "magnitude": 15,
+                    "name": "BW"
+                },
+                {
+                    "magnitude": 12,
+                    "name": "BX"
+                },
+                {
+                    "magnitude": 3,
+                    "name": "BY"
+                },
+                {
+                    "magnitude": 6,
+                    "name": "BZ"
+                }
+            ],
+            "name": "B"
+        },
+        {
+            "children": [
+                {
+                    "magnitude": 30,
+                    "name": "CW"
+                },
+                {
+                    "magnitude": 9,
+                    "name": "CX"
+                },
+                {
+                    "magnitude": 36,
+                    "name": "CY"
+                },
+                {
+                    "magnitude": 9,
+                    "name": "CZ"
+                }
+            ],
+            "name": "C"
+        },
+        {
+            "children": [
+                {
+                    "magnitude": 18,
+                    "name": "DW"
+                },
+                {
+                    "magnitude": 90,
+                    "name": "DX"
+                },
+                {
+                    "magnitude": 27,
+                    "name": "DY"
+                },
+                {
+                    "magnitude": 8,
+                    "name": "DZ"
+                }
+            ],
+            "name": "D"
+        },
+        {
+            "children": [
+                {
+                    "magnitude": 2,
+                    "name": "EW"
+                },
+                {
+                    "magnitude": 4,
+                    "name": "EX"
+                },
+                {
+                    "magnitude": 20,
+                    "name": "EY"
+                },
+                {
+                    "magnitude": 6,
+                    "name": "EZ"
+                }
+            ],
+            "name": "E"
+        }
+    ],
+    "name": "root"
+}

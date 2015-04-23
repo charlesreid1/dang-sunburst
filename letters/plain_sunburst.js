@@ -91,32 +91,66 @@ ng = a.directive('plainSunburstChart', function($compile) {
         // start with title and filler text 
 
         var row = $("<div />",{
-            "class" : "row"
-        }).appendTo(el);
+                "class" : "row"
+            }).appendTo(el);
 
         var col1 = $("<div />",{
-            "class" : "col-md-4",
-            "id" : "sunburst_chart"
-        }).appendTo(row);
+                "class" : "col-md-4",
+                "id" : "sunburst_chart"
+            }).appendTo(row);
 
         var col2 = $("<div />",{
-            "class" : "col-md-6 col-md-offset-1",
-            "id" : "sunburst_text"
-        }).appendTo(row);
+                "class" : "col-md-6 col-md-offset-1",
+                "id" : "sunburst_text"
+            }).appendTo(row);
 
         var descr = $("<p />", {
-            "class" : "normal"
-        }).text("The following sunburst chart contains a single level of information, and shows " +
-                "the relative frequencies of letters in the English language. From Wikipedia:")
-        .appendTo(col2);
+                "class" : "normal"
+            }).text("The following sunburst chart contains a single level of information, and shows " +
+                    "the relative frequencies of letters in the English language. From Wikipedia:")
+            .appendTo(col2);
+
+
+
         var quote = $("<blockquote />", {
-            "class" : "normal"
-        })
-        .appendTo(col2);
+                "class" : "normal"
+            })
+            .appendTo(col2);
+
         var text = $("<p />").text('The frequency of letters in text has been studied for use in cryptanalysis, and frequency analysis in particular, dating back to the Iraqi mathematician Al-Kindi (c. 801–873 CE), who formally developed the method (the ciphers breakable by this technique go back at least to the Caesar cipher invented by Julius Caesar, so this method could have been explored in classical times).')
             .appendTo(quote);
+
         var source = $("<small />").html('<cite><a href="http://en.wikipedia.org/wiki/Letter_frequency">Wikipedia article on Letter Frequency</a></cite>')
             .appendTo(quote);
+
+
+        ///////////////////////////////////
+        // drop in an alert to let the user know
+        // there is a better version of this plot
+
+            var alrt = $("<div />", {
+                    "id" : "myAlert",
+                    "class" : "alert alert-dismissible alert-warning fade"
+                }).appendTo(col2);
+            
+            var button = $("<button />", {
+                    "class" : "close",
+                    "data-dismiss" : "alert"
+                })
+                .text("x")
+                .appendTo(alrt);
+
+            var h4 = $("<h4 />")
+                .html("This Chart Is Not Optimal!")
+                .appendTo(alrt);
+
+            var p = $("<p />")
+                .html("There is a better, interactive version of this page available at the <a href='bigrams2.html'>Bigrams Interactive Sunburst Chart</a> page.")
+                .appendTo(alrt);
+
+        window.setTimeout(function() {
+            $("#myAlert").addClass("in")
+        }, 2000);
 
 
 

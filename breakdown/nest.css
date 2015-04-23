@@ -1,3 +1,12 @@
+path {
+    stroke: white;
+    stroke-width: 0.5;
+}
+
+div#selectedPointPanel {
+    width: 380px;
+}
+
 .fade { 
     opacity: 0;
     -webkit-transition: opacity 0.85s linear;
@@ -12,4 +21,5 @@
 
 .active {
   stroke: black;
+  stroke-width: 2.0;
 }

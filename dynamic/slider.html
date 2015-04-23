@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>dang-sunburst - Authors</title>
+        <title>Slider Interactive Sunburst</title>
         <meta charset="utf-8" />
 
         <!--
@@ -23,9 +23,53 @@
         <h1><a href="/dang-sunburst/">dang-sunburst <strong></strong></a></h1>
         <hr />
 
-    <h1>Authors on dang-sunburst</h1>
 
-    <ul>    </ul>
+<link href="/dang-sunburst/dynamic/slider.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="sliderApp">
+
+    <div ng-controller="SliderController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <slider-sunburst-head></slider-sunburst-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <div class="row" id="sunburst_chartchart">
+                    <slider-sunburst-chart></slider-sunburst-chart>
+                </div>
+                <div class="row" id="sunburst_controls">
+                    <slider-sunburst-controls></slider-sunburst-controls>
+                </div>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+                <div class="row" id="sunburst_panels">
+                    <slider-sunburst-panels></slider-sunburst-panels>
+                </div>
+                <div class="row" id="sunburst_md">
+This interactive sunburst allows you to change the proportions
+of various quantities interactively.
+
+Click on the outer slices of the charts to bring up an interactive
+slider control for the size of the slice.
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="/dang-sunburst/dynamic/slider_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-sunburst/dynamic/slider_sunburst.js"></script>
+
     </div>
 
     <footer id="contentinfo" class="body">
