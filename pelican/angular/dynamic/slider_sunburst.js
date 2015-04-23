@@ -286,19 +286,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         chart.empty();
 
 
-        //////////////////////////////
-        // deal with the slider first:
-        // show it if user has clicked an 
-        // outer slice of the sunburst,
-        // don't show it otherwise
-        $("input#TheSlider").attr("visibility",function(z) {
-            if(pscope.clickedPoint) { 
-                return "visible";
-            } else {
-                return "hidden";
-            }
-        });
-
         ///////////////////////////////////
         // now draw the svg with d3
 
@@ -430,6 +417,29 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             console.log('in updateChart()');
 
 
+            //////////////////////////////
+            // deal with the slider first:
+            // show it if user has clicked an 
+            // outer slice of the sunburst,
+            // don't show it otherwise
+            d3.select("input#TheSlider").style("visibility",function(z) {
+                console.log('checking whether slider should be visible');
+                if(pscope.clickedPoint) { 
+                    if(!(pscope.clickedPoint.name in ['A','B','C','D','E'])) {
+                        console.log("visible");
+                        return "visible";
+                    } else {
+                        console.log("hidden");
+                        return "hidden";
+                    }
+                } else {
+                    console.log("hidden");
+                    return "hidden";
+                }
+            });
+
+
+
             //////////////////////////////////////////
             // On with the show:
             // draw the damn thing.
@@ -462,14 +472,19 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 .selectAll("g")
                 .data(partition.nodes(node))
                 .enter();
+            
 
-            //    .append("g");
-
-            //console.log(data);
-            //console.log(partition.nodes(node)[25]);
-            console.log(g);
-
-            //// g is null after a click.
+            // !!!!!!!!!!!!!!!!!!
+            // note: if you add .append("g") 
+            // to the above var g,
+            // drawing the arcs will only
+            // work the first time you do it,
+            // after that they'll disappear
+            // and g will be an array of nulls.
+            // so don't do this!
+            //
+            // .append("g");
+            // !!!!!!!!!!!!!!!!!!
 
             // add paths (arcs) to g, and bind click action
             var path = g.append("path")
