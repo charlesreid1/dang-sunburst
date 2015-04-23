@@ -344,7 +344,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 }
             });
 
-
         var arc = d3.svg.arc()
             .startAngle( function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
             .endAngle(   function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
@@ -353,8 +352,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
 
         var smallArc_zoom0 = 0.010,
             smallArc_zoom1 = 0.002;
-
-        var node;
 
         // -------------------------
         // convenience functions for drawing chart
@@ -365,7 +362,7 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         //}
 
         // Tween from zero 
-        function arcTweenZero(a, i) {
+        function arcTweenZero(node, arc, a, i) {
             var oi = d3.interpolate({x: 0, dx: 0}, a);
             function tween(t) {
                 var b = oi(t);
@@ -388,7 +385,7 @@ ng = a.directive('sliderSunburstChart', function($compile) {
 
 
         // When switching data: interpolate the arcs in data space.                  
-        function arcTweenData(a, i) {                                                
+        function arcTweenData(node, arc, a, i) {
             var oi = d3.interpolate({x: a.x0, dx: a.dx0}, a);                          
             function tween(t) {                                                        
               var b = oi(t);                                                           
@@ -409,16 +406,12 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             }                                                                          
         }                                                                            
 
-
         // if you build it, 
         // you must update it.
         updateChart();
 
-
-
         // chart will be built/updated if user updates data.
         // chart will be updated if user clicks on a point.
-
         pscope.$watch('clickedPoint',function(){ 
             if(!pscope.clickedPoint) { return };
             console.log('clickedPoint changed'); 
@@ -427,6 +420,8 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         pscope.$watch('clickedPoint.magnitude',function(){ 
             if(!pscope.clickedPoint) { return };
             console.log('clickedPoint.magnitude changed'); 
+            pscope.clickedPoint.value = +pscope.clickedPoint.magnitude;
+            updateChart();
         });
 
 
@@ -444,6 +439,7 @@ ng = a.directive('sliderSunburstChart', function($compile) {
 
 
             svg.selectAll("path").remove();
+            svg.selectAll("text").remove();
 
             node = data;
 
@@ -461,11 +457,19 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             // this is where the magic happens
             //
             // bind the data to the g elements
+
             var g = svg
                 .datum(data)
                 .selectAll("g")
                 .data(partition.nodes(node))
-                .enter().append("g");
+                .enter()
+                .append("g");
+
+            //console.log(data);
+            //console.log(partition.nodes(node)[25]);
+            //console.log(g);
+
+            //// g is null after a click.
 
             // add paths (arcs) to g, and bind click action
             var path = g.append("path")
@@ -569,7 +573,9 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 path.data(partition.value(valuef).nodes)
                     .transition()
                     .duration(1000)
-                    .attrTween('d',arcTweenData)
+                    .attrTween('d',function(d,i) { 
+                        arcTweenData(node,arc,d,i);
+                    })
                     .each("end",function(e,i) {
 
                         // get a selection of the associated text element
