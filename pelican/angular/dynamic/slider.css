@@ -3,7 +3,8 @@ path {
     stroke-width: 0.5;
 }
 
-div#selectedPointPanel {
+div#mouseoverPointPanel,
+div#clickedPointPanel {
     width: 300px;
 }
 

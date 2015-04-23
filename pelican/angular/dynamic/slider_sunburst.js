@@ -114,39 +114,15 @@ dir.push(ng);
 
 
 
-
-
 ///////////////////////////////////////////////
-// Plain Sunburst Chart
+// Sunburst Panels
 
-ng = a.directive('sliderSunburstChart', function($compile) {
+
+ng = a.directive('sliderSunburstPanels', function($compile) {
 
     function link(scope, element, attr) {
 
-        scope.$parent.$watch('sunburstData',doStuff);
-
-        function doStuff() { 
-            if(!scope.$parent.sunburstData) { return }
-            updateChart(element, scope.$parent);
-        }
-
-    };
-
-    function updateChart(element,pscope) {
-
-        console.log('updating chart');
-
-        var data = pscope.sunburstData;
-
-        /////////////////////////////////////////
-        // Create chart
-        //
-        // data has not been loaded yet.
-        // start by initializing variables 
-        // that don't depend on the data. 
-
-        var chart = $("div#sunburst_chartchart");
-
+        var el = element[0];
 
         // --------------------------
         // add display for details 
@@ -157,11 +133,61 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         // select element of interest with angular.element
         // and append the compiled tags
         //
-        var br = $("<br />").appendTo(chart);
+        var br = $("<br />").appendTo(el);
 
         var panel = $("<div />", {
                 "class" : "panel panel-primary",
-                "id" : "selectedPointPanel"
+                "id" : "mouseoverPointPanel"
+            });
+
+        var panelhead = $("<div />", {
+                "class" : "panel-heading"
+            }).appendTo(panel);
+        
+        var h3 = $("<h3 />", {
+                "class" : "panel-title"
+            }).text("Mouseover Active Arc")
+            .appendTo(panelhead);
+
+
+
+        var panelbody = $("<div />", {
+                "class" : "panel-body"
+            }).appendTo(panel);
+
+        var maindiv = $("<div />", {
+                /*"ng-show" : "mouseoverPoint"*/
+            }).appendTo(panelbody);
+
+        var h = $("<h3 />")
+            .html("Name: [[mouseoverPoint.name]]")
+            .appendTo(maindiv);
+
+        var p = $("<p />", {
+                "class" : "lead"
+            })
+            .html("Value: [[mouseoverPoint.magnitude | number:0]]")
+            .appendTo(maindiv);
+
+
+        angular.element(el).prepend($compile(panel)(pscope));
+
+
+
+
+        // --------------------------
+        // add display for details 
+        // about current clicked selection
+        
+        // assemble the tags, 
+        // then compile the html
+        // select element of interest with angular.element
+        // and append the compiled tags
+        //
+
+        var panel = $("<div />", {
+                "class" : "panel panel-warning",
+                "id" : "clickedPointPanel"
             });
 
         var panelhead = $("<div />", {
@@ -180,24 +206,98 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             }).appendTo(panel);
 
         var maindiv = $("<div />", {
-                /*"ng-show" : "selectedPoint"*/
+                /*"ng-show" : "clickedPoint"*/
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("Name: [[selectedPoint.name]]")
+            .html("Name: [[clickedPoint.name]]")
             .appendTo(maindiv);
 
         var p = $("<p />", {
                 "class" : "lead"
             })
-            .html("Value: [[selectedPoint.magnitude | number:0]]")
+            .html("Value: [[clickedPoint.magnitude | number:0]]")
             .appendTo(maindiv);
 
 
-        angular.element(chart).prepend($compile(panel)(pscope));
+        // this is where you add the slider
+        var input = $("<input />", {
+            "id" : "TheSlider",
+            "type" : "range",
+            "min" : "1", 
+            "max" : "300",
+            "class" : "slider",
+            "ng-model" : "clickedPoint.magnitude"
+        }).appendTo(maindiv);
+
+        //onchange??
+        //
+        //where to set up watch for clickedPoint.magnitude?
+        //how to make sure that the link that points to in the tree
+        //is actually updated when clickedPoint.magnitude is updated?
+
+        angular.element(el).prepend($compile(panel)(pscope));
+
+
+    }
+
+    return {
+        link: link,
+        restrict: "E",
+        scope: { }
+    };
+});
+dir.push(ng);
 
 
 
+///////////////////////////////////////////////
+// Sunburst Chart
+
+ng = a.directive('sliderSunburstChart', function($compile) {
+
+    function link(scope, element, attr) {
+
+        scope.$parent.$watch('sunburstData',doStuff);
+
+        function doStuff() { 
+            if(!scope.$parent.sunburstData) { return }
+            console.log('in doStuff() because sunburstData');
+            buildChart(element, scope.$parent);
+        }
+
+
+    };
+
+    function buildChart(element,pscope) {
+
+        console.log('in buildChart()');
+
+        var data = pscope.sunburstData;
+
+        /////////////////////////////////////////
+        // Create chart
+        //
+        // data has not been loaded yet.
+        // start by initializing variables 
+        // that don't depend on the data. 
+
+        var chart = $("div#sunburst_chartchart");
+        chart.empty();
+
+
+        //////////////////////////////
+        // deal with the slider first:
+        // show it if user has clicked an 
+        // outer slice of the sunburst,
+        // don't show it otherwise
+        $("input#TheSlider").attr("visibility",function(z) {
+            if(pscope.clickedPoint) { 
+                return "visible";
+            } else {
+                return "hidden";
+            }
+        });
 
         ///////////////////////////////////
         // now draw the svg with d3
@@ -229,7 +329,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             .append("g")
             .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
 
-
         // ---------------
         // chart-specific, 
         // data-independent variables:
@@ -245,7 +344,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 }
             });
 
-        console.log(pscope.countval_current);
 
         var arc = d3.svg.arc()
             .startAngle( function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
@@ -256,10 +354,15 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         var smallArc_zoom0 = 0.010,
             smallArc_zoom1 = 0.002;
 
-        function stash(d) {
-            d.x0 = d.x;
-            d.dx0 = d.dx;
-        }
+        var node;
+
+        // -------------------------
+        // convenience functions for drawing chart
+        //
+        //function stash(d) {
+        //    d.x0 = d.x;
+        //    d.dx0 = d.dx;
+        //}
 
         // Tween from zero 
         function arcTweenZero(a, i) {
@@ -307,209 +410,180 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         }                                                                            
 
 
-        // When zooming: interpolate the scales.
-        function arcTweenZoom(d) {
-            var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
-                yd = d3.interpolate(y.domain(), [d.y, 1]),
-                yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
-            return function(d, i) {
-                return i
-                  ? function(t) { return arc(d); }
-                  : function(t) { 
-                      x.domain(xd(t)); 
-                      y.domain(yd(t)).range(yr(t)); 
-                      return arc(d); };
-            };
-        }
+        // if you build it, 
+        // you must update it.
+        updateChart();
 
 
-        //////////////////////////////////////////
-        // On with the show:
-        // draw the damn thing.
 
-        // Keep track of the node that is currently being displayed as the root.
-        var node;
+        // chart will be built/updated if user updates data.
+        // chart will be updated if user clicks on a point.
+
+        pscope.$watch('clickedPoint',function(){ 
+            if(!pscope.clickedPoint) { return };
+            console.log('clickedPoint changed'); 
+        });
+
+        pscope.$watch('clickedPoint.magnitude',function(){ 
+            if(!pscope.clickedPoint) { return };
+            console.log('clickedPoint.magnitude changed'); 
+        });
 
 
-        svg.selectAll("path").remove();
+        function updateChart() {
 
-        node = data;
+            console.log('in updateChart()');
 
-        //var N = 26;
-        //var color = d3.scale.ordinal()
-        //    .domain([0, N-1])
-        //    .range(d3.range(data.length).map(
-        //            d3.scale.linear()
-        //            .domain([0, data.length - 1])
-        //            .range(["steelblue","pink"])
-        //            .interpolate(d3.interpolateLab))
-        //    );
-        var color = d3.scale.category10();
 
-        // this is where the magic happens
-        //
-        // bind the data to the g elements
-        var g = svg
-            .datum(data)
-            .selectAll("g")
-            .data(partition.nodes(node))
-            .enter().append("g");
+            //////////////////////////////////////////
+            // On with the show:
+            // draw the damn thing.
 
-        // add paths (arcs) to g, and bind click action
-        var path = g.append("path")
-            .attr("d",arc)
-            .style("fill",function(d,i) {
-                if(d.name=="root") {
-                    return "#ccc";
-                } else if(!d.children) {
-                    return color(d.parent.name);
-                } else {
-                    return color(d.name);
-                }
-            })
-            .attr("opacity",function(d,i) {
-                return 0.8;
-                //if(d.depth<2) {
-                //    return 0.6;
-                //} else {
-                //    return 0.8;
-                //}
-            })
-            .on("click",click)
-            .on('mouseover', function(d){
-                pscope.$apply(function(){
-                    pscope.selectedPoint = d;
+            // Keep track of the node that is currently being displayed as the root.
+            var node;
+
+
+            svg.selectAll("path").remove();
+
+            node = data;
+
+            //var N = 26;
+            //var color = d3.scale.ordinal()
+            //    .domain([0, N-1])
+            //    .range(d3.range(data.length).map(
+            //            d3.scale.linear()
+            //            .domain([0, data.length - 1])
+            //            .range(["steelblue","pink"])
+            //            .interpolate(d3.interpolateLab))
+            //    );
+            var color = d3.scale.category10();
+
+            // this is where the magic happens
+            //
+            // bind the data to the g elements
+            var g = svg
+                .datum(data)
+                .selectAll("g")
+                .data(partition.nodes(node))
+                .enter().append("g");
+
+            // add paths (arcs) to g, and bind click action
+            var path = g.append("path")
+                .attr("d",arc)
+                .style("fill",function(d,i) {
+                    if(d.name=="root") {
+                        return "#ccc";
+                    } else if(!d.children) {
+                        return color(d.parent.name);
+                    } else {
+                        return color(d.name);
+                    }
+                })
+                .attr("opacity",function(d,i) {
+                    return 0.8;
+                    //if(d.depth<2) {
+                    //    return 0.6;
+                    //} else {
+                    //    return 0.8;
+                    //}
+                })
+                .on("click",function(d) {
+                    pscope.$apply(function(){
+                        pscope.clickedPoint = d;
+                    });
+
+                    d3.selectAll('path').classed('activeclicked',function(e){
+                        var dname = d['name'];
+                        var ename = e['name'];
+                        return dname==ename;
+                    });
+                })
+                .on('mouseover', function(d){
+                    pscope.$apply(function(){
+                        pscope.mouseoverPoint = d;
+                    });
+                    d3.selectAll('path').classed('activehover',function(e){
+                        var dname = d['name'];
+                        var ename = e['name'];
+                        return dname==ename;
+                    });
+                })
+                .on('mouseout', function(){
+                    d3.selectAll('g.point').classed('active',false);
                 });
-                d3.selectAll('path').classed('active',function(e){
-                    var dname = d['name'];
-                    var ename = e['name'];
-                    return dname==ename;
+
+            // add text labels, and set visibility
+            var text = g.append("text")
+                .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+                .attr("x", function(d) { return y(d.y); })
+                .attr("dx", "6") // margin
+                .attr("dy", ".35em") // vertical-align
+                .text(function(d) { 
+                    if(d.name!="root") {
+                        return d.name;
+                    }
+                })
+                .attr("visibility",function(d) {
+                    if(d.name=="root") {
+                        return "hidden";
+                    } else {
+                        return "visible";
+                    }
                 });
-            })
-            .on('mouseout', function(){
-                d3.selectAll('g.point').classed('active',false);
-            })
-            .each(stash);
 
-        // add text labels, and set visibility
-        var text = g.append("text")
-            .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
-            .attr("x", function(d) { return y(d.y); })
-            .attr("dx", "6") // margin
-            .attr("dy", ".35em") // vertical-align
-            .text(function(d) { 
-                return d.name;
-            })
-            .attr("visibility",function(d) {
-                if(d.name=="root") {
-                    return "hidden";
+
+
+            function computeTextRotation(d) {
+                // if our arc takes up more than half a circle,
+                // orient the text horizontally.
+                if(x(d.dx) > Math.PI) {
+                    return 0;
                 } else {
-                    return "visible";
+                    return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
                 }
-            });
+            }
 
 
+            // watch for user clicking total/count switch
+            //
+            // this changes how arc lengths are computed
+            // (based on value or based on count)
+            // 
+            // update how arc lengths are computed
+            // and how data is binned
+            //
+            // value = arc length proportional to value field
+            // count = arc length uniform for each count 
+            //
+            pscope.updateFilter = function(key) { 
 
-        // animate zooming into partition when clicked 
-        function click(d) {
-            text.transition()
-                .attr("opacity", 0);
+                // load the new data values and animate
 
-            node = d;
+                var valuef;
+                if(key=="magnitude") { 
+                    valuef = function(v) { return v.magnitude };
+                } else {
+                    valuef = function() { return 1 };
+                }
 
-            path.transition()
-                .duration(1000)
-                .attrTween("d", arcTweenZoom(d))
-                .each("end",function(e,i) {
-                    // check if the animated element's data e lies within the visible angle span given in d
-                    if (e.x >= d.x && e.x < (d.x + d.dx)) {
+                path.data(partition.value(valuef).nodes)
+                    .transition()
+                    .duration(1000)
+                    .attrTween('d',arcTweenData)
+                    .each("end",function(e,i) {
 
                         // get a selection of the associated text element
                         var arcText = d3.select(this.parentNode).select("text");
 
                         // fade in the text element and recalculate positions
                         arcText.transition().duration(750)
-                            .attr("visibility",function(d) {
-                                if(node.level==0) {
-                                    if(d.dx < smallArc_zoom0) { 
-                                        return "hidden";
-                                    } else {
-                                        return "visible";
-                                    }
-                                } else {
-                                    if(d.letter=="root") { 
-                                        return "hidden";
-                                    } else if(d.dx < smallArc_zoom1) { 
-                                        return "hidden";
-                                    } else {
-                                        return "visible";
-                                    }
-                                }
-                            })
-                            .attr("opacity", 1)
                             .attr("transform", function() { 
-                                if(d.dx==e.dx) { 
-                                    return "rotate(0)";
-                                } else {
-                                    return "rotate(" + computeTextRotation(e) + ")" ;
-                                }
+                                return "rotate(" + computeTextRotation(e) + ")" ;
                             })
                             .attr("x", function(d) { return y(d.y); });
-
-                    }
-                });
-        }
-
-
-        function computeTextRotation(d) {
-            // if our arc takes up more than half a circle,
-            // orient the text horizontally.
-            if(x(d.dx) > Math.PI) {
-                return 0;
-            } else {
-                return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
-            }
-        }
-
-
-        // watch for user clicking total/count switch
-        //
-        // this changes how arc lengths are computed
-        // (based on value or based on count)
-        // 
-        // update how arc lengths are computed
-        // and how data is binned
-        //
-        // value = arc length proportional to value field
-        // count = arc length uniform for each count 
-        //
-        pscope.updateFilter = function(key) { 
-
-            // load the new data values and animate
-
-            var valuef;
-            if(key=="magnitude") { 
-                valuef = function(v) { return v.magnitude };
-            } else {
-                valuef = function() { return 1 };
+                    });
             }
 
-            path.data(partition.value(valuef).nodes)
-                .transition()
-                .duration(1000)
-                .attrTween('d',arcTweenData)
-                .each("end",function(e,i) {
-
-                    // get a selection of the associated text element
-                    var arcText = d3.select(this.parentNode).select("text");
-
-                    // fade in the text element and recalculate positions
-                    arcText.transition().duration(750)
-                        .attr("transform", function() { 
-                            return "rotate(" + computeTextRotation(e) + ")" ;
-                        })
-                        .attr("x", function(d) { return y(d.y); });
-                });
         }
 
     }
