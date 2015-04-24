@@ -90,6 +90,8 @@ ng = a.directive("countval", function($compile){
     return function(pscope, element, attrs){
         element.bind("click", function(){
 
+            console.log('clicked countval switch.');
+
             if( pscope.countval_btn=="magnitude" ) {
                 pscope.countval_btn = "count";
             } else if( pscope.countval_btn=="count" ) {
@@ -103,6 +105,9 @@ ng = a.directive("countval", function($compile){
             }
 
             var key = pscope.countval_current;
+
+            console.log('updating filter on key '+key);
+
             pscope.updateFilter(key)
 
             pscope.$apply();
@@ -423,17 +428,13 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             // outer slice of the sunburst,
             // don't show it otherwise
             d3.select("input#TheSlider").style("visibility",function(z) {
-                console.log('checking whether slider should be visible');
                 if(pscope.clickedPoint) { 
                     if(!(pscope.clickedPoint.name in ['A','B','C','D','E'])) {
-                        console.log("visible");
                         return "visible";
                     } else {
-                        console.log("hidden");
                         return "hidden";
                     }
                 } else {
-                    console.log("hidden");
                     return "hidden";
                 }
             });
@@ -576,6 +577,8 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             //
             pscope.updateFilter = function(key) { 
 
+                console.log('in updatefilter');
+
                 // load the new data values and animate
 
                 var valuef;
@@ -584,6 +587,14 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                 } else {
                     valuef = function() { return 1 };
                 }
+
+                console.log( partition.value(valuef).nodes );
+
+                // because underlying data does not change,
+                // we can pass partition.value(valuef).nodes, 
+                // which is a function, 
+                // to operate on our existing path data.
+                console.log(path.data);
 
                 path.data(partition.value(valuef).nodes)
                     .transition()
