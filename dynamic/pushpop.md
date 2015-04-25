@@ -1,9 +1,10 @@
-This interactive sunburst allows you to change the proportions
-of various quantities interactively.
+Use the controls on this sunburst chart to dynamically 
+push and pop new sections on the sunburst chart.
 
 <br/>
 <br/>
 
+Click push/pop to add/remove categories to the sunburst chart.
 Click on any of the outer slices of the charts to bring up an interactive
 slider control for the size of the slice.
 
@@ -41,12 +42,5 @@ The D3 sunburst chart is bound to underlying JSON data, which has the following 
 </pre>
 
 This tree structure is rendered into the sunchart shown on the left 
-by D3.
+by D3. Clicking push adds a new node to "root".
 
-<br/>
-<br/>
-
-Clicking on an outermost element will show a slider input element,
-and will bind that slider to the chart's underlying JSON data.
-As the value bound to the slider changes, the chart is 
-updated.

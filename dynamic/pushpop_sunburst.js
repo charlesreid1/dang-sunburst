@@ -8,7 +8,7 @@ dir = [];
 // that use D3 to draw sunburst charts.
 // 
 
-ng = a.directive('sliderSunburstHead', function($compile) {
+ng = a.directive('pushpopSunburstHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -21,7 +21,7 @@ ng = a.directive('sliderSunburstHead', function($compile) {
         var h1 = $("<h1 />");
 
         var b = $("<b />")
-            .text("Slider Interactive Sunburst")
+            .text("Push/Pop Interactive Sunburst")
             .appendTo(h1);
 
         h1.appendTo(dir);
@@ -41,7 +41,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Plain Sunburst Controls
 
-ng = a.directive('sliderSunburstControls', function($compile) {
+ng = a.directive('pushpopSunburstControls', function($compile) {
 
     function link(scope, element, attr) { 
 
@@ -52,12 +52,44 @@ ng = a.directive('sliderSunburstControls', function($compile) {
         pscope.countval_btn = "count";
         pscope.countval_current = "magnitude";
 
-        
-        var div = $("<div />");
 
+        var pushpopdiv = $("<div />",{
+            "class" : "pushpop"
+        });
+
+        var push_b = $("<a />", {
+            "class" : "btn btn-large btn-primary",
+            "dopush" : ""
+        })
+        .html("Push slice")
+        .appendTo(pushpopdiv);
+
+
+        var sp = $("<span />")
+            .html("&nbsp;&nbsp;")
+            .appendTo(pushpopdiv);
+
+        var pop_b = $("<a />", {
+            "class" : "btn btn-large btn-primary",
+            "dopop" : ""
+        })
+        .html("Pop slice")
+        .appendTo(pushpopdiv);
+
+        var br = $("<br />").appendTo(pushpopdiv);
+
+
+
+
+
+        // THIS IS WHERE YOU ADD
+        // PUSH/POP BUTTONS
+
+        var br2 = $("<br />").appendTo(pushpopdiv);
+        
         var alrt_t = $("<p />")
             .html("Data is currently binned by [[countval_current]].")
-            .appendTo(div);
+            .appendTo(pushpopdiv);
 
         var alrt_p = $("<p />").appendTo(alrt_t);
 
@@ -68,7 +100,8 @@ ng = a.directive('sliderSunburstControls', function($compile) {
             .html("Group by [[countval_btn]]")
             .appendTo(alrt_p);
 
-        angular.element(el).append($compile(div)(pscope));
+        //angular.element(el).append($compile(div)(pscope));
+        angular.element(el).append($compile(pushpopdiv)(pscope));
 
 
     }
@@ -79,7 +112,6 @@ ng = a.directive('sliderSunburstControls', function($compile) {
     }
 });
 dir.push(ng);
-
 
 
 
@@ -120,10 +152,68 @@ dir.push(ng);
 
 
 ///////////////////////////////////////////////
+// Push/pop directives
+// 
+
+ng = a.directive('dopush', function($compile) {
+
+    return function(pscope, element, attrs){
+
+        element.bind("click", function(){
+
+            console.log('clicked push button.');
+
+            // this is where we modify the chart's underlying JSON 
+            new_child = {
+                "name" : "New"+(pscope.nslices+1.0),
+                "children" : [
+                        {"name" : "N"+(pscope.nslices+1)+"W" , "magnitude" : Math.round(Math.random()*5)*10},
+                        {"name" : "N"+(pscope.nslices+1)+"X" , "magnitude" : Math.round(Math.random()*5)*10},
+                        {"name" : "N"+(pscope.nslices+1)+"Y" , "magnitude" : Math.round(Math.random()*5)*10},
+                        {"name" : "N"+(pscope.nslices+1)+"Z" , "magnitude" : Math.round(Math.random()*5)*10}
+                    ]
+            };
+
+            pscope.sunburstData['children'].push(new_child);
+            pscope.nslices += 1.0;
+
+            pscope.$apply();
+
+            pscope.updateChart();
+
+        });
+    };
+});
+
+
+
+ng = a.directive('dopop', function($compile) {
+
+    return function(pscope, element, attrs){
+
+        element.bind("click", function(){
+
+            console.log('clicked pop button.');
+
+            pscope.sunburstData['children'].pop();
+            pscope.nslices = Math.max(pscope.nslices-1, 0.0);
+
+            pscope.$apply();
+
+            pscope.updateChart();
+
+        });
+    };
+});
+
+
+
+
+///////////////////////////////////////////////
 // Sunburst Panels
 
 
-ng = a.directive('sliderSunburstPanels', function($compile) {
+ng = a.directive('pushpopSunburstPanels', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -235,12 +325,6 @@ ng = a.directive('sliderSunburstPanels', function($compile) {
             "ng-model" : "clickedPoint.magnitude"
         }).appendTo(maindiv);
 
-        //onchange??
-        //
-        //where to set up watch for clickedPoint.magnitude?
-        //how to make sure that the link that points to in the tree
-        //is actually updated when clickedPoint.magnitude is updated?
-
         angular.element(el).prepend($compile(panel)(pscope));
 
 
@@ -259,7 +343,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Sunburst Chart
 
-ng = a.directive('sliderSunburstChart', function($compile) {
+ng = a.directive('pushpopSunburstChart', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -270,7 +354,6 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             console.log('in doStuff() because sunburstData');
             buildChart(element, scope.$parent);
         }
-
 
     };
 
@@ -306,7 +389,7 @@ ng = a.directive('sliderSunburstChart', function($compile) {
         
         var width   = 400 - margin.right - margin.left,
             height  = 400 - margin.top   - margin.bottom;
-        
+
         var radius = Math.min(width, height) / 2;
         
         var x = d3.scale.linear()
@@ -398,32 +481,13 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             }                                                                          
         }                                                                            
 
-        // if you build it, 
-        // you must update it.
-        updateChart();
-
-        // chart will be built/updated if user updates data.
-        // chart will be updated if user clicks on a point.
-        pscope.$watch('clickedPoint',function(){ 
-            if(!pscope.clickedPoint) { return };
-            console.log('clickedPoint changed'); 
-        });
-
-        pscope.$watch('clickedPoint.magnitude',function(){ 
-            if(!pscope.clickedPoint) { return };
-            console.log('clickedPoint.magnitude changed'); 
-            pscope.clickedPoint.value = +pscope.clickedPoint.magnitude;
-            updateChart();
-        });
-
-
-        function updateChart() {
+        pscope.updateChart = function() {
 
             console.log('in updateChart()');
 
 
             //////////////////////////////
-            // deal with the slider first:
+            // deal with the pushpop first:
             // show it if user has clicked an 
             // outer slice of the sunburst,
             // don't show it otherwise
@@ -617,6 +681,26 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             }
 
         }
+
+        // if you build it, 
+        // you must update it.
+        pscope.updateChart();
+
+        // chart will be built/updated if user updates data.
+        // chart will be updated if user clicks on a point.
+        pscope.$watch('clickedPoint',function(){ 
+            if(!pscope.clickedPoint) { return };
+            console.log('clickedPoint changed'); 
+        });
+
+        pscope.$watch('clickedPoint.magnitude',function(){ 
+            if(!pscope.clickedPoint) { return };
+            console.log('clickedPoint.magnitude changed'); 
+            pscope.clickedPoint.value = +pscope.clickedPoint.magnitude;
+            pscope.updateChart();
+        });
+
+
 
     }
 
