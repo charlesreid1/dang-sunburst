@@ -10,12 +10,47 @@
 
 {% block content %}
 
-<script type="text/javascript">
+<link href="{{ SITEURL }}/dynamic/pushpop.css" rel="stylesheet" stype="text/css" />
 
+<div ng-app="pushpopApp">
 
+    <div ng-controller="PushpopController" ng-init="initialize()">
 
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <pushpop-sunburst-head></pushpop-sunburst-head>
+            </div>
+        </div>
 
-</script>
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <div class="row" id="sunburst_chartchart">
+                    <pushpop-sunburst-chart></pushpop-sunburst-chart>
+                </div>
+                <div class="row" id="sunburst_controls">
+                    <pushpop-sunburst-controls></pushpop-sunburst-controls>
+                </div>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+                <div class="row" id="sunburst_panels">
+                    <pushpop-sunburst-panels></pushpop-sunburst-panels>
+                </div>
+                <div class="row" id="sunburst_md">
+                    {% include 'pushpop.md' %}
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/dynamic/pushpop_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/dynamic/pushpop_sunburst.js"></script>
 
 {% endblock %}
 
