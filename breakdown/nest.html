@@ -8,7 +8,9 @@
         my CSS styles
         -->
         <link href="/dang-sunburst/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
-        <link href="/dang-sunburst/theme/css/cosmo.css"      rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/main.css"           rel="stylesheet" type="text/css">
+
+        <link href="/dang-sunburst/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
         <link href="/dang-sunburst/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
         <link href="/dang-sunburst/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
 
@@ -116,6 +118,84 @@ with open('sunburst_nest_tree.json','w') as f:
 print "Done printing nested tree JSON to file."
 </pre>
 
+This JSON data structure is assembled and exported by Python,
+and is readable as a JavaScript Object (the JSO of JSON).
+The structure of JSON data required to construct a sunburst 
+is given below. The frequency key "freq" is used to 
+determine the size of the arcs.
+
+<pre style="font-size: 8px;">
+{
+    "name": "root"
+    "freq": 1.0,
+    "children": [
+        {
+            "name": "Blue Bin 1"
+            "freq": 0.1012,
+            "children": [
+                {
+                    "freq": 0.002,
+                    "name": "Blue Bin 1, Green Bin 1"
+                },
+                {
+                    "freq": 0.0037000000000000002,
+                    "name": "Blue Bin 1, Green Bin 2"
+                },
+                {
+                    "freq": 0.0068999999999999999,
+                    "name": "Blue Bin 1, Green Bin 3"
+                },
+                {
+                    "freq": 0.0082000000000000007,
+                    "name": "Blue Bin 1, Green Bin 4"
+                },
+                {
+                    "freq": 0.0085000000000000006,
+                    "name": "Blue Bin 1, Green Bin 5"
+                },
+                {
+                    "freq": 0.011599999999999999,
+                    "name": "Blue Bin 1, Green Bin 6"
+                },
+                {
+                    "freq": 0.0143,
+                    "name": "Blue Bin 1, Green Bin 7"
+                },
+                {
+                    "freq": 0.0129,
+                    "name": "Blue Bin 1, Green Bin 8"
+                },
+                {
+                    "freq": 0.015599999999999999,
+                    "name": "Blue Bin 1, Green Bin 9"
+                },
+                {
+                    "freq": 0.017500000000000002,
+                    "name": "Blue Bin 1, Green Bin 10"
+                }
+        }, 
+        {
+            "name": "Blue Bin 2"
+            "freq": 0.22839999999999999,
+            "children": [
+                {
+                    "freq": 0.015299999999999999,
+                    "name": "Blue Bin 2, Green Bin 11"
+                },
+                {
+                    "freq": 0.019699999999999999,
+                    "name": "Blue Bin 2, Green Bin 12"
+                },
+
+                
+
+                [...]
+
+
+            ]
+        }
+}
+</pre>
             </div>
         </div>
 
@@ -161,5 +241,6 @@ print "Done printing nested tree JSON to file."
         <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet.ajax.min.js"></script>
         -->
     </footer><!-- /#contentinfo -->
+
 </body>
 </html>
