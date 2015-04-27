@@ -1,0 +1,466 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "freq": 0.002,
+                    "name": "Blue Bin 1, Green Bin 1"
+                },
+                {
+                    "freq": 0.0037000000000000002,
+                    "name": "Blue Bin 1, Green Bin 2"
+                },
+                {
+                    "freq": 0.0068999999999999999,
+                    "name": "Blue Bin 1, Green Bin 3"
+                },
+                {
+                    "freq": 0.0082000000000000007,
+                    "name": "Blue Bin 1, Green Bin 4"
+                },
+                {
+                    "freq": 0.0085000000000000006,
+                    "name": "Blue Bin 1, Green Bin 5"
+                },
+                {
+                    "freq": 0.011599999999999999,
+                    "name": "Blue Bin 1, Green Bin 6"
+                },
+                {
+                    "freq": 0.0143,
+                    "name": "Blue Bin 1, Green Bin 7"
+                },
+                {
+                    "freq": 0.0129,
+                    "name": "Blue Bin 1, Green Bin 8"
+                },
+                {
+                    "freq": 0.015599999999999999,
+                    "name": "Blue Bin 1, Green Bin 9"
+                },
+                {
+                    "freq": 0.017500000000000002,
+                    "name": "Blue Bin 1, Green Bin 10"
+                }
+            ],
+            "freq": 0.1012,
+            "name": "Blue Bin 1"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.015299999999999999,
+                    "name": "Blue Bin 2, Green Bin 11"
+                },
+                {
+                    "freq": 0.019699999999999999,
+                    "name": "Blue Bin 2, Green Bin 12"
+                },
+                {
+                    "freq": 0.020799999999999999,
+                    "name": "Blue Bin 2, Green Bin 13"
+                },
+                {
+                    "freq": 0.022599999999999999,
+                    "name": "Blue Bin 2, Green Bin 14"
+                },
+                {
+                    "freq": 0.025700000000000001,
+                    "name": "Blue Bin 2, Green Bin 15"
+                },
+                {
+                    "freq": 0.023900000000000001,
+                    "name": "Blue Bin 2, Green Bin 16"
+                },
+                {
+                    "freq": 0.0235,
+                    "name": "Blue Bin 2, Green Bin 17"
+                },
+                {
+                    "freq": 0.0252,
+                    "name": "Blue Bin 2, Green Bin 18"
+                },
+                {
+                    "freq": 0.024799999999999999,
+                    "name": "Blue Bin 2, Green Bin 19"
+                },
+                {
+                    "freq": 0.0269,
+                    "name": "Blue Bin 2, Green Bin 20"
+                }
+            ],
+            "freq": 0.22839999999999999,
+            "name": "Blue Bin 2"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.026700000000000002,
+                    "name": "Blue Bin 3, Green Bin 21"
+                },
+                {
+                    "freq": 0.024799999999999999,
+                    "name": "Blue Bin 3, Green Bin 22"
+                },
+                {
+                    "freq": 0.023,
+                    "name": "Blue Bin 3, Green Bin 23"
+                },
+                {
+                    "freq": 0.0264,
+                    "name": "Blue Bin 3, Green Bin 24"
+                },
+                {
+                    "freq": 0.025100000000000001,
+                    "name": "Blue Bin 3, Green Bin 25"
+                },
+                {
+                    "freq": 0.024500000000000001,
+                    "name": "Blue Bin 3, Green Bin 26"
+                },
+                {
+                    "freq": 0.026200000000000001,
+                    "name": "Blue Bin 3, Green Bin 27"
+                },
+                {
+                    "freq": 0.024199999999999999,
+                    "name": "Blue Bin 3, Green Bin 28"
+                },
+                {
+                    "freq": 0.027,
+                    "name": "Blue Bin 3, Green Bin 29"
+                },
+                {
+                    "freq": 0.0252,
+                    "name": "Blue Bin 3, Green Bin 30"
+                }
+            ],
+            "freq": 0.25309999999999999,
+            "name": "Blue Bin 3"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.023900000000000001,
+                    "name": "Blue Bin 4, Green Bin 31"
+                },
+                {
+                    "freq": 0.022499999999999999,
+                    "name": "Blue Bin 4, Green Bin 32"
+                },
+                {
+                    "freq": 0.023300000000000001,
+                    "name": "Blue Bin 4, Green Bin 33"
+                },
+                {
+                    "freq": 0.0224,
+                    "name": "Blue Bin 4, Green Bin 34"
+                },
+                {
+                    "freq": 0.021499999999999998,
+                    "name": "Blue Bin 4, Green Bin 35"
+                },
+                {
+                    "freq": 0.0195,
+                    "name": "Blue Bin 4, Green Bin 36"
+                },
+                {
+                    "freq": 0.017399999999999999,
+                    "name": "Blue Bin 4, Green Bin 37"
+                },
+                {
+                    "freq": 0.018800000000000001,
+                    "name": "Blue Bin 4, Green Bin 38"
+                },
+                {
+                    "freq": 0.017500000000000002,
+                    "name": "Blue Bin 4, Green Bin 39"
+                },
+                {
+                    "freq": 0.018200000000000001,
+                    "name": "Blue Bin 4, Green Bin 40"
+                }
+            ],
+            "freq": 0.20499999999999999,
+            "name": "Blue Bin 4"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.0149,
+                    "name": "Blue Bin 5, Green Bin 41"
+                },
+                {
+                    "freq": 0.015699999999999999,
+                    "name": "Blue Bin 5, Green Bin 42"
+                },
+                {
+                    "freq": 0.014200000000000001,
+                    "name": "Blue Bin 5, Green Bin 43"
+                },
+                {
+                    "freq": 0.0137,
+                    "name": "Blue Bin 5, Green Bin 44"
+                },
+                {
+                    "freq": 0.0112,
+                    "name": "Blue Bin 5, Green Bin 45"
+                },
+                {
+                    "freq": 0.0111,
+                    "name": "Blue Bin 5, Green Bin 46"
+                },
+                {
+                    "freq": 0.0123,
+                    "name": "Blue Bin 5, Green Bin 47"
+                },
+                {
+                    "freq": 0.0112,
+                    "name": "Blue Bin 5, Green Bin 48"
+                },
+                {
+                    "freq": 0.01,
+                    "name": "Blue Bin 5, Green Bin 49"
+                },
+                {
+                    "freq": 0.0086999999999999994,
+                    "name": "Blue Bin 5, Green Bin 50"
+                }
+            ],
+            "freq": 0.123,
+            "name": "Blue Bin 5"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.0091000000000000004,
+                    "name": "Blue Bin 6, Green Bin 51"
+                },
+                {
+                    "freq": 0.0074999999999999997,
+                    "name": "Blue Bin 6, Green Bin 52"
+                },
+                {
+                    "freq": 0.0077000000000000002,
+                    "name": "Blue Bin 6, Green Bin 53"
+                },
+                {
+                    "freq": 0.0057000000000000002,
+                    "name": "Blue Bin 6, Green Bin 54"
+                },
+                {
+                    "freq": 0.0055999999999999999,
+                    "name": "Blue Bin 6, Green Bin 55"
+                },
+                {
+                    "freq": 0.0061000000000000004,
+                    "name": "Blue Bin 6, Green Bin 56"
+                },
+                {
+                    "freq": 0.0044999999999999997,
+                    "name": "Blue Bin 6, Green Bin 57"
+                },
+                {
+                    "freq": 0.0044999999999999997,
+                    "name": "Blue Bin 6, Green Bin 58"
+                },
+                {
+                    "freq": 0.0035999999999999999,
+                    "name": "Blue Bin 6, Green Bin 59"
+                },
+                {
+                    "freq": 0.0028999999999999998,
+                    "name": "Blue Bin 6, Green Bin 60"
+                }
+            ],
+            "freq": 0.057200000000000001,
+            "name": "Blue Bin 6"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.0033,
+                    "name": "Blue Bin 7, Green Bin 61"
+                },
+                {
+                    "freq": 0.0038,
+                    "name": "Blue Bin 7, Green Bin 62"
+                },
+                {
+                    "freq": 0.0025000000000000001,
+                    "name": "Blue Bin 7, Green Bin 63"
+                },
+                {
+                    "freq": 0.0030000000000000001,
+                    "name": "Blue Bin 7, Green Bin 64"
+                },
+                {
+                    "freq": 0.0025000000000000001,
+                    "name": "Blue Bin 7, Green Bin 65"
+                },
+                {
+                    "freq": 0.0025999999999999999,
+                    "name": "Blue Bin 7, Green Bin 66"
+                },
+                {
+                    "freq": 0.0020999999999999999,
+                    "name": "Blue Bin 7, Green Bin 67"
+                },
+                {
+                    "freq": 0.00089999999999999998,
+                    "name": "Blue Bin 7, Green Bin 68"
+                },
+                {
+                    "freq": 0.00089999999999999998,
+                    "name": "Blue Bin 7, Green Bin 69"
+                },
+                {
+                    "freq": 0.0016000000000000001,
+                    "name": "Blue Bin 7, Green Bin 70"
+                }
+            ],
+            "freq": 0.023199999999999998,
+            "name": "Blue Bin 7"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.0011000000000000001,
+                    "name": "Blue Bin 8, Green Bin 71"
+                },
+                {
+                    "freq": 0.00059999999999999995,
+                    "name": "Blue Bin 8, Green Bin 72"
+                },
+                {
+                    "freq": 0.00080000000000000004,
+                    "name": "Blue Bin 8, Green Bin 73"
+                },
+                {
+                    "freq": 0.0011999999999999999,
+                    "name": "Blue Bin 8, Green Bin 74"
+                },
+                {
+                    "freq": 0.00080000000000000004,
+                    "name": "Blue Bin 8, Green Bin 75"
+                },
+                {
+                    "freq": 0.00040000000000000002,
+                    "name": "Blue Bin 8, Green Bin 76"
+                },
+                {
+                    "freq": 0.00059999999999999995,
+                    "name": "Blue Bin 8, Green Bin 77"
+                },
+                {
+                    "freq": 0.00050000000000000001,
+                    "name": "Blue Bin 8, Green Bin 78"
+                },
+                {
+                    "freq": 0.00040000000000000002,
+                    "name": "Blue Bin 8, Green Bin 79"
+                },
+                {
+                    "freq": 0.00059999999999999995,
+                    "name": "Blue Bin 8, Green Bin 80"
+                }
+            ],
+            "freq": 0.0070000000000000001,
+            "name": "Blue Bin 8"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.00040000000000000002,
+                    "name": "Blue Bin 9, Green Bin 81"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 9, Green Bin 82"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 9, Green Bin 83"
+                },
+                {
+                    "freq": 0.00020000000000000001,
+                    "name": "Blue Bin 9, Green Bin 84"
+                },
+                {
+                    "freq": 0.00020000000000000001,
+                    "name": "Blue Bin 9, Green Bin 85"
+                },
+                {
+                    "freq": 0.00029999999999999997,
+                    "name": "Blue Bin 9, Green Bin 86"
+                },
+                {
+                    "freq": 0.0001,
+                    "name": "Blue Bin 9, Green Bin 87"
+                },
+                {
+                    "freq": 0.00020000000000000001,
+                    "name": "Blue Bin 9, Green Bin 88"
+                },
+                {
+                    "freq": 0.0001,
+                    "name": "Blue Bin 9, Green Bin 89"
+                },
+                {
+                    "freq": 0.0001,
+                    "name": "Blue Bin 9, Green Bin 90"
+                }
+            ],
+            "freq": 0.0016000000000000001,
+            "name": "Blue Bin 9"
+        },
+        {
+            "children": [
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 91"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 92"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 93"
+                },
+                {
+                    "freq": 0.0001,
+                    "name": "Blue Bin 10, Green Bin 94"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 95"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 96"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 97"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 98"
+                },
+                {
+                    "freq": 0.0,
+                    "name": "Blue Bin 10, Green Bin 99"
+                },
+                {
+                    "freq": 0.00020000000000000001,
+                    "name": "Blue Bin 10, Green Bin 100"
+                }
+            ],
+            "freq": 0.00029999999999999997,
+            "name": "Blue Bin 10"
+        }
+    ],
+    "freq": 1.0,
+    "name": "root"
+}
