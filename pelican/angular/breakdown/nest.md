@@ -19,57 +19,96 @@ while each of the green bars represents a partition in the outer radian, or ring
 <img src="{{ SITEURL }}/images/twohist.png" />
 <br />
 
-The Python code used to generate these samples is given below:
+The Python code used to generate these samples is given below.
 
-<pre>
-import seaborn as sns
-from numpy.random import weibull
-
-Nsamples = 1e4
-
-# generate a weibull distribution
-k=2
-x = weibull(k,(Nsamples,))
-
-partition1, binlocs1, _ = hist(x,10);
-partition2, binlocs2, _ = hist(x,100);
-</pre>
+The first portion of the code creates two histograms with 10 and 100 
+bins, respectively. Because the bin sizes are consistent, and sunburst charts
+only visualize relative differences (due to the normalization of 360 degrees),
+the bin locations do not matter so much as the counts in each bin.
 
 These two bins still have to be turned into a nested JSON structure
-to be displayed in a sunburst chart, however. Here is the code 
-to parse the two vectors and construct the JSON structure:
+to be displayed in a sunburst chart. The second portion of the code 
+parses the two bin count vectors and constructs the JSON structure:
 
-<pre>
-# Now dump this to a JSON file
-import json
+<br />
+<script src="https://gist.github.com/charlesreid1/355041fcf72eb209d33e.js"></script>
 
-tree = {}
-tree['name'] = 'root'
-tree['freq'] = sum(partition1[:])/Nsamples
+This JSON data structure is assembled and exported by Python,
+and is readable as a JavaScript Object (the JSO of JSON).
+The structure of JSON data required to construct a sunburst 
+is given below. The frequency key "freq" is used to 
+determine the size of the arcs.
 
-children = []
-for c1 in range(len(partition1)):
-    child = {}
-    child['name'] = 'X%d'%(c1+1)
-    child['freq'] = partition1[c1]/Nsamples
+<pre style="font-size: 8px;">
+{
+    "name": "root"
+    "freq": 1.0,
+    "children": [
+        {
+            "name": "Blue Bin 1"
+            "freq": 0.1012,
+            "children": [
+                {
+                    "freq": 0.002,
+                    "name": "Blue Bin 1, Green Bin 1"
+                },
+                {
+                    "freq": 0.0037000000000000002,
+                    "name": "Blue Bin 1, Green Bin 2"
+                },
+                {
+                    "freq": 0.0068999999999999999,
+                    "name": "Blue Bin 1, Green Bin 3"
+                },
+                {
+                    "freq": 0.0082000000000000007,
+                    "name": "Blue Bin 1, Green Bin 4"
+                },
+                {
+                    "freq": 0.0085000000000000006,
+                    "name": "Blue Bin 1, Green Bin 5"
+                },
+                {
+                    "freq": 0.011599999999999999,
+                    "name": "Blue Bin 1, Green Bin 6"
+                },
+                {
+                    "freq": 0.0143,
+                    "name": "Blue Bin 1, Green Bin 7"
+                },
+                {
+                    "freq": 0.0129,
+                    "name": "Blue Bin 1, Green Bin 8"
+                },
+                {
+                    "freq": 0.015599999999999999,
+                    "name": "Blue Bin 1, Green Bin 9"
+                },
+                {
+                    "freq": 0.017500000000000002,
+                    "name": "Blue Bin 1, Green Bin 10"
+                }
+        }, 
+        {
+            "name": "Blue Bin 2"
+            "freq": 0.22839999999999999,
+            "children": [
+                {
+                    "freq": 0.015299999999999999,
+                    "name": "Blue Bin 2, Green Bin 11"
+                },
+                {
+                    "freq": 0.019699999999999999,
+                    "name": "Blue Bin 2, Green Bin 12"
+                },
 
-    grandchildren = []
-    for c2 in range(len(partition2)):
-        if c2<((c1+1)*10):
-            grandchild = {}
-            grandchild['name'] = 'X%d-%d'%(c1+1,c2+1)
-            grandchild['freq'] = partition2[c2]/Nsamples
-            grandchildren.append(grandchild)
-    
-    child['children'] = grandchildren
-    children.append(child)
+                
 
-tree['children'] = children
+                [...]
 
-with open('sunburst_nest_tree.json','w') as f:
-    json.dump(tree,f,sort_keys=True,indent=4,separators=(',', ': '))
 
-print "Done printing nested tree JSON to file."
+            ]
+        }
+}
 </pre>
-
 

@@ -495,6 +495,7 @@ ng = a.directive('sliderSunburstChart', function($compile) {
                         return "#ccc";
                     } else if(!d.children) {
                         return color(d.parent.name);
+
                     } else {
                         return color(d.name);
                     }

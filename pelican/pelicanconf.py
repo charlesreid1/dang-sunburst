@@ -86,6 +86,17 @@ TEMPLATE_PAGES['slider.md']             = 'dynamic/slider.md'
 TEMPLATE_PAGES['slider_modcontrol.js']  = 'dynamic/slider_modcontrol.js'
 TEMPLATE_PAGES['slider_sunburst.js']    = 'dynamic/slider_sunburst.js'
 
+# pushpop
+TEMPLATE_PAGES['pushpop_tree.json']      = 'dynamic/pushpop_tree.json'
+
+TEMPLATE_PAGES['pushpop.html']           = 'dynamic/pushpop.html'
+TEMPLATE_PAGES['pushpop.css']            = 'dynamic/pushpop.css'
+TEMPLATE_PAGES['pushpop.md']             = 'dynamic/pushpop.md'
+
+TEMPLATE_PAGES['pushpop_modcontrol.js']  = 'dynamic/pushpop_modcontrol.js'
+TEMPLATE_PAGES['pushpop_sunburst.js']    = 'dynamic/pushpop_sunburst.js'
+
+
 
 
 
