@@ -8,7 +8,7 @@ import os
 SITEURL = ''
 AUTHOR = u'charlesreid1'
 SITENAME = u'dang-sunburst'
-#SITEURL = '/dang-sunburst'
+SITEURL = '/dang-sunburst'
 
 PATH = 'content'
 TIMEZONE = 'America/Los_Angeles'
