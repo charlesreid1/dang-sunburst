@@ -1,0 +1,15 @@
+.fade { 
+    opacity: 0;
+    -webkit-transition: opacity 0.85s linear;
+    -moz-transition: opacity 0.85s linear;
+    -o-transition: opacity 0.85s linear;
+    transition: opacity 0.85s linear;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.active {
+  stroke: black;
+}

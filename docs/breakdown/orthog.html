@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Sunburst of Orthogonal Dimensions</title>
+        <meta charset="utf-8" />
+
+        <!--
+        my CSS styles
+        -->
+        <link href="/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
+        <link href="/theme/css/main.css"           rel="stylesheet" type="text/css">
+
+        <link href="/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
+        <link href="/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
+        <link href="/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
+
+        <!--
+        include Angular first
+        -->
+        <script type="text/javascript" src="/theme/js/angular-1.3.15.js"></script>
+</head>
+
+<body id="index" class="home">
+    <div class="container">
+        <h1><a href="/">dang-sunburst <strong></strong></a></h1>
+        <hr />
+
+
+<link href="/breakdown/orthog.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="orthogonalApp">
+
+    <div ng-controller="OrthogonalController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-sm-12" id="sunburst_title">
+                <orthog-sunburst-head></orthog-sunburst-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="sunburst_chart">
+                <orthog-sunburst-controls></orthog-sunburst-controls>
+                <orthog-sunburst-chart></orthog-sunburst-chart>
+            </div>
+            <div class="col-sm-6" id="sunburst_text">
+The sunburst chart on this page displays a distribution of data along two 
+independent dimensions, X and Y.
+
+<br />
+<br />
+
+To generate this data, random samples were drawn from a joint PDF of two 
+random variables, one normally distributed, and one distributed according
+to a gamma distribution.
+
+<br />
+<br />
+
+I used Python to do this:
+
+<pre>
+import numpy as np
+from numpy.random import randn
+import pandas as pd
+from scipy import stats
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Generate discrete joint distribution
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+x = np.random.normal(3,1,1500)
+y = stats.gamma(3).rvs(1500)
+
+H,xedges,yedges = np.histogram2d(y,x,[10,10])
+X, Y = np.meshgrid(xedges,yedges)
+
+mpl.rc("figure", figsize=(6, 6))
+pcolormesh(X,Y,H);
+ax = gca();
+ax.set_xlim([0,10])
+ax.set_ylim([0,6])
+ax.set_xlabel('X');
+ax.set_ylabel('Y');
+
+mpl.rc("figure", figsize=(6, 6))
+ax = sns.kdeplot(x,y,shaded=True)
+ax.set_xlim(0,10)
+ax.set_ylim(0,10)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+
+</pre>
+
+which results in the joint distribution shown in the plot below:
+
+<br />
+<img src="/images/orthogonal_kde.png" />
+<br />
+
+Next, we map the bins of each dimension, X and Y, to a set of variables.
+In this case, we generated 10 bins for X and 10 bins for Y.
+This is easily done with some code calling the Numpy <code>histogram2d</code> function.
+This results in a binned, 10x10 grid:
+
+<br />
+<img src="/images/orthogonal_joint_distribution.png" />
+<br />
+
+This data is displayed in the sunburst chart, with the x dimension represented in the 
+inner ring, and the y dimension represented in the outer ring (applied to each arc).
+
+<br />
+<br />
+
+Because the sunburst chart groups things categorically, we are converting
+the quantitative X and Y scales to groups according to bins. We arbitrarily 
+label the bins, but maintain their order (which is important).
+
+<br />
+<br />
+
+The final data is an array that looks like this:
+
+<pre>
+{
+    'x' : <x bin index>
+    'y' : <y bin index>
+    'value' : <number of observations in histogram>
+}
+</pre>
+
+The value is provided by the matrix <code>H</code> of counts per bin, 
+returned by <code>np.histogram2d</code>.
+            </div>
+        </div>
+
+        
+        <div class="row">
+    
+    
+    </div>
+
+</div>
+
+<script type="text/javascript" src="/breakdown/orthog_modcontrol.js"></script>
+<script type="text/javascript" src="/breakdown/orthog_sunburst.js"></script>
+
+    </div>
+
+    <footer id="contentinfo" class="body">
+    <hr />
+    <p style="text-align: center">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+        </span>
+        Made from the command line with vim by 
+        <a href="http://charlesreid1.com">charlesreid1</a>.
+    </p>
+
+    <p style="text-align: center;">Made with HTML (
+    <a href="http://http://bootstrap.org/">Bootstrap</a>,
+    <a href="http://bootswatch.com">Bootswatch</a>), 
+    Javascript (
+    <a href="http://http://d3js.org/">D3.js</a>, 
+    <a href=https://angularjs.org/">Angular.js</a>,
+    <a href="https://jquery.com/">jQuery</a>), 
+    and Python (
+    <a href="http://getpelican.com">Pelican</a>,
+    <a href="http://http://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a>,
+    <a href="http://matplotlib.org">Matplotlib</a>,
+    <a href="http://numpy.org">Numpy</a>).
+    </p>
+
+        <script type="text/javascript" src="/theme/js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="/theme/js/bootstrap-3.3.4.js"></script>
+        <script type="text/javascript" src="/theme/js/d3-3.5.5.js"></script>
+        <!--
+        <script type="text/javascript" src="/theme/js/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="/theme/js/leaflet.ajax.min.js"></script>
+        -->
+    </footer><!-- /#contentinfo -->
+
+</body>
+</html>
