@@ -8,7 +8,13 @@ import os
 SITEURL = ''
 AUTHOR = u'charlesreid1'
 SITENAME = u'dang-sunburst'
-SITEURL = '/dang-sunburst'
+
+SITEURL = ''
+#SITEURL = '/dang-sunburst'
+
+
+OUTPUT_PATH = '../docs/'
+
 
 PATH = 'content'
 TIMEZONE = 'America/Los_Angeles'
@@ -21,7 +27,8 @@ THEME = 'simple-angular'
 EXTRA_TEMPLATES_PATHS = ['angular',
                          'angular/letters',
                          'angular/breakdown',
-                         'angular/dynamic']
+                         'angular/dynamic',
+                         'angular/simpledonut']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -96,6 +103,18 @@ TEMPLATE_PAGES['pushpop.md']             = 'dynamic/pushpop.md'
 TEMPLATE_PAGES['pushpop_modcontrol.js']  = 'dynamic/pushpop_modcontrol.js'
 TEMPLATE_PAGES['pushpop_sunburst.js']    = 'dynamic/pushpop_sunburst.js'
 
+
+
+
+
+# simple static donut
+TEMPLATE_PAGES['staticdonut.json']     = 'simpledonut/staticdonut.json'
+TEMPLATE_PAGES['staticdonut.html']     = 'simpledonut/staticdonut.html'
+TEMPLATE_PAGES['staticdonut.css']      = 'simpledonut/staticdonut.css'
+TEMPLATE_PAGES['staticdonut.md']       = 'simpledonut/staticdonut.md'
+
+TEMPLATE_PAGES['staticdonut_modcontrol.js']  = 'simpledonut/staticdonut_modcontrol.js'
+TEMPLATE_PAGES['staticdonut_chart.js']       = 'simpledonut/staticdonut_chart.js'
 
 
 
