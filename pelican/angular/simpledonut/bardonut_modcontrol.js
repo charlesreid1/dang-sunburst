@@ -17,10 +17,12 @@ var datafactory = a.factory('datafactory', function($http, $q) {
         getPickerData: function() {
             var deferred = $q.defer();
 
-            $http.get('bardonut.json').success(function(data) {
+            var json_file = 'bardonut_allcategories.json';
+
+            $http.get(json_file).success(function(data) {
                 deferred.resolve(data);
             }).error(function(){
-                console.log('error loading bardonut.json');
+                console.log('error loading json file: '+json_file);
                 deferred.reject();
             });
 

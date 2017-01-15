@@ -21,7 +21,7 @@ dir = [];
 // Print out instructions, title, etc.
 
 
-ng = a.directive('donutPickerHead', function($compile) {
+ng = a.directive('bardonuthead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -38,6 +38,12 @@ ng = a.directive('donutPickerHead', function($compile) {
             .appendTo(h1);
 
         h1.appendTo(dir);
+
+
+        var p = $("<p />", { 
+            "class" : "normal" })
+            .html("The following charts show statistics about death records, classified by ICD 10 code. Select an ICD 10 code to view statistics about gender and manner of death.")
+            .appendTo(maindiv);
         
 
     }
@@ -57,7 +63,7 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Chart Controls Directives
 
-ng = a.directive('donutPickerControls', function($compile) {
+ng = a.directive('bardonutcontrols', function($compile) {
 
     function link(scope, element, attr) { 
 
@@ -213,7 +219,7 @@ ng = a.directive("changecode", function($compile) {
 // Display useful information in a pretty box
 
 
-ng = a.directive('donutPickerPanels', function($compile) {
+ng = a.directive('bardonutpanel', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -285,7 +291,7 @@ dir.push(ng);
 // 
 // This is the actual donut chart, of gender ratios.
 
-ng = a.directive('donutPickerChart', function($compile) {
+ng = a.directive('donutpickerchart', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -475,7 +481,7 @@ dir.push(ng);
 // 
 // This is a bar chart for manner of death. 
 
-ng = a.directive('modBarChart', function($compile) {
+ng = a.directive('modbarchart', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -523,7 +529,7 @@ ng = a.directive('modBarChart', function($compile) {
 
             var margin = {
                 top: 10, 
-                bottom: 80, 
+                bottom: 100,
 
                 right: 30, 
                 left: 50
@@ -594,7 +600,7 @@ ng = a.directive('modBarChart', function($compile) {
 
                 y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
-                svg.selectAll("path").remove();
+                //svg.selectAll("path").remove();
 
                 svg.append("g")
                     .attr("class", "x axis")
@@ -603,11 +609,11 @@ ng = a.directive('modBarChart', function($compile) {
                     })
                     .call(xAxis)
                     .selectAll("text")  
-                        .attr("class", "x axis label");
-                        //.attr("transform", "rotate(90)" );
-                        //.style("text-anchor", "end")
-                        //.attr("dx", "-.8em")
-                        //.attr("dy", ".15em")
+                        .attr("class", "x axis label")
+                        .attr("transform", "rotate(90)" )
+                        .style("text-anchor", "start")
+                        .attr("dx", "0.5em")
+                        .attr("dy", "-1em");
 
                 
                 svg.append("g")
@@ -615,21 +621,21 @@ ng = a.directive('modBarChart', function($compile) {
                     .call(yAxis)
                     .append("text")
                         .attr("class", "y axis label")
-                        .attr("transform", "rotate(-90)")
-                        .style("text-anchor", "end")
+                        .attr("transform", "rotate(90)")
+                        .style("text-anchor", "start")
                         .attr("y", 6)
-                        .attr("dy", "-3.5em")
-                        .text("Value");
+                        .attr("dy", "3.5em")
+                        .text("Number of Death Records");
 
 
-                var color = d3.scale.category10();
+                var color2 = d3.scale.category20b();
 
                 svg.selectAll(".bar")
                     .data(data)
                   .enter().append("rect")
                     .attr("class", "bar")
                     .attr("fill",function(d,i) { 
-                        return color(d.label) 
+                        return color2(d.label) 
                     })
                     .attr("x", function(d) { return x(d.label); })
                     .attr("width", x.rangeBand())

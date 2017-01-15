@@ -1,14 +1,16 @@
-This is a donut chart with a bar chart, showing you how to link 
-different charts together with buttons and things. 
+This chart demonstrates linking a donut chart with a bar chart, 
+so that a single controller filters data on both. 
+It also effectively implements the "folding up" technique
+demonstrated with the Donut Picker chart.
 
 <br />
 <br />
 
-This data shows statistics about death records from the United States in 
-2014, in particular the ratio of males to females whose death records 
-were tagged with these particular ICD 10 codes. The ICD 10 codes indicate
-circumstances present at time of death, though not necessarily 
-the cause of death. 
+The data visualized are death records from the United States in 2014. 
+Death records are anonymized and classified by many variables, 
+including gender and manner of death, and released to the public.
+Statistics about these variables are counted up for different ICD 10 codes,
+which indicate various circumstances present at death, and visualized above.
 
 <br/>
 <br/>
@@ -25,6 +27,13 @@ plotted by the bar and donut plots.
             [
                 {"value": 17, "label": "M"}, 
                 {"value": 4, "label": "F"}
+            ],
+        "bar": 
+            [
+                {"value": 10, "label": "Accident"}, 
+                {"value": 0, "label": "Suicide"},
+                {"value": 0, "label": "Homicide"},
+                {"value": 3, "label": "Natural"}
             ]
     },
     {
@@ -33,14 +42,13 @@ plotted by the bar and donut plots.
             [
                 {"value": 1, "label": "M"}, 
                 {"value": 3, "label": "F"}
-            ]
-    },
-    {
-        "code": "S328"},
-        "donut": 
+            ],
+        "bar": 
             [
-                {"value": 2, "label": "M"}, 
-                {"value": 3, "label": "F"}
+                {"value": 4, "label": "Accident"}, 
+                {"value": 2, "label": "Suicide"},
+                {"value": 0, "label": "Homicide"},
+                {"value": 2, "label": "Natural"}
             ]
     },
     
@@ -49,5 +57,6 @@ plotted by the bar and donut plots.
 </pre>
 
 Once we filter on "code", we get the "donut" array, and pass it to the D3 pie chart object,
-which renders the d ata structure into the donut chart on the left.  
+which renders the d ata structure into the donut chart on the left. Likewise, the "bar" array
+is sent to the bar chart and visualized accordingly.
 

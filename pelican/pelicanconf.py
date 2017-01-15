@@ -9,8 +9,8 @@ SITEURL = ''
 AUTHOR = u'charlesreid1'
 SITENAME = u'dang-sunburst'
 
-#SITEURL = ''
-SITEURL = '/dang-sunburst'
+SITEURL = ''
+#SITEURL = '/dang-sunburst'
 
 
 OUTPUT_PATH = '../docs/'
@@ -108,21 +108,32 @@ TEMPLATE_PAGES['pushpop_sunburst.js']    = 'dynamic/pushpop_sunburst.js'
 
 
 # simple donut: static donut
-TEMPLATE_PAGES['staticdonut.json']     = 'simpledonut/staticdonut.json'
-TEMPLATE_PAGES['staticdonut.html']     = 'simpledonut/staticdonut.html'
-TEMPLATE_PAGES['staticdonut.css']      = 'simpledonut/staticdonut.css'
-TEMPLATE_PAGES['staticdonut.md']       = 'simpledonut/staticdonut.md'
+TEMPLATE_PAGES['staticdonut.json']           = 'simpledonut/staticdonut.json'
+TEMPLATE_PAGES['staticdonut.html']           = 'simpledonut/staticdonut.html'
+TEMPLATE_PAGES['staticdonut.css']            = 'simpledonut/staticdonut.css'
+TEMPLATE_PAGES['staticdonut.md']             = 'simpledonut/staticdonut.md'
 TEMPLATE_PAGES['staticdonut_modcontrol.js']  = 'simpledonut/staticdonut_modcontrol.js'
 TEMPLATE_PAGES['staticdonut_chart.js']       = 'simpledonut/staticdonut_chart.js'
 
+
 # simple donut: donut picker
-TEMPLATE_PAGES['icd10codes.json']     = 'simpledonut/icd10codes.json'
-TEMPLATE_PAGES['donutpicker.json']     = 'simpledonut/donutpicker.json'
-TEMPLATE_PAGES['donutpicker.html']     = 'simpledonut/donutpicker.html'
-TEMPLATE_PAGES['donutpicker.css']      = 'simpledonut/donutpicker.css'
-TEMPLATE_PAGES['donutpicker.md']       = 'simpledonut/donutpicker.md'
+TEMPLATE_PAGES['icd10codes.json']            = 'simpledonut/icd10codes.json'
+TEMPLATE_PAGES['donutpicker.json']           = 'simpledonut/donutpicker.json'
+TEMPLATE_PAGES['donutpicker.html']           = 'simpledonut/donutpicker.html'
+TEMPLATE_PAGES['donutpicker.css']            = 'simpledonut/donutpicker.css'
+TEMPLATE_PAGES['donutpicker.md']             = 'simpledonut/donutpicker.md'
 TEMPLATE_PAGES['donutpicker_modcontrol.js']  = 'simpledonut/donutpicker_modcontrol.js'
 TEMPLATE_PAGES['donutpicker_chart.js']       = 'simpledonut/donutpicker_chart.js'
+
+
+# simple donut: donut picker
+TEMPLATE_PAGES['bardonut_allcategories.json'] = 'simpledonut/bardonut_allcategories.json'
+TEMPLATE_PAGES['bardonut.json']           = 'simpledonut/bardonut.json'
+TEMPLATE_PAGES['bardonut.html']           = 'simpledonut/bardonut.html'
+TEMPLATE_PAGES['bardonut.css']            = 'simpledonut/bardonut.css'
+TEMPLATE_PAGES['bardonut.md']             = 'simpledonut/bardonut.md'
+TEMPLATE_PAGES['bardonut_modcontrol.js']  = 'simpledonut/bardonut_modcontrol.js'
+TEMPLATE_PAGES['bardonut_chart.js']       = 'simpledonut/bardonut_chart.js'
 
 
 
