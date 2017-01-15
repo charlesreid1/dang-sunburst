@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Static Donut Chart</title>
+        <title>Donut Picker Chart</title>
         <meta charset="utf-8" />
 
         <!--
@@ -26,35 +26,41 @@
         <hr />
 
 
-<link href="/dang-sunburst/simpledonut/staticdonut.css" rel="stylesheet" stype="text/css" />
+<link href="/dang-sunburst/simpledonut/donutpicker.css" rel="stylesheet" stype="text/css" />
 
-<div ng-app="staticApp">
+<div ng-app="pickerApp">
 
-    <div ng-controller="StaticController" ng-init="initialize()">
+    <div ng-controller="mainController" ng-init="initialize()">
 
 
         <div class="row">
             <div class="col-sm-12" id="donut_title">
-                <static-donut-head></static-donut-head>
+                <donut-picker-head></donut-picker-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" id="donut_controls">
+                <donut-picker-controls></donut-picker-controls>
             </div>
         </div>
 
 
         <div class="row">
             <div class="col-sm-4" id="donut_chart">
-                <div class="row" id="staticdonut_chart">
-                    <static-donut-chart></static-donut-chart> 
+                <div class="row" id="donutpicker_chart">
+                    <donut-picker-chart></donut-picker-chart> 
                 </div>
             </div>
 
             <div class="col-sm-4" id="donut_text">
                 <div class="row" id="donut_panels">
-                    <static-donut-panels></static-donut-panels>
+                    <donut-picker-panels></donut-picker-panels>
                 </div>
             </div>
 
             <div class="col-sm-4" id="more_donut_text">
-                <div class="row" id="staticdonut_md">
+                <div class="row" id="donutpicker_md">
 This static donut chart illustrates how to turn
 a set of data into a donut chart.
 
@@ -93,8 +99,8 @@ D3 renders this data structure into the donut chart on the left.
 
 </div>
 
-<script type="text/javascript" src="/dang-sunburst/simpledonut/staticdonut_modcontrol.js"></script>
-<script type="text/javascript" src="/dang-sunburst/simpledonut/staticdonut_chart.js"></script>
+<script type="text/javascript" src="/dang-sunburst/simpledonut/donutpicker_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-sunburst/simpledonut/donutpicker_chart.js"></script>
 
     </div>
 

@@ -1,6 +1,9 @@
 var ng;
 dir = [];
 
+
+
+
 //////////////////////////////////////
 // Chart Directives
 //
@@ -8,7 +11,7 @@ dir = [];
 // that use D3 to draw charts.
 // 
 
-ng = a.directive('staticDonutHead', function($compile) {
+ng = a.directive('donutPickerHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -21,7 +24,7 @@ ng = a.directive('staticDonutHead', function($compile) {
         var h1 = $("<h1 />");
 
         var b = $("<b />")
-            .text("Static Donut Chart Example")
+            .text("Donut Picker Chart Example")
             .appendTo(h1);
 
         h1.appendTo(dir);
@@ -38,38 +41,69 @@ dir.push(ng);
 
 
 
-/*
-///////////////////////////////////////////////
-// Plain Chart Controls
 
-ng = a.directive('staticDonutControlssliderSunburstControls', function($compile) {
+
+
+///////////////////////////////////////////////
+// Chart Controls
+
+ng = a.directive('donutPickerControls', function($compile) {
 
     function link(scope, element, attr) { 
 
+        var mydiv = "div#donut_controls";
+
         pscope = scope.$parent;
 
-        var el = $("div#sunburst_controls");
+        var el = $(mydiv);
 
-        pscope.countval_btn = "count";
-        pscope.countval_current = "magnitude";
-
-        
         var div = $("<div />");
 
-        var alrt_t = $("<p />")
-            .html("Data is currently binned by [[countval_current]].")
-            .appendTo(div);
+        // ------------------------------------
+        // Add ICD 10 code picker
+        var btn_grp = $("<div />", {
+                "id" : "codebtns",
+                "class" : "btn-group"
+            });
 
-        var alrt_p = $("<p />").appendTo(alrt_t);
-
-        var alrt_b = $("<a />", {
-                "class" : "btn btn-large btn-default",
-                "countval" : ""
+        var code1 = $("<a />", {
+                "class" : "btn btn-code btn-large btn-primary",
+                "id" : "btn_T510",
+                "code" : "T510"
             })
-            .html("Group by [[countval_btn]]")
-            .appendTo(alrt_p);
+            .html("T510")
+            .appendTo(btn_grp);
 
-        angular.element(el).append($compile(div)(pscope));
+        var code2 = $("<a />", {
+                "class" : "btn btn-code btn-large btn-primary",
+                "id" : "btn_Y14",
+                "code" : "Y14"
+            })
+            .html("Y14")
+            .appendTo(btn_grp);
+
+        // to make buttons in this btn group active, 
+        // you have to use D3's classed() method 
+        // after you add the elements to the document
+        // (i.e., after you call $compile)
+
+        angular.element(el).append($compile(btn_grp)(pscope));
+
+
+        pscope.updateCode = function() {
+
+            // -----------------------------
+            // make button for active icd 10 code
+
+            d3.selectAll("a.btn-code").classed('active',false);
+            var btnlabel = "a#btn_"+pscope.icd10code;
+            d3.selectAll(btnlabel).classed('active',true);
+
+            //console.log("Button T510 is now active.");
+
+        };
+
+        pscope.$watch('icd10code',pscope.updateCode);
 
 
     }
@@ -80,47 +114,6 @@ ng = a.directive('staticDonutControlssliderSunburstControls', function($compile)
     }
 });
 dir.push(ng);
-*/
-
-
-
-/*
-
-///////////////////////////////////////////////
-// Plain Sunburst Control action directive
-
-ng = a.directive("countval", function($compile){
-    return function(pscope, element, attrs){
-        element.bind("click", function(){
-
-            console.log('clicked countval switch.');
-
-            if( pscope.countval_btn=="magnitude" ) {
-                pscope.countval_btn = "count";
-            } else if( pscope.countval_btn=="count" ) {
-                pscope.countval_btn = "magnitude";
-            }
-
-            if( pscope.countval_current=="magnitude" ) {
-                pscope.countval_current = "count";
-            } else if( pscope.countval_current=="count" ) {
-                pscope.countval_current = "magnitude";
-            }
-
-            var key = pscope.countval_current;
-
-            console.log('updating filter on key '+key);
-
-            pscope.updateFilter(key)
-
-            pscope.$apply();
-
-        });
-    }
-});
-dir.push(ng);
-
-*/
 
 
 
@@ -129,7 +122,7 @@ dir.push(ng);
 // Panels
 
 
-ng = a.directive('staticDonutPanels', function($compile) {
+ng = a.directive('donutPickerPanels', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -205,14 +198,14 @@ dir.push(ng);
 ///////////////////////////////////////////////
 // Chart
 
-ng = a.directive('staticDonutChart', function($compile) {
+ng = a.directive('donutPickerChart', function($compile) {
 
     function link(scope, element, attr) {
 
-        scope.$parent.$watch('staticData',doStuff);
+        scope.$parent.$watch('pickerData',doStuff);
 
         function doStuff() { 
-            if(!scope.$parent.staticData) { return }
+            if(!scope.$parent.pickerData) { return }
             buildChart(element, scope.$parent);
         }
 
@@ -221,7 +214,7 @@ ng = a.directive('staticDonutChart', function($compile) {
 
     function buildChart(element,pscope) {
 
-
+        var mydiv = "div#donutpicker_chart";
 
         /////////////////////////////////////////
         // Create chart
@@ -230,8 +223,8 @@ ng = a.directive('staticDonutChart', function($compile) {
         // start by initializing variables 
         // that don't depend on the data. 
 
-        var chart = $("div#staticdonut_chart");
-        chart.empty();
+        //var chart = $(mydiv);
+        //chart.empty();
 
         ///////////////////////////////////
         // now draw the svg with d3
@@ -257,7 +250,7 @@ ng = a.directive('staticDonutChart', function($compile) {
         var y = d3.scale.sqrt()
             .range([0, radius]);
         
-        var svg = d3.select("div#staticdonut_chart").append("svg")
+        var svg = d3.select(mydiv).append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -281,6 +274,8 @@ ng = a.directive('staticDonutChart', function($compile) {
             "None" : "#bbbbbb"
         };
 
+
+
         // ------------------
         // if you build it, 
         // you must update it.
@@ -291,8 +286,40 @@ ng = a.directive('staticDonutChart', function($compile) {
         // update chart
         function updateChart() {
 
+            var all_data = pscope.pickerData;
 
-            var data = pscope.staticData;
+
+            // Here, we have all donut data
+            // available to us. 
+            //
+            // We use the currently-selected ICD 10 code 
+            // to filter which donut data is being plotted. 
+            //
+            // Where to keep track of current code?
+            // In the controller (available via pscope).
+            // pscope.icd10code
+            //
+            var code; 
+            var data;
+            for( var i=0; i < pscope.pickerData.length; i++ ) {
+                if(pscope.pickerData[i]['code'] == pscope.icd10code) {
+                    code = pscope.pickerData[i]['code'];
+                    data = pscope.pickerData[i]['donut'];
+                    //console.log("Data for ICD 10 code "+code);
+                    //console.log(data);
+                }
+            }
+
+            //console.log("Code T510 data is now loaded: "+pscope.icd10code);
+
+
+
+            ///////////////////////////////////
+            // Now: how do we get the bloody buttons working?
+            //////////////////////////////////
+
+
+
 
             var pie = d3.layout.pie()
                 .sort(null)
