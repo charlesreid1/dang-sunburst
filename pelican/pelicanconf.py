@@ -116,6 +116,7 @@ TEMPLATE_PAGES['staticdonut_modcontrol.js']  = 'simpledonut/staticdonut_modcontr
 TEMPLATE_PAGES['staticdonut_chart.js']       = 'simpledonut/staticdonut_chart.js'
 
 # simple donut: donut picker
+TEMPLATE_PAGES['icd10codes.json']     = 'simpledonut/icd10codes.json'
 TEMPLATE_PAGES['donutpicker.json']     = 'simpledonut/donutpicker.json'
 TEMPLATE_PAGES['donutpicker.html']     = 'simpledonut/donutpicker.html'
 TEMPLATE_PAGES['donutpicker.css']      = 'simpledonut/donutpicker.css'
