@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Donut Picker Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/simpledonut/donutpicker.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="pickerApp">
+
+    <div ng-controller="mainController" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="donut_title">
+                <donut-picker-head></donut-picker-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" id="donut_controls">
+                <donut-picker-controls></donut-picker-controls>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-4" id="donut_chart">
+                <div class="row" id="donutpicker_chart">
+                    <donut-picker-chart></donut-picker-chart> 
+                </div>
+            </div>
+
+            <div class="col-sm-4" id="donut_text">
+                <div class="row" id="donut_panels">
+                    <donut-picker-panels></donut-picker-panels>
+                </div>
+            </div>
+
+            <div class="col-sm-4" id="more_donut_text">
+                <div class="row" id="donutpicker_md">
+                    {% include 'donutpicker.md' %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/simpledonut/donutpicker_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/simpledonut/donutpicker_chart.js"></script>
+
+{% endblock %}
+
