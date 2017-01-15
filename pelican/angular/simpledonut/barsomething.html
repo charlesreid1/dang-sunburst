@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Donut Picker Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/simpledonut/bardonut.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="mainApp">
+
+    <div ng-controller="mainController" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="donut_title">
+                <donut-picker-head></donut-picker-head>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-10" id="donut_controls">
+                <donut-picker-controls></donut-picker-controls>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4" id="donut_chart">
+                <div class="row" id="bardonut_chart">
+                    <donut-picker-chart></donut-picker-chart> 
+                </div>
+            </div>
+
+
+            <div class="col-sm-6" id="donut_text">
+                <div class="row" id="donut_panels">
+                    <donut-picker-panels></donut-picker-panels>
+                </div>
+            </div>
+
+        </div>
+
+
+            <!--
+        <div class="row">
+
+            <div class="col-sm-4" id="bar_chart">
+                <div class="row" id="modbar_chart">
+                    <mod-bar-chart></mod-bar-chart> 
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row">
+
+            <div class="col-sm-10" id="more_donut_text">
+                <div class="row" id="bardonut_md">
+                    {% include 'bardonut.md' %}
+                </div>
+
+            </div>
+        </div>
+        -->
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/simpledonut/bardonut_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/simpledonut/bardonut_chart.js"></script>
+
+{% endblock %}
+
