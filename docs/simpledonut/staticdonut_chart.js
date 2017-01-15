@@ -151,7 +151,7 @@ ng = a.directive('staticDonutPanels', function($compile) {
 
         var panel = $("<div />", {
                 "class" : "panel panel-primary",
-                "id" : "mouseoverPointPanel"
+                "id" : "first"
             });
 
         var panelhead = $("<div />", {
@@ -173,16 +173,13 @@ ng = a.directive('staticDonutPanels', function($compile) {
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("ICD 10 Code: T401")//[[mouseoverPoint.name]]")
+            .html("ICD 10 Code: [[icd10code]]")
             .appendTo(maindiv);
 
-        /*
-        var p = $("<p />", {
-                "class" : "lead"
-            })
-            .html("Value: [[mouseoverPoint.magnitude | number:0]]")
+        var de = $("<p />", { 
+            "class" : "lead" })
+            .html("Description: [[description]]")
             .appendTo(maindiv);
-        */
 
         angular.element(el).prepend($compile(panel)(pscope));
 

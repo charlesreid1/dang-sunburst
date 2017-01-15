@@ -9,8 +9,8 @@ SITEURL = ''
 AUTHOR = u'charlesreid1'
 SITENAME = u'dang-sunburst'
 
-SITEURL = ''
-#SITEURL = '/dang-sunburst'
+#SITEURL = ''
+SITEURL = '/dang-sunburst'
 
 
 OUTPUT_PATH = '../docs/'

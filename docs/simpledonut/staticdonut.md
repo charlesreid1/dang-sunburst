@@ -1,5 +1,19 @@
-This static donut chart illustrates how to turn
-a set of data into a donut chart.
+This static donut chart illustrates how to store data
+in JSON format to load in a donut chart and visualize
+with D3.
+
+<br />
+<br />
+
+This data shows statistics about death records from the United States in 
+2014, in particular the ratio of males to females whose death records 
+were tagged with these particular ICD 10 codes. The ICD 10 codes indicate
+circumstances present at time of death, though not necessarily 
+the cause of death. In this case, the death records are limited to 
+those tagged with T401, heroin poisoning.
+
+<br/>
+<br/>
 
 Remember that D3 thinks about a single dictionary or JSON array
 as a single data observation - as opposed to the normal approach

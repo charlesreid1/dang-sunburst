@@ -7,26 +7,26 @@
         <!--
         my CSS styles
         -->
-        <link href="/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
-        <link href="/theme/css/main.css"           rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/main.css"           rel="stylesheet" type="text/css">
 
-        <link href="/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
-        <link href="/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
-        <link href="/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
+        <link href="/dang-sunburst/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
+        <link href="/dang-sunburst/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
 
         <!--
         include Angular first
         -->
-        <script type="text/javascript" src="/theme/js/angular-1.3.15.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/angular-1.3.15.js"></script>
 </head>
 
 <body id="index" class="home">
     <div class="container">
-        <h1><a href="/">dang-sunburst <strong></strong></a></h1>
+        <h1><a href="/dang-sunburst/">dang-sunburst <strong></strong></a></h1>
         <hr />
 
 
-<link href="/simpledonut/staticdonut.css" rel="stylesheet" stype="text/css" />
+<link href="/dang-sunburst/simpledonut/staticdonut.css" rel="stylesheet" stype="text/css" />
 
 <div ng-app="staticApp">
 
@@ -47,16 +47,34 @@
                 </div>
             </div>
 
-            <div class="col-sm-4" id="donut_text">
+            <div class="col-sm-6" id="donut_text">
                 <div class="row" id="donut_panels">
                     <static-donut-panels></static-donut-panels>
                 </div>
             </div>
 
-            <div class="col-sm-4" id="more_donut_text">
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-10" id="more_donut_text">
                 <div class="row" id="staticdonut_md">
-This static donut chart illustrates how to turn
-a set of data into a donut chart.
+This static donut chart illustrates how to store data
+in JSON format to load in a donut chart and visualize
+with D3.
+
+<br />
+<br />
+
+This data shows statistics about death records from the United States in 
+2014, in particular the ratio of males to females whose death records 
+were tagged with these particular ICD 10 codes. The ICD 10 codes indicate
+circumstances present at time of death, though not necessarily 
+the cause of death. In this case, the death records are limited to 
+those tagged with T401, heroin poisoning.
+
+<br/>
+<br/>
 
 Remember that D3 thinks about a single dictionary or JSON array
 as a single data observation - as opposed to the normal approach
@@ -93,8 +111,8 @@ D3 renders this data structure into the donut chart on the left.
 
 </div>
 
-<script type="text/javascript" src="/simpledonut/staticdonut_modcontrol.js"></script>
-<script type="text/javascript" src="/simpledonut/staticdonut_chart.js"></script>
+<script type="text/javascript" src="/dang-sunburst/simpledonut/staticdonut_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-sunburst/simpledonut/staticdonut_chart.js"></script>
 
     </div>
 
@@ -123,12 +141,12 @@ D3 renders this data structure into the donut chart on the left.
     <a href="http://numpy.org">Numpy</a>).
     </p>
 
-        <script type="text/javascript" src="/theme/js/jquery-1.11.2.js"></script>
-        <script type="text/javascript" src="/theme/js/bootstrap-3.3.4.js"></script>
-        <script type="text/javascript" src="/theme/js/d3-3.5.5.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/bootstrap-3.3.4.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/d3-3.5.5.js"></script>
         <!--
-        <script type="text/javascript" src="/theme/js/leaflet-0.7.3.js"></script>
-        <script type="text/javascript" src="/theme/js/leaflet.ajax.min.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet.ajax.min.js"></script>
         -->
     </footer><!-- /#contentinfo -->
 
