@@ -181,13 +181,19 @@ ng = a.directive("changecode", function($compile) {
             //// This is some weak-sauce, 
             //// its not even changing value of variable
             //pscope.update_icd10code(attrs['code']);
-
+            //// ...
+            //// .......
+            //// seriously.
+            //// all we needed was just
+            ////   pscope.$apply()
+            //// 
+            //// smh.
 
 
 
 
             // then run the donut chart update function
-            updateChart();
+            pscope.updateDonut();
 
             // then run the button controllers update function
             pscope.updateCode();
@@ -287,13 +293,13 @@ ng = a.directive('donutPickerChart', function($compile) {
 
         function doStuff() { 
             if(!scope.$parent.pickerData) { return; }
-            buildChart(element, scope.$parent);
+            buildDonut(element, scope.$parent);
         }
 
 
     };
 
-    function buildChart(element,pscope) {
+    function buildDonut(element,pscope) {
 
         var mydiv = "div#donutpicker_chart";
 
@@ -320,8 +326,8 @@ ng = a.directive('donutPickerChart', function($compile) {
             left:   40
         };
 
-        var width   = 400 - margin.right - margin.left,
-            height  = 400 - margin.top   - margin.bottom;
+        var width   = 300 - margin.right - margin.left,
+            height  = 300 - margin.top   - margin.bottom;
         
         var radius = Math.min(width, height) / 2;
         
@@ -365,7 +371,7 @@ ng = a.directive('donutPickerChart', function($compile) {
         // if animating, more stuff goes here.
 
 
-        updateChart = function() { 
+        pscope.updateDonut = function() { 
 
             var all_data = pscope.pickerData;
 
@@ -436,7 +442,10 @@ ng = a.directive('donutPickerChart', function($compile) {
             g.append("text")
                 .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
                 .attr("dy", ".35em")
-                .text(function(d) { return d.data.label; });
+                .text(function(d) { if(d.data.value > 0) {
+                                        return d.data.label; 
+                                    }
+                                });
 
         }
 
@@ -445,9 +454,9 @@ ng = a.directive('donutPickerChart', function($compile) {
         // ------------------
         // if you build it, 
         // you must update it.
-        updateChart();
+        pscope.updateDonut();
 
-        pscope.$watch('icd10code',updateChart);
+        pscope.$watch('icd10code',pscope.updateDonut);
 
     }
 
@@ -471,74 +480,90 @@ ng = a.directive('modBarChart', function($compile) {
     function link(scope, element, attr) {
 
         scope.$parent.$watch('pickerData',doStuff);
+        scope.$parent.$watch('icd10code',doStuff);
 
         function doStuff() { 
             if(!scope.$parent.pickerData) { return; }
-            buildChart(element, scope.$parent);
+            if(!scope.$parent.icd10code) { return; }
+            buildBar(element, scope.$parent);
         }
 
 
     };
 
-    function buildChart(element,pscope) {
-
-        var mydiv = "div#modbar_chart";
-
-        /////////////////////////////////////////
-        // Create chart
+    function buildBar(element,pscope) {
+    
         //
-        // data has not been loaded yet.
-        // start by initializing variables 
-        // that don't depend on the data. 
+        // If you draw any parts of the bar plot 
+        // outside of the updateBar() function,
+        // the bar plot will not actually change.
+        //
 
-        var chart = $(mydiv);
-        chart.empty();
+        pscope.updateBar = function() { 
 
-        ///////////////////////////////////
-        // now draw the svg with d3
+            console.log('in update bar');
 
-        // ---------------
-        // the chart itself:
+            var mydiv = "div#modbar_chart";
 
-        var margin = {top: 20, right: 20, bottom: 30, left: 40},
-            width = 400 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
+            /////////////////////////////////////////
+            // Create chart
+            //
+            // data has not been loaded yet.
+            // start by initializing variables 
+            // that don't depend on the data. 
 
-        //var margin = {
-        //    top:    10, 
-        //    right:  10, 
-        //    bottom: 10, 
-        //    left:   10
-        //};
+            var chart = $(mydiv);
+            chart.empty();
 
-        //var width   = 400 - margin.right - margin.left,
-        //    height  = 400 - margin.top   - margin.bottom;
-        
-        var x = d3.scale.ordinal()
-            .rangeRoundBands([0, width], .1);
-        
-        var y = d3.scale.linear()
-            .range([height, 0]);
-        
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom");
-        
-        var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left")
-            .ticks(10)
-        
-        var svg = d3.select(mydiv)
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            ///////////////////////////////////
+            // now draw the svg with d3
+
+            // ---------------
+            // the chart itself:
+
+            var margin = {
+                top: 10, 
+                bottom: 80, 
+
+                right: 30, 
+                left: 50
+            };
+
+            var w = 400;
+            var h = 400;
+
+            var barwidth  = w - margin.left - margin.right;
+            var barheight = h - margin.top - margin.bottom;
+
+            var x = d3.scale.ordinal()
+                .rangeRoundBands([0, barwidth], .1);
+            
+            var y = d3.scale.linear()
+                .range([barheight, 0]);
+            
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+            
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .ticks(10)
+            
+            var svg = d3.select(mydiv)
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        updateChart = function() { 
+            /////////////////
+            // Data-specific stuff
 
+
+            // Start by loading the data
+            //
             var all_data = pscope.pickerData;
 
             var code; 
@@ -556,28 +581,46 @@ ng = a.directive('modBarChart', function($compile) {
 
             }
 
+            //// data looks good
+            //console.log(data);
+
             if( data!=null ){
 
-                //console.log(data.map(function(d){ return d.label; }));
+
+                // if you wanna show categories that are zero,
+                // modify your data. too complicated to fill in here.
 
                 x.domain(data.map(function(d) { return d.label; }));
 
                 y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
+                svg.selectAll("path").remove();
+
                 svg.append("g")
                     .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(xAxis);
+                    .attr("transform", function(d,i) {
+                        return "translate(0,"+ (barheight) + ")";
+                    })
+                    .call(xAxis)
+                    .selectAll("text")  
+                        .attr("class", "x axis label");
+                        //.attr("transform", "rotate(90)" );
+                        //.style("text-anchor", "end")
+                        //.attr("dx", "-.8em")
+                        //.attr("dy", ".15em")
+
                 
                 svg.append("g")
                     .attr("class", "y axis")
                     .call(yAxis)
-                  .append("text")
-                    .attr("transform", "rotate(-90)")
-                    .attr("y", 6)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("Value");
+                    .append("text")
+                        .attr("class", "y axis label")
+                        .attr("transform", "rotate(-90)")
+                        .style("text-anchor", "end")
+                        .attr("y", 6)
+                        .attr("dy", "-3.5em")
+                        .text("Value");
+
 
                 var color = d3.scale.category10();
 
@@ -591,25 +634,31 @@ ng = a.directive('modBarChart', function($compile) {
                     .attr("x", function(d) { return x(d.label); })
                     .attr("width", x.rangeBand())
                     .attr("y", function(d) { return y(d.value); })
-                    .attr("height", function(d) { return height - y(d.value); });
+                    .attr("height", function(d) { 
+                        var toptobottom = (barheight);
+                        var toptobartop = y(d.value);
+                        var ht = toptobottom - toptobartop
+                        return ht;
+                    });
                 
                 function type(d) {
                   d.value = +d.value;
                   return d;
                 }
 
-            }
-        }
+                // else: "No Data" label
 
+            }
+
+        }
 
         // ------------------
         // if you build it, 
         // you must update it.
-        updateChart();
-
-        pscope.$watch('icd10code',updateChart);
+        pscope.updateBar();
 
     }
+
 
     return {
         link: link,

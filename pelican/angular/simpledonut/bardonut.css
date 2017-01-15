@@ -25,3 +25,15 @@ div#clickedPointPanel {
   stroke-width: 2.0;
 }
 
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
