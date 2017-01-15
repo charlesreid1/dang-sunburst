@@ -1,5 +1,16 @@
-This button-picking donut chart shows how to fold up donut data
-that is high-dimensional into a JSON container that can be served up.
+This is a donut chart with buttons enabling you to pick different
+categories of data. This chart is intended to demonstrate how to fold up 
+high dimensional data into a JSON container that ca be served up and 
+easily filtered with D3.
+
+<br />
+<br />
+
+This data shows statistics about death records from the United States in 
+2014, in particular the ratio of males to females whose death records 
+were tagged with these particular ICD 10 codes. The ICD 10 codes indicate
+circumstances present at time of death, though not necessarily 
+the cause of death. 
 
 <br/>
 <br/>

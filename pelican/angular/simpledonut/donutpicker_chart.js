@@ -51,38 +51,49 @@ ng = a.directive('donutPickerControls', function($compile) {
 
     function link(scope, element, attr) { 
 
-        var mydiv = "div#donut_controls";
+        // wait to build the buttons until we've loaded the data,
+        // since the buttons come from the data.
+        scope.$parent.$watch('pickerData',doStuff);
 
-        pscope = scope.$parent;
+        function doStuff() { 
+            if(!scope.$parent.pickerData) { return; }
+            buildButtons(element, scope.$parent);
+        }
+
+
+    };
+
+    function buildButtons(element,pscope) {
+
+
+        var mydiv = "div#donut_controls";
 
         var el = $(mydiv);
 
         var div = $("<div />");
 
+
+
         // ------------------------------------
-        // Add ICD 10 code picker
+        // Add ICD 10 code buttons
+        //
         var btn_grp = $("<div />", {
                 "id" : "codebtns",
                 "class" : "btn-group"
             });
 
-        var code1 = $("<a />", {
-                "class" : "btn btn-code btn-large btn-primary",
-                "changecode" : "",
-                "id" : "btn_T510",
-                "code" : "T510"
-            })
-            .html("T510")
-            .appendTo(btn_grp);
+        for( var i = 0; i < pscope.pickerData.length; i++ ) {
+            var this_code = pscope.pickerData[i]['code']
+            var code = $("<a />", {
+                            "class" : "btn btn-code btn-large btn-primary",
+                            "changecode" : "",
+                            "id" : "btn_"+this_code,
+                            "code" : this_code,
+                        })
+                        .html( this_code )
+                        .appendTo(btn_grp);
+        }
 
-        var code2 = $("<a />", {
-                "class" : "btn btn-code btn-large btn-primary",
-                "changecode" : "",
-                "id" : "btn_Y14",
-                "code" : "Y14"
-            })
-            .html("Y14")
-            .appendTo(btn_grp);
 
         // to make buttons in this btn group active, 
         // you have to use D3's classed() method 
@@ -130,6 +141,17 @@ ng = a.directive("changecode", function($compile) {
             // that holds the current icd 10 code
             // (no need to load any new data)
 
+
+
+            // This is the ICD 10 code the user has selected.
+            var this_code = attrs['code'];
+            var this_description = pscope.icd10codes_all[this_code]
+
+            //console.log('Changed icd 10 code, updating description:');
+            //console.log(this_code);
+            //console.log(this_description);
+
+
             // !!!!!!!!!!!!!!!!!!!!!!!!
             // NOTE
             // The lines below - this $apply() method - 
@@ -138,12 +160,20 @@ ng = a.directive("changecode", function($compile) {
             // various watchers to detect changes.
             // !!!!!!!!!!!!!!!!!!!!!!!!!!
             pscope.$apply(function() {
-                pscope.icd10code = attrs['code'];
+                pscope.icd10code = this_code; 
             });
+
+            pscope.$apply(function() {
+                pscope.description = this_description;
+            });
+
 
             //// This is some weak-sauce, 
             //// its not even changing value of variable
             //pscope.update_icd10code(attrs['code']);
+
+
+
 
 
             // then run the donut chart update function
@@ -169,33 +199,13 @@ ng = a.directive("changecode", function($compile) {
 ng = a.directive('donutPickerPanels', function($compile) {
 
     function link(scope, element, attr) {
-    /*
-
-        // //////////////////////////////////
-        // // UUUUUGGGGHHHHH 
-        // // nobody is noticing any changes in icd10code
-        // scope.$parent.$watch('icd10code',doStuff);
-
-        // scope.$parent.$watch('icd10code',function(){
-        //     console.log('no worries i am watching donut-picker-panel');
-        // });
-
-        function doStuff() { 
-            if(!scope.$parent.icd10code) { return; }
-            console.log('doin stuff cuz icd10code');
-            drawPanel(element, scope.$parent);
-        }
-
-    };
-
-    function drawPanel(element,pscope) {
-    */
 
         var el = element[0];
 
+        var pscope = scope.$parent;
+
         // --------------------------
         // add display for details 
-        // about current mouseover selection
         
         // assemble the tags, 
         // then compile the html
@@ -206,7 +216,7 @@ ng = a.directive('donutPickerPanels', function($compile) {
 
         var panel = $("<div />", {
                 "class" : "panel panel-primary",
-                "id" : "mouseoverPointPanel"
+                "id" : "first"
             });
 
         var panelhead = $("<div />", {
@@ -231,13 +241,10 @@ ng = a.directive('donutPickerPanels', function($compile) {
             .html("ICD 10 Code: [[icd10code]]")
             .appendTo(maindiv);
 
-        /*
-        var p = $("<p />", {
-                "class" : "lead"
-            })
-            .html("Value: [[mouseoverPoint.magnitude | number:0]]")
+        var de = $("<p />", { 
+            "class" : "lead" })
+            .html("Description: [[description]]")
             .appendTo(maindiv);
-        */
 
         angular.element(el).prepend($compile(panel)(pscope));
 
@@ -364,12 +371,17 @@ ng = a.directive('donutPickerChart', function($compile) {
             //
             var code; 
             var data;
-            for( var i=0; i < pscope.pickerData.length; i++ ) {
-                if(pscope.pickerData[i]['code'] == pscope.icd10code) {
-                    code = pscope.pickerData[i]['code'];
-                    data = pscope.pickerData[i]['donut'];
+            for( var i=0; i < all_data.length; i++ ) {
+
+                // set excpetion handling:
+                // if no icd10code is set, problems occur.
+                if(all_data[i]['code'] == pscope.icd10code) {
+                    code = all_data[i]['code'];
+                    data = all_data[i]['donut'];
+                    break;
                 }
             }
+
             // finished; use data
             // ---------------------------------
             
