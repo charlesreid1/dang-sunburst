@@ -17,10 +17,10 @@ var datafactory = a.factory('datafactory', function($http, $q) {
         getPickerData: function() {
             var deferred = $q.defer();
 
-            $http.get('donutpicker.json').success(function(data) {
+            $http.get('bardonut.json').success(function(data) {
                 deferred.resolve(data);
             }).error(function(){
-                console.log('error loading donutpicker.json');
+                console.log('error loading bardonut.json');
                 deferred.reject();
             });
 

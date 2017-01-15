@@ -458,3 +458,152 @@ dir.push(ng);
 
 
 
+///////////////////////////////////////////////
+// Manner of Death Bar Chart
+// 
+// This is a bar chart for manner of death. 
+
+ng = a.directive('modBarChart', function($compile) {
+
+    function link(scope, element, attr) {
+
+        scope.$parent.$watch('pickerData',doStuff);
+
+        function doStuff() { 
+            if(!scope.$parent.pickerData) { return; }
+            buildChart(element, scope.$parent);
+        }
+
+
+    };
+
+    function buildChart(element,pscope) {
+
+        var mydiv = "div#modbar_chart";
+
+        /////////////////////////////////////////
+        // Create chart
+        //
+        // data has not been loaded yet.
+        // start by initializing variables 
+        // that don't depend on the data. 
+
+        var chart = $(mydiv);
+        chart.empty();
+
+        ///////////////////////////////////
+        // now draw the svg with d3
+
+        // ---------------
+        // the chart itself:
+
+        var margin = {
+            top:    20, 
+            right:  20, 
+            bottom: 30, 
+            left:   40
+        };
+
+        var width   = 600 - margin.right - margin.left,
+            height  = 200 - margin.top   - margin.bottom;
+        
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+        
+        var y = d3.scale.linear()
+            .range([height, 0]);
+        
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+        
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .ticks(10, "%");
+        
+        var svg = d3.select(mydiv)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
+
+
+        updateChart = function() { 
+
+            var all_data = pscope.pickerData;
+
+            var code; 
+            var data;
+            //console.log('just checking: '+pscope.icd10code);
+            for( var i=0; i < all_data.length; i++ ) {
+
+                // set excpetion handling:
+                // if no icd10code is set, problems occur.
+                console.log(all_data[i]);
+                if(all_data[i]['code'] == pscope.icd10code) {
+                    code = all_data[i]['code'];
+                    data = all_data[i]['modbars'];
+                    break;
+                }
+
+            }
+            if( data!=null ){
+
+                //console.log( data.map(funtion(d) { return d.label; }) );
+
+                x.domain(data.map(function(d) { return d.label; }));
+                y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+                svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis);
+                
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                  .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Frequency");
+                
+                var color = d3.scale.category20c();
+                svg.selectAll(".bar")
+                    .data(data)
+                  .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("fill",function(d) { return color[d.label] })
+                    .attr("x", function(d) { return x(d.label); })
+                    .attr("width", x.rangeBand())
+                    .attr("y", function(d) { return y(d.value); })
+                    .attr("height", function(d) { return height - y(d.value); });
+                
+                function type(d) {
+                  d.value = +d.value;
+                  return d;
+                }
+
+            }
+        }
+
+
+        // ------------------
+        // if you build it, 
+        // you must update it.
+        updateChart();
+
+        pscope.$watch('icd10code',updateChart);
+
+    }
+
+    return {
+        link: link,
+        restrict: "E",
+        scope: { }
+    };
+});
+dir.push(ng);
