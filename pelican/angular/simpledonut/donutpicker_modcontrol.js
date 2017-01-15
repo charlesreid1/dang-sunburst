@@ -43,9 +43,9 @@ function MainController($scope,datafactory) {
         );
     }
 
-
     $scope.update_icd10code = function(code) {
         $scope.icd10code = code;
+        console.log('update_icd10code() run with code '+code);
     }
 
 }
