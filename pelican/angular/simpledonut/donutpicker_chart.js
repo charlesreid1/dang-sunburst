@@ -68,6 +68,7 @@ ng = a.directive('donutPickerControls', function($compile) {
 
         var code1 = $("<a />", {
                 "class" : "btn btn-code btn-large btn-primary",
+                "changecode" : "",
                 "id" : "btn_T510",
                 "code" : "T510"
             })
@@ -76,6 +77,7 @@ ng = a.directive('donutPickerControls', function($compile) {
 
         var code2 = $("<a />", {
                 "class" : "btn btn-code btn-large btn-primary",
+                "changecode" : "",
                 "id" : "btn_Y14",
                 "code" : "Y14"
             })
@@ -103,6 +105,7 @@ ng = a.directive('donutPickerControls', function($compile) {
 
         };
 
+        // updates anytime we change the icd 10 code
         pscope.$watch('icd10code',pscope.updateCode);
 
 
@@ -114,6 +117,40 @@ ng = a.directive('donutPickerControls', function($compile) {
     }
 });
 dir.push(ng);
+
+
+//////////////////////////////////
+// Action directive:
+// What to do when the user changes the ICD 10 code
+// by clicking an ICD 10 code button
+
+ng = a.directive("changecode", function($compile) {
+
+
+    return function(pscope, element, attrs){
+        element.bind("click", function(){
+
+            // first, update the scope variable 
+            // that holds the current icd 10 code
+            // (no need to load any new data)
+            pscope.update_icd10code(attrs['code']);
+
+            console.log("ohai u pusht butt-in");
+
+            // then run the donut chart update function
+            pscope.updateChart();
+
+            // then run the button controllers update function
+            pscope.updateCode();
+
+
+
+        });
+    }
+
+});
+
+
 
 
 
@@ -277,14 +314,8 @@ ng = a.directive('donutPickerChart', function($compile) {
 
 
         // ------------------
-        // if you build it, 
-        // you must update it.
-        updateChart();
-
-
-        // ------------------
         // update chart
-        function updateChart() {
+        pscope.updateChart = function() { 
 
             var all_data = pscope.pickerData;
 
@@ -305,8 +336,8 @@ ng = a.directive('donutPickerChart', function($compile) {
                 if(pscope.pickerData[i]['code'] == pscope.icd10code) {
                     code = pscope.pickerData[i]['code'];
                     data = pscope.pickerData[i]['donut'];
-                    //console.log("Data for ICD 10 code "+code);
-                    //console.log(data);
+                    console.log("Data for ICD 10 code "+code);
+                    console.log(data);
                 }
             }
 
@@ -316,7 +347,18 @@ ng = a.directive('donutPickerChart', function($compile) {
 
             ///////////////////////////////////
             // Now: how do we get the bloody buttons working?
+            // Done.
             //////////////////////////////////
+
+
+
+
+
+            ///////////////////////////////////
+            // Now: how do we get the bloody data to update?
+            //////////////////////////////////
+
+
 
 
 
@@ -342,6 +384,13 @@ ng = a.directive('donutPickerChart', function($compile) {
                 .text(function(d) { return d.data.label; });
 
         }
+
+        pscope.updateChart();
+
+        // ------------------
+        // if you build it, 
+        // you must update it.
+        pscope.$watch('icd10code',pscope.updateChart);
 
 
 

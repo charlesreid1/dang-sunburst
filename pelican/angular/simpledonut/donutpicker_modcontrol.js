@@ -30,6 +30,7 @@ var datafactory = a.factory('datafactory', function($http, $q) {
 });
 
 function MainController($scope,datafactory) {
+
     $scope.initialize = function() {
 
         // safe first choice.
@@ -41,6 +42,12 @@ function MainController($scope,datafactory) {
             }
         );
     }
+
+
+    $scope.update_icd10code = function(code) {
+        $scope.icd10code = code;
+    }
+
 }
 
 // the first few arguments of the list should correspond to the Angular-namespace stuff to feed to PickerController
