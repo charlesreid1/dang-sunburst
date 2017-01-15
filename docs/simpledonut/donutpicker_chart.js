@@ -68,6 +68,7 @@ ng = a.directive('donutPickerControls', function($compile) {
 
         var code1 = $("<a />", {
                 "class" : "btn btn-code btn-large btn-primary",
+                "changecode" : "",
                 "id" : "btn_T510",
                 "code" : "T510"
             })
@@ -76,6 +77,7 @@ ng = a.directive('donutPickerControls', function($compile) {
 
         var code2 = $("<a />", {
                 "class" : "btn btn-code btn-large btn-primary",
+                "changecode" : "",
                 "id" : "btn_Y14",
                 "code" : "Y14"
             })
@@ -99,8 +101,6 @@ ng = a.directive('donutPickerControls', function($compile) {
             var btnlabel = "a#btn_"+pscope.icd10code;
             d3.selectAll(btnlabel).classed('active',true);
 
-            //console.log("Button T510 is now active.");
-
         };
 
         pscope.$watch('icd10code',pscope.updateCode);
@@ -116,6 +116,50 @@ ng = a.directive('donutPickerControls', function($compile) {
 dir.push(ng);
 
 
+//////////////////////////////////
+// Action directive:
+// What to do when the user changes the ICD 10 code
+// by clicking an ICD 10 code button
+
+ng = a.directive("changecode", function($compile) {
+
+    return function(pscope, element, attrs){
+        element.bind("click", function(){
+
+            // first, update the scope variable 
+            // that holds the current icd 10 code
+            // (no need to load any new data)
+
+            // !!!!!!!!!!!!!!!!!!!!!!!!
+            // NOTE
+            // The lines below - this $apply() method - 
+            // this is the way you change the variable
+            // at the controller level, and get the 
+            // various watchers to detect changes.
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!
+            pscope.$apply(function() {
+                pscope.icd10code = attrs['code'];
+            });
+
+            //// This is some weak-sauce, 
+            //// its not even changing value of variable
+            //pscope.update_icd10code(attrs['code']);
+
+
+            // then run the donut chart update function
+            updateChart();
+
+            // then run the button controllers update function
+            pscope.updateCode();
+
+        });
+    }
+
+});
+
+
+
+
 
 
 ///////////////////////////////////////////////
@@ -125,11 +169,29 @@ dir.push(ng);
 ng = a.directive('donutPickerPanels', function($compile) {
 
     function link(scope, element, attr) {
+    /*
+
+        // //////////////////////////////////
+        // // UUUUUGGGGHHHHH 
+        // // nobody is noticing any changes in icd10code
+        // scope.$parent.$watch('icd10code',doStuff);
+
+        // scope.$parent.$watch('icd10code',function(){
+        //     console.log('no worries i am watching donut-picker-panel');
+        // });
+
+        function doStuff() { 
+            if(!scope.$parent.icd10code) { return; }
+            console.log('doin stuff cuz icd10code');
+            drawPanel(element, scope.$parent);
+        }
+
+    };
+
+    function drawPanel(element,pscope) {
+    */
 
         var el = element[0];
-
-        var pscope = scope.$parent;
-
 
         // --------------------------
         // add display for details 
@@ -166,7 +228,7 @@ ng = a.directive('donutPickerPanels', function($compile) {
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("ICD 10 Code: T401")//[[mouseoverPoint.name]]")
+            .html("ICD 10 Code: [[icd10code]]")
             .appendTo(maindiv);
 
         /*
@@ -178,7 +240,6 @@ ng = a.directive('donutPickerPanels', function($compile) {
         */
 
         angular.element(el).prepend($compile(panel)(pscope));
-
 
     }
 
@@ -205,7 +266,7 @@ ng = a.directive('donutPickerChart', function($compile) {
         scope.$parent.$watch('pickerData',doStuff);
 
         function doStuff() { 
-            if(!scope.$parent.pickerData) { return }
+            if(!scope.$parent.pickerData) { return; }
             buildChart(element, scope.$parent);
         }
 
@@ -223,8 +284,8 @@ ng = a.directive('donutPickerChart', function($compile) {
         // start by initializing variables 
         // that don't depend on the data. 
 
-        //var chart = $(mydiv);
-        //chart.empty();
+        var chart = $(mydiv);
+        chart.empty();
 
         ///////////////////////////////////
         // now draw the svg with d3
@@ -250,7 +311,8 @@ ng = a.directive('donutPickerChart', function($compile) {
         var y = d3.scale.sqrt()
             .range([0, radius]);
         
-        var svg = d3.select(mydiv).append("svg")
+        var svg = d3.select(mydiv)
+            .append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -258,9 +320,15 @@ ng = a.directive('donutPickerChart', function($compile) {
 
         // ---------------
         // chart-specific, 
-        // data-independent variables:
+        // data-independent variables
+        //
+        // Example: 
+        // * sort method
+        // * tween function
+        // * colors (maybe)
+        //
 
-        // (example: if you have a custom sort method...)
+
 
         // Sunburst needs these to be functions,
         // donut chart does not.
@@ -274,21 +342,16 @@ ng = a.directive('donutPickerChart', function($compile) {
             "None" : "#bbbbbb"
         };
 
+        // if animating, more stuff goes here.
 
 
-        // ------------------
-        // if you build it, 
-        // you must update it.
-        updateChart();
-
-
-        // ------------------
-        // update chart
-        function updateChart() {
+        updateChart = function() { 
 
             var all_data = pscope.pickerData;
 
-
+            // ----------------------------------
+            // Get pie chart data
+            //
             // Here, we have all donut data
             // available to us. 
             //
@@ -305,20 +368,16 @@ ng = a.directive('donutPickerChart', function($compile) {
                 if(pscope.pickerData[i]['code'] == pscope.icd10code) {
                     code = pscope.pickerData[i]['code'];
                     data = pscope.pickerData[i]['donut'];
-                    //console.log("Data for ICD 10 code "+code);
-                    //console.log(data);
                 }
             }
+            // finished; use data
+            // ---------------------------------
+            
 
-            //console.log("Code T510 data is now loaded: "+pscope.icd10code);
-
-
-
-            ///////////////////////////////////
-            // Now: how do we get the bloody buttons working?
-            //////////////////////////////////
-
-
+            var g = svg.datum(data)
+                    .selectAll("g")
+                    .data(data)
+                    .enter();
 
 
             var pie = d3.layout.pie()
@@ -329,12 +388,25 @@ ng = a.directive('donutPickerChart', function($compile) {
 
             var g = svg.selectAll(".arc")
                 .data(pie(data))
-              .enter().append("g")
-                .attr("class", "arc");
-            
+                .enter();
+
+                // !!!!!!!!!!!!!!!!!!                                         
+                // note: if you add .append("g") 
+                // to the above var g,                                        
+                // drawing the arcs will only                                 
+                // work the first time you do it,                             
+                // after that they'll disappear
+                // and g will be an array of nulls.                           
+                // so don't do this!                                          
+                //
+                // .append("g");                                              
+                // !!!!!!!!!!!!!!!!!! 
+
             g.append("path")
                 .attr("d", arc)
-                .style("fill", function(d) { return colors[d.data.label]; })
+                .style("fill", function(d) { 
+                    return colors[d.data.label]; 
+                });
             
             g.append("text")
                 .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
@@ -344,6 +416,13 @@ ng = a.directive('donutPickerChart', function($compile) {
         }
 
 
+
+        // ------------------
+        // if you build it, 
+        // you must update it.
+        updateChart();
+
+        pscope.$watch('icd10code',updateChart);
 
     }
 

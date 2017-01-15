@@ -7,26 +7,26 @@
         <!--
         my CSS styles
         -->
-        <link href="/dang-sunburst/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
-        <link href="/dang-sunburst/theme/css/main.css"           rel="stylesheet" type="text/css">
+        <link href="/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
+        <link href="/theme/css/main.css"           rel="stylesheet" type="text/css">
 
-        <link href="/dang-sunburst/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
-        <link href="/dang-sunburst/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
-        <link href="/dang-sunburst/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
+        <link href="/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
+        <link href="/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
+        <link href="/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
 
         <!--
         include Angular first
         -->
-        <script type="text/javascript" src="/dang-sunburst/theme/js/angular-1.3.15.js"></script>
+        <script type="text/javascript" src="/theme/js/angular-1.3.15.js"></script>
 </head>
 
 <body id="index" class="home">
     <div class="container">
-        <h1><a href="/dang-sunburst/">dang-sunburst <strong></strong></a></h1>
+        <h1><a href="/">dang-sunburst <strong></strong></a></h1>
         <hr />
 
 
-<link href="/dang-sunburst/simpledonut/donutpicker.css" rel="stylesheet" stype="text/css" />
+<link href="/simpledonut/donutpicker.css" rel="stylesheet" stype="text/css" />
 
 <div ng-app="pickerApp">
 
@@ -61,35 +61,53 @@
 
             <div class="col-sm-4" id="more_donut_text">
                 <div class="row" id="donutpicker_md">
-This static donut chart illustrates how to turn
-a set of data into a donut chart.
-
-Remember that D3 thinks about a single dictionary or JSON array
-as a single data observation - as opposed to the normal approach
-of using keys to store data labels, and values to store the data itself,
-and bundling everything into a single dictionary.
+This button-picking donut chart shows how to fold up donut data
+that is high-dimensional into a JSON container that can be served up.
 
 <br/>
 <br/>
 
-The D3 donut chart is bound to underlying JSON data based on 
-the index "label" (which is used to label each piece) 
-and the index "value" (which is used to determine size of each piece).
+The key is to add one additional layer of hierarchy to the dictionary containing the data:
+data for any pie chart consists of a list of dictionaries, as with the static pie chart,
+but this time we add one additional layer to the JSON, which is the code.
+
+The user is then able to select different codes using buttons. Clicking those buttons
+sets the filter criteria in the visualization controller, and that change is detected
+and propagated, so that the pie chart data is updated and the pie chart re-drawn. 
 
 <pre style="font-size: 8px;">
 [
     {
-        "label" : "M",
-        "value" : 15
+        "code": "T510"},
+        "donut": 
+            [
+                {"value": 17, "label": "M"}, 
+                {"value": 4, "label": "F"}
+            ]
     },
     {
-        "label" : "F",
-        "value" : 4
-    }
+        "code": "Y14"},
+        "donut": 
+            [
+                {"value": 1, "label": "M"}, 
+                {"value": 3, "label": "F"}
+            ]
+    },
+    {
+        "code": "S328"},
+        "donut": 
+            [
+                {"value": 2, "label": "M"}, 
+                {"value": 3, "label": "F"}
+            ]
+    },
+    
+    ...
 ]
 </pre>
 
-D3 renders this data structure into the donut chart on the left.  
+Once we filter on "code", we get the "donut" array, and pass it to the D3 pie chart object,
+which renders the d ata structure into the donut chart on the left.  
                 </div>
 
             </div>
@@ -99,8 +117,8 @@ D3 renders this data structure into the donut chart on the left.
 
 </div>
 
-<script type="text/javascript" src="/dang-sunburst/simpledonut/donutpicker_modcontrol.js"></script>
-<script type="text/javascript" src="/dang-sunburst/simpledonut/donutpicker_chart.js"></script>
+<script type="text/javascript" src="/simpledonut/donutpicker_modcontrol.js"></script>
+<script type="text/javascript" src="/simpledonut/donutpicker_chart.js"></script>
 
     </div>
 
@@ -129,12 +147,12 @@ D3 renders this data structure into the donut chart on the left.
     <a href="http://numpy.org">Numpy</a>).
     </p>
 
-        <script type="text/javascript" src="/dang-sunburst/theme/js/jquery-1.11.2.js"></script>
-        <script type="text/javascript" src="/dang-sunburst/theme/js/bootstrap-3.3.4.js"></script>
-        <script type="text/javascript" src="/dang-sunburst/theme/js/d3-3.5.5.js"></script>
+        <script type="text/javascript" src="/theme/js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="/theme/js/bootstrap-3.3.4.js"></script>
+        <script type="text/javascript" src="/theme/js/d3-3.5.5.js"></script>
         <!--
-        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet-0.7.3.js"></script>
-        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet.ajax.min.js"></script>
+        <script type="text/javascript" src="/theme/js/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="/theme/js/leaflet.ajax.min.js"></script>
         -->
     </footer><!-- /#contentinfo -->
 

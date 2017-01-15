@@ -43,10 +43,15 @@ function MainController($scope,datafactory) {
         );
     }
 
+    /*
+    // This does not change the value of this 
+    // variable in everyone's parent scope.
+    // UUUUGGGGHHHHH. Stupid code.
     $scope.update_icd10code = function(code) {
         $scope.icd10code = code;
-        console.log('update_icd10code() run with code '+code);
+        console.log("from update_icd10code:"+$scope.icd10code);
     }
+    */
 
 }
 

@@ -1,29 +1,47 @@
-This static donut chart illustrates how to turn
-a set of data into a donut chart.
-
-Remember that D3 thinks about a single dictionary or JSON array
-as a single data observation - as opposed to the normal approach
-of using keys to store data labels, and values to store the data itself,
-and bundling everything into a single dictionary.
+This button-picking donut chart shows how to fold up donut data
+that is high-dimensional into a JSON container that can be served up.
 
 <br/>
 <br/>
 
-The D3 donut chart is bound to underlying JSON data based on 
-the index "label" (which is used to label each piece) 
-and the index "value" (which is used to determine size of each piece).
+The key is to add one additional layer of hierarchy to the dictionary containing the data:
+data for any pie chart consists of a list of dictionaries, as with the static pie chart,
+but this time we add one additional layer to the JSON, which is the code.
+
+The user is then able to select different codes using buttons. Clicking those buttons
+sets the filter criteria in the visualization controller, and that change is detected
+and propagated, so that the pie chart data is updated and the pie chart re-drawn. 
 
 <pre style="font-size: 8px;">
 [
     {
-        "label" : "M",
-        "value" : 15
+        "code": "T510"},
+        "donut": 
+            [
+                {"value": 17, "label": "M"}, 
+                {"value": 4, "label": "F"}
+            ]
     },
     {
-        "label" : "F",
-        "value" : 4
-    }
+        "code": "Y14"},
+        "donut": 
+            [
+                {"value": 1, "label": "M"}, 
+                {"value": 3, "label": "F"}
+            ]
+    },
+    {
+        "code": "S328"},
+        "donut": 
+            [
+                {"value": 2, "label": "M"}, 
+                {"value": 3, "label": "F"}
+            ]
+    },
+    
+    ...
 ]
 </pre>
 
-D3 renders this data structure into the donut chart on the left.  
+Once we filter on "code", we get the "donut" array, and pass it to the D3 pie chart object,
+which renders the d ata structure into the donut chart on the left.  

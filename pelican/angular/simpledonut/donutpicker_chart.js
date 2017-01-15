@@ -129,7 +129,22 @@ ng = a.directive("changecode", function($compile) {
             // first, update the scope variable 
             // that holds the current icd 10 code
             // (no need to load any new data)
-            pscope.update_icd10code(attrs['code']);
+
+            // !!!!!!!!!!!!!!!!!!!!!!!!
+            // NOTE
+            // The lines below - this $apply() method - 
+            // this is the way you change the variable
+            // at the controller level, and get the 
+            // various watchers to detect changes.
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!
+            pscope.$apply(function() {
+                pscope.icd10code = attrs['code'];
+            });
+
+            //// This is some weak-sauce, 
+            //// its not even changing value of variable
+            //pscope.update_icd10code(attrs['code']);
+
 
             // then run the donut chart update function
             updateChart();
@@ -154,11 +169,29 @@ ng = a.directive("changecode", function($compile) {
 ng = a.directive('donutPickerPanels', function($compile) {
 
     function link(scope, element, attr) {
+    /*
+
+        // //////////////////////////////////
+        // // UUUUUGGGGHHHHH 
+        // // nobody is noticing any changes in icd10code
+        // scope.$parent.$watch('icd10code',doStuff);
+
+        // scope.$parent.$watch('icd10code',function(){
+        //     console.log('no worries i am watching donut-picker-panel');
+        // });
+
+        function doStuff() { 
+            if(!scope.$parent.icd10code) { return; }
+            console.log('doin stuff cuz icd10code');
+            drawPanel(element, scope.$parent);
+        }
+
+    };
+
+    function drawPanel(element,pscope) {
+    */
 
         var el = element[0];
-
-        var pscope = scope.$parent;
-
 
         // --------------------------
         // add display for details 
@@ -195,7 +228,7 @@ ng = a.directive('donutPickerPanels', function($compile) {
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("ICD 10 Code: T401")//[[mouseoverPoint.name]]")
+            .html("ICD 10 Code: [[icd10code]]")
             .appendTo(maindiv);
 
         /*
@@ -207,7 +240,6 @@ ng = a.directive('donutPickerPanels', function($compile) {
         */
 
         angular.element(el).prepend($compile(panel)(pscope));
-
 
     }
 
@@ -234,10 +266,7 @@ ng = a.directive('donutPickerChart', function($compile) {
         scope.$parent.$watch('pickerData',doStuff);
 
         function doStuff() { 
-            if(!scope.$parent.pickerData) { 
-                console.log("No data loaded!");
-                return;
-            }
+            if(!scope.$parent.pickerData) { return; }
             buildChart(element, scope.$parent);
         }
 
@@ -282,7 +311,8 @@ ng = a.directive('donutPickerChart', function($compile) {
         var y = d3.scale.sqrt()
             .range([0, radius]);
         
-        var svg = d3.select(mydiv).append("svg")
+        var svg = d3.select(mydiv)
+            .append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -392,11 +422,7 @@ ng = a.directive('donutPickerChart', function($compile) {
         // you must update it.
         updateChart();
 
-        // UUUUUUUGGGGHHHH 
-        // This does not detect changes in icd10code.
-        // have to call updateChart manually in the changecode action directive.
-        //
-        //pscope.$watch('icd10code',updateChart);
+        pscope.$watch('icd10code',updateChart);
 
     }
 
