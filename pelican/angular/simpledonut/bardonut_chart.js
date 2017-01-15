@@ -55,7 +55,7 @@ dir.push(ng);
 
 
 ///////////////////////////////////////////////
-// Chart Controls
+// Chart Controls Directives
 
 ng = a.directive('donutPickerControls', function($compile) {
 
@@ -203,7 +203,8 @@ ng = a.directive("changecode", function($compile) {
 
 
 ///////////////////////////////////////////////
-// Panels
+// Panels: 
+// Display useful information in a pretty box
 
 
 ng = a.directive('donutPickerPanels', function($compile) {
@@ -275,6 +276,8 @@ dir.push(ng);
 
 ///////////////////////////////////////////////
 // Donut Picker Chart
+// 
+// This is the actual donut chart, of gender ratios.
 
 ng = a.directive('donutPickerChart', function($compile) {
 
@@ -497,15 +500,19 @@ ng = a.directive('modBarChart', function($compile) {
         // ---------------
         // the chart itself:
 
-        var margin = {
-            top:    20, 
-            right:  20, 
-            bottom: 30, 
-            left:   40
-        };
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+            width = 400 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
 
-        var width   = 600 - margin.right - margin.left,
-            height  = 200 - margin.top   - margin.bottom;
+        //var margin = {
+        //    top:    10, 
+        //    right:  10, 
+        //    bottom: 10, 
+        //    left:   10
+        //};
+
+        //var width   = 400 - margin.right - margin.left,
+        //    height  = 400 - margin.top   - margin.bottom;
         
         var x = d3.scale.ordinal()
             .rangeRoundBands([0, width], .1);
@@ -520,14 +527,14 @@ ng = a.directive('modBarChart', function($compile) {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
-            .ticks(10, "%");
+            .ticks(10)
         
         var svg = d3.select(mydiv)
             .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
         updateChart = function() { 
@@ -536,12 +543,11 @@ ng = a.directive('modBarChart', function($compile) {
 
             var code; 
             var data;
-            //console.log('just checking: '+pscope.icd10code);
             for( var i=0; i < all_data.length; i++ ) {
 
                 // set excpetion handling:
                 // if no icd10code is set, problems occur.
-                console.log(all_data[i]);
+                //console.log(all_data[i]);
                 if(all_data[i]['code'] == pscope.icd10code) {
                     code = all_data[i]['code'];
                     data = all_data[i]['modbars'];
@@ -549,11 +555,13 @@ ng = a.directive('modBarChart', function($compile) {
                 }
 
             }
+
             if( data!=null ){
 
-                //console.log( data.map(funtion(d) { return d.label; }) );
+                //console.log(data.map(function(d){ return d.label; }));
 
                 x.domain(data.map(function(d) { return d.label; }));
+
                 y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
                 svg.append("g")
@@ -569,14 +577,17 @@ ng = a.directive('modBarChart', function($compile) {
                     .attr("y", 6)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("Frequency");
-                
-                var color = d3.scale.category20c();
+                    .text("Value");
+
+                var color = d3.scale.category10();
+
                 svg.selectAll(".bar")
                     .data(data)
                   .enter().append("rect")
                     .attr("class", "bar")
-                    .attr("fill",function(d) { return color[d.label] })
+                    .attr("fill",function(d,i) { 
+                        return color(d.label) 
+                    })
                     .attr("x", function(d) { return x(d.label); })
                     .attr("width", x.rangeBand())
                     .attr("y", function(d) { return y(d.value); })
