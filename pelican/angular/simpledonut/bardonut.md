@@ -1,7 +1,5 @@
-This is a donut chart with buttons enabling you to pick different
-categories of data. This chart is intended to demonstrate how to fold up 
-high dimensional data into a JSON container that ca be served up and 
-easily filtered with D3.
+This is a donut chart with a bar chart, showing you how to link 
+different charts together with buttons and things. 
 
 <br />
 <br />
@@ -15,13 +13,9 @@ the cause of death.
 <br/>
 <br/>
 
-The key is to add one additional layer of hierarchy to the dictionary containing the data:
-data for any pie chart consists of a list of dictionaries, as with the static pie chart,
-but this time we add one additional layer to the JSON, which is the code.
-
-The user is then able to select different codes using buttons. Clicking those buttons
-sets the filter criteria in the visualization controller, and that change is detected
-and propagated, so that the pie chart data is updated and the pie chart re-drawn. 
+Here, we bundle bar and donut plot data together by ICD 10 code.
+When the user picks an ICD 10 code using buttons, we filter the data
+plotted by the bar and donut plots.
 
 <pre style="font-size: 8px;">
 [
