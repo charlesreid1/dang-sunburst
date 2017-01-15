@@ -107,15 +107,21 @@ TEMPLATE_PAGES['pushpop_sunburst.js']    = 'dynamic/pushpop_sunburst.js'
 
 
 
-# simple static donut
+# simple donut: static donut
 TEMPLATE_PAGES['staticdonut.json']     = 'simpledonut/staticdonut.json'
 TEMPLATE_PAGES['staticdonut.html']     = 'simpledonut/staticdonut.html'
 TEMPLATE_PAGES['staticdonut.css']      = 'simpledonut/staticdonut.css'
 TEMPLATE_PAGES['staticdonut.md']       = 'simpledonut/staticdonut.md'
-
 TEMPLATE_PAGES['staticdonut_modcontrol.js']  = 'simpledonut/staticdonut_modcontrol.js'
 TEMPLATE_PAGES['staticdonut_chart.js']       = 'simpledonut/staticdonut_chart.js'
 
+# simple donut: donut picker
+TEMPLATE_PAGES['donutpicker.json']     = 'simpledonut/donutpicker.json'
+TEMPLATE_PAGES['donutpicker.html']     = 'simpledonut/donutpicker.html'
+TEMPLATE_PAGES['donutpicker.css']      = 'simpledonut/donutpicker.css'
+TEMPLATE_PAGES['donutpicker.md']       = 'simpledonut/donutpicker.md'
+TEMPLATE_PAGES['donutpicker_modcontrol.js']  = 'simpledonut/donutpicker_modcontrol.js'
+TEMPLATE_PAGES['donutpicker_chart.js']       = 'simpledonut/donutpicker_chart.js'
 
 
 
