@@ -1,53 +1,30 @@
-This interactive sunburst allows you to change the proportions
-of various quantities interactively.
+This static donut chart illustrates how to turn
+a set of data into a donut chart.
+
+Remember that D3 thinks about a single dictionary or JSON array
+as a single data observation - as opposed to the normal approach
+of using keys to store data labels, and values to store the data itself,
+and bundling everything into a single dictionary.
 
 <br/>
 <br/>
 
-Click on any of the outer slices of the charts to bring up an interactive
-slider control for the size of the slice.
-
-<br/>
-<br/>
-
-The D3 sunburst chart is bound to underlying JSON data, which has the following format:
+The D3 donut chart is bound to underlying JSON data based on 
+the index "label" (which is used to label each piece) 
+and the index "value" (which is used to determine size of each piece).
 
 <pre style="font-size: 8px;">
-{
-    "name": "root",
-    "children": [
-        {
-            "name": "A",
-            "children": [
-                {
-                    "magnitude": 20,
-                    "name": "AW"
-                },
-                {
-                    "magnitude": 5,
-                    "name": "AX"
-                },
-                {
-                    "magnitude": 10,
-                    "name": "AY"
-                },
-                {
-                    "magnitude": 50,
-                    "name": "AZ"
-                }
-            ]
-        },
-        [...]
+[
+    {
+        "label" : "M",
+        "value" : 15
+    },
+    {
+        "label" : "F",
+        "value" : 4
+    }
+]
 </pre>
 
-This tree structure is rendered into the sunchart shown on the left 
-by D3.
-
-<br/>
-<br/>
-
-Clicking on an outermost element will show a slider input element,
-and will bind that slider to the chart's underlying JSON data.
-As the value bound to the slider changes, the chart is 
-updated.
+D3 renders this data structure into the donut chart on the left.  
 

@@ -137,6 +137,7 @@ ng = a.directive('staticDonutPanels', function($compile) {
 
         var pscope = scope.$parent;
 
+
         // --------------------------
         // add display for details 
         // about current mouseover selection
@@ -159,7 +160,7 @@ ng = a.directive('staticDonutPanels', function($compile) {
         
         var h3 = $("<h3 />", {
                 "class" : "panel-title"
-            }).text("Mouseover Active Arc")
+            }).text("Current ICD 10 Code")
             .appendTo(panelhead);
 
 
@@ -169,85 +170,19 @@ ng = a.directive('staticDonutPanels', function($compile) {
             }).appendTo(panel);
 
         var maindiv = $("<div />", {
-                /*"ng-show" : "mouseoverPoint"*/
             }).appendTo(panelbody);
 
         var h = $("<h3 />")
-            .html("Name: [[mouseoverPoint.name]]")
+            .html("ICD 10 Code: T401")//[[mouseoverPoint.name]]")
             .appendTo(maindiv);
 
+        /*
         var p = $("<p />", {
                 "class" : "lead"
             })
             .html("Value: [[mouseoverPoint.magnitude | number:0]]")
             .appendTo(maindiv);
-
-
-        angular.element(el).prepend($compile(panel)(pscope));
-
-
-
-
-        // --------------------------
-        // add display for details 
-        // about current clicked selection
-        
-        // assemble the tags, 
-        // then compile the html
-        // select element of interest with angular.element
-        // and append the compiled tags
-        //
-
-        var panel = $("<div />", {
-                "class" : "panel panel-warning",
-                "id" : "clickedPointPanel"
-            });
-
-        var panelhead = $("<div />", {
-                "class" : "panel-heading"
-            }).appendTo(panel);
-        
-        var h3 = $("<h3 />", {
-                "class" : "panel-title"
-            }).text("Selected Arc")
-            .appendTo(panelhead);
-
-
-
-        var panelbody = $("<div />", {
-                "class" : "panel-body"
-            }).appendTo(panel);
-
-        var maindiv = $("<div />", {
-                /*"ng-show" : "clickedPoint"*/
-            }).appendTo(panelbody);
-
-        var h = $("<h3 />")
-            .html("Name: [[clickedPoint.name]]")
-            .appendTo(maindiv);
-
-        var p = $("<p />", {
-                "class" : "lead"
-            })
-            .html("Value: [[clickedPoint.magnitude | number:0]]")
-            .appendTo(maindiv);
-
-
-        // this is where you add the slider
-        var input = $("<input />", {
-            "id" : "TheSlider",
-            "type" : "range",
-            "min" : "1", 
-            "max" : "300",
-            "class" : "slider",
-            "ng-model" : "clickedPoint.magnitude"
-        }).appendTo(maindiv);
-
-        //onchange??
-        //
-        //where to set up watch for clickedPoint.magnitude?
-        //how to make sure that the link that points to in the tree
-        //is actually updated when clickedPoint.magnitude is updated?
+        */
 
         angular.element(el).prepend($compile(panel)(pscope));
 
@@ -278,7 +213,6 @@ ng = a.directive('staticDonutChart', function($compile) {
 
         function doStuff() { 
             if(!scope.$parent.staticData) { return }
-            console.log('in doStuff() because staticData');
             buildChart(element, scope.$parent);
         }
 
@@ -287,7 +221,6 @@ ng = a.directive('staticDonutChart', function($compile) {
 
     function buildChart(element,pscope) {
 
-        console.log('in buildChart()');
 
 
         /////////////////////////////////////////
@@ -358,7 +291,6 @@ ng = a.directive('staticDonutChart', function($compile) {
         // update chart
         function updateChart() {
 
-            console.log('in updateChart()');
 
             var data = pscope.staticData;
 
