@@ -27,7 +27,7 @@ ng = a.directive('bubbleshead', function($compile) {
         var h1 = $("<h1 />");
 
         var b = $("<b />")
-            .text("a nice bubbles dxample")
+            .text("bubble chart example")
             .appendTo(h1);
 
         h1.appendTo(dir);
