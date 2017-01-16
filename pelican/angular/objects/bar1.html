@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Bar Donut Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/objects/bar1.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="bar1app">
+
+    <div ng-controller="bar1controller" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="bar1_title">
+                <bar1head></bar1head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10" id="bar1_controls">
+                <bar1controls></bar1controls>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4" id="bar1_charts">
+                <div class="row" id="bar1_chart">
+                    <bar1chart></bar1chart> 
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4" id="bar1_text">
+                <div class="row" id="bar1_panels">
+                    <bar1panel></bar1panel>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-sm-10" id="bar1_moretext">
+                <div class="row" id="bar1_md">
+                    {% include 'bar1.md' %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/objects/bar1_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/objects/bar1_chart.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/objects/bar-chart.js"></script>
+
+{% endblock %}
+
