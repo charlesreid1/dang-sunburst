@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% set mytitle="radar1 Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/radar/radar1.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="radar1App">
+
+    <div ng-controller="radar1Controller" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="radar1_title">
+                <radar1head></radar1head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10" id="radar1_controls">
+                <radar1controls></radar1controls>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6" id="radar1_charts">
+                <div class="row" id="radar1_chart">
+                    <radar1chart></radar1chart>
+                </div>
+            </div>
+
+            <div class="col-sm-6" id="radar1_panels">
+                <div class="row" id="radar1_panel">
+                    <radar1panel></radar1panel>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-sm-10" id="radar1_text">
+                <div class="row" id="radar1_md">
+                    {% include 'radar1.md' %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/radar/radar1_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/radar/radar1_chart.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/radar/radar-chart.js"></script>
+
+{% endblock %}
+

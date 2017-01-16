@@ -28,7 +28,8 @@ EXTRA_TEMPLATES_PATHS = ['angular',
                          'angular/letters',
                          'angular/breakdown',
                          'angular/dynamic',
-                         'angular/simpledonut']
+                         'angular/simpledonut',
+                         'angular/radar']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -111,7 +112,6 @@ TEMPLATE_PAGES['pushpop_sunburst.js']    = 'dynamic/pushpop_sunburst.js'
 TEMPLATE_PAGES['staticdonut.json']           = 'simpledonut/staticdonut.json'
 TEMPLATE_PAGES['staticdonut.html']           = 'simpledonut/staticdonut.html'
 TEMPLATE_PAGES['staticdonut.css']            = 'simpledonut/staticdonut.css'
-TEMPLATE_PAGES['staticdonut.md']             = 'simpledonut/staticdonut.md'
 TEMPLATE_PAGES['staticdonut_modcontrol.js']  = 'simpledonut/staticdonut_modcontrol.js'
 TEMPLATE_PAGES['staticdonut_chart.js']       = 'simpledonut/staticdonut_chart.js'
 
@@ -121,7 +121,6 @@ TEMPLATE_PAGES['icd10codes.json']            = 'simpledonut/icd10codes.json'
 TEMPLATE_PAGES['donutpicker.json']           = 'simpledonut/donutpicker.json'
 TEMPLATE_PAGES['donutpicker.html']           = 'simpledonut/donutpicker.html'
 TEMPLATE_PAGES['donutpicker.css']            = 'simpledonut/donutpicker.css'
-TEMPLATE_PAGES['donutpicker.md']             = 'simpledonut/donutpicker.md'
 TEMPLATE_PAGES['donutpicker_modcontrol.js']  = 'simpledonut/donutpicker_modcontrol.js'
 TEMPLATE_PAGES['donutpicker_chart.js']       = 'simpledonut/donutpicker_chart.js'
 
@@ -131,9 +130,24 @@ TEMPLATE_PAGES['bardonut_allcategories.json'] = 'simpledonut/bardonut_allcategor
 TEMPLATE_PAGES['bardonut.json']           = 'simpledonut/bardonut.json'
 TEMPLATE_PAGES['bardonut.html']           = 'simpledonut/bardonut.html'
 TEMPLATE_PAGES['bardonut.css']            = 'simpledonut/bardonut.css'
-TEMPLATE_PAGES['bardonut.md']             = 'simpledonut/bardonut.md'
 TEMPLATE_PAGES['bardonut_modcontrol.js']  = 'simpledonut/bardonut_modcontrol.js'
 TEMPLATE_PAGES['bardonut_chart.js']       = 'simpledonut/bardonut_chart.js'
+
+
+
+# radar 1
+TEMPLATE_PAGES['icd10codes.json']       = 'radar/icd10codes.json'
+TEMPLATE_PAGES['radar-chart.js']        = 'radar/radar-chart.js'
+
+TEMPLATE_PAGES['radar_mod.json']        = 'radar/radar_mod.json'
+TEMPLATE_PAGES['radar_mon.json']        = 'radar/radar_mon.json'
+TEMPLATE_PAGES['radar1.json']           = 'radar/radar1.json'
+
+TEMPLATE_PAGES['radar1.css']            = 'radar/radar1.css'
+TEMPLATE_PAGES['radar1.html']           = 'radar/radar1.html'
+TEMPLATE_PAGES['radar1_chart.js']       = 'radar/radar1_chart.js'
+TEMPLATE_PAGES['radar1_modcontrol.js']  = 'radar/radar1_modcontrol.js'
+
 
 
 
