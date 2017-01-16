@@ -9,8 +9,8 @@ SITEURL = ''
 AUTHOR = u'charlesreid1'
 SITENAME = u'dang-sunburst'
 
-#SITEURL = ''
-SITEURL = '/dang-sunburst'
+SITEURL = ''
+#SITEURL = '/dang-sunburst'
 
 
 OUTPUT_PATH = '../docs/'
@@ -141,13 +141,16 @@ TEMPLATE_PAGES['radar-chart.js']        = 'radar/radar-chart.js'
 
 TEMPLATE_PAGES['radar_mod.json']        = 'radar/radar_mod.json'
 TEMPLATE_PAGES['radar_mon.json']        = 'radar/radar_mon.json'
-TEMPLATE_PAGES['radar1.json']           = 'radar/radar1.json'
 
 TEMPLATE_PAGES['radar1.css']            = 'radar/radar1.css'
 TEMPLATE_PAGES['radar1.html']           = 'radar/radar1.html'
 TEMPLATE_PAGES['radar1_chart.js']       = 'radar/radar1_chart.js'
 TEMPLATE_PAGES['radar1_modcontrol.js']  = 'radar/radar1_modcontrol.js'
 
+TEMPLATE_PAGES['radar2.css']            = 'radar/radar2.css'
+TEMPLATE_PAGES['radar2.html']           = 'radar/radar2.html'
+TEMPLATE_PAGES['radar2_chart.js']       = 'radar/radar2_chart.js'
+TEMPLATE_PAGES['radar2_modcontrol.js']  = 'radar/radar2_modcontrol.js'
 
 
 
