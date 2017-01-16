@@ -29,7 +29,9 @@ EXTRA_TEMPLATES_PATHS = ['angular',
                          'angular/breakdown',
                          'angular/dynamic',
                          'angular/simpledonut',
-                         'angular/radar']
+                         'angular/radar',
+                         'angular/bubbles',
+                         'angular/objects']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -151,6 +153,33 @@ TEMPLATE_PAGES['radar2.css']            = 'radar/radar2.css'
 TEMPLATE_PAGES['radar2.html']           = 'radar/radar2.html'
 TEMPLATE_PAGES['radar2_chart.js']       = 'radar/radar2_chart.js'
 TEMPLATE_PAGES['radar2_modcontrol.js']  = 'radar/radar2_modcontrol.js'
+
+
+
+# objects
+
+# bar 
+TEMPLATE_PAGES['bar-chart.js']            = 'objects/bar-chart.js'
+
+# bar1
+TEMPLATE_PAGES['icd10codes.json']         = 'objects/icd10codes.json'
+TEMPLATE_PAGES['bar1.json']               = 'objects/bar1.json'
+TEMPLATE_PAGES['bar1.html']               = 'objects/bar1.html'
+TEMPLATE_PAGES['bar1.css']                = 'objects/bar1.css'
+TEMPLATE_PAGES['bar1_modcontrol.js']      = 'objects/bar1_modcontrol.js'
+TEMPLATE_PAGES['bar1_chart.js']           = 'objects/bar1_chart.js'
+
+
+
+
+# objects
+TEMPLATE_PAGES['icd10codes.json']       = 'bubbles/icd10codes.json'
+TEMPLATE_PAGES['bubbles.css']           = 'bubbles/bubbles.css'
+TEMPLATE_PAGES['bubbles.html']          = 'bubbles/bubbles.html'
+TEMPLATE_PAGES['bubbles.json']          = 'bubbles/bubbles.json'
+TEMPLATE_PAGES['bubbles_chart.js']      = 'bubbles/bubbles_chart.js'
+TEMPLATE_PAGES['bubbles_modcontrol.js'] = 'bubbles/bubbles_modcontrol.js'
+
 
 
 
