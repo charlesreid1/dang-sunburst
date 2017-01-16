@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Bar Donut Chart</title>
+        <meta charset="utf-8" />
+
+        <!--
+        my CSS styles
+        -->
+        <link href="/dang-sunburst/theme/css/bootstrap.css"      rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/main.css"           rel="stylesheet" type="text/css">
+
+        <link href="/dang-sunburst/theme/css/cosmo.css"          rel="stylesheet" type="text/css">
+        <link href="/dang-sunburst/theme/css/font-awesome.css"   rel="stylesheet" type="text/css"/>
+        <link href="/dang-sunburst/theme/css/pygment.css"        rel="stylesheet" type="text/css"/>
+
+        <!--
+        include Angular first
+        -->
+        <script type="text/javascript" src="/dang-sunburst/theme/js/angular-1.3.15.js"></script>
+</head>
+
+<body id="index" class="home">
+    <div class="container">
+        <h1><a href="/dang-sunburst/">dang-sunburst <strong></strong></a></h1>
+        <hr />
+
+
+<link href="/dang-sunburst/objects/bar1.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="bar1app">
+
+    <div ng-controller="bar1controller" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="bar1_title">
+                <bar1head></bar1head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10" id="bar1_controls">
+                <bar1controls></bar1controls>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4" id="bar1_charts">
+                <div class="row" id="bar1_chart">
+                    <bar1chart></bar1chart> 
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4" id="bar1_text">
+                <div class="row" id="bar1_panels">
+                    <bar1panel></bar1panel>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-sm-10" id="bar1_moretext">
+                <div class="row" id="bar1_md">
+This chart demonstrates linking a donut chart with a bar chart, 
+so that a single controller filters data on both. 
+It also effectively implements the "folding up" technique
+demonstrated with the Donut Picker chart.
+
+<br />
+<br />
+
+The data visualized are death records from the United States in 2014. 
+Death records are anonymized and classified by many variables, 
+including gender and manner of death, and released to the public.
+Statistics about these variables are counted up for different ICD 10 codes,
+which indicate various circumstances present at death, and visualized above.
+
+<br/>
+<br/>
+
+Here, we bundle bar and donut plot data together by ICD 10 code.
+When the user picks an ICD 10 code using buttons, we filter the data
+plotted by the bar and donut plots.
+
+<pre style="font-size: 8px;">
+[
+    {
+        "code": "T510"},
+        "donut": 
+            [
+                {"value": 17, "label": "M"}, 
+                {"value": 4, "label": "F"}
+            ],
+        "bar": 
+            [
+                {"value": 10, "label": "Accident"}, 
+                {"value": 0, "label": "Suicide"},
+                {"value": 0, "label": "Homicide"},
+                {"value": 3, "label": "Natural"}
+            ]
+    },
+    {
+        "code": "Y14"},
+        "donut": 
+            [
+                {"value": 1, "label": "M"}, 
+                {"value": 3, "label": "F"}
+            ],
+        "bar": 
+            [
+                {"value": 4, "label": "Accident"}, 
+                {"value": 2, "label": "Suicide"},
+                {"value": 0, "label": "Homicide"},
+                {"value": 2, "label": "Natural"}
+            ]
+    },
+    
+    ...
+]
+</pre>
+
+Once we filter on "code", we get the "donut" array, and pass it to the D3 pie chart object,
+which renders the d ata structure into the donut chart on the left. Likewise, the "bar" array
+is sent to the bar chart and visualized accordingly.
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script type="text/javascript" src="/dang-sunburst/objects/bar1_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-sunburst/objects/bar1_chart.js"></script>
+<script type="text/javascript" src="/dang-sunburst/objects/bar-chart.js"></script>
+
+    </div>
+
+    <footer id="contentinfo" class="body">
+    <hr />
+    <p style="text-align: center">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+        </span>
+        Made from the command line with vim by 
+        <a href="http://charlesreid1.com">charlesreid1</a>.
+    </p>
+
+    <p style="text-align: center;">Made with HTML (
+    <a href="http://http://bootstrap.org/">Bootstrap</a>,
+    <a href="http://bootswatch.com">Bootswatch</a>), 
+    Javascript (
+    <a href="http://http://d3js.org/">D3.js</a>, 
+    <a href=https://angularjs.org/">Angular.js</a>,
+    <a href="https://jquery.com/">jQuery</a>), 
+    and Python (
+    <a href="http://getpelican.com">Pelican</a>,
+    <a href="http://http://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a>,
+    <a href="http://matplotlib.org">Matplotlib</a>,
+    <a href="http://numpy.org">Numpy</a>).
+    </p>
+
+        <script type="text/javascript" src="/dang-sunburst/theme/js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/bootstrap-3.3.4.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/d3-3.5.5.js"></script>
+        <!--
+        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="/dang-sunburst/theme/js/leaflet.ajax.min.js"></script>
+        -->
+    </footer><!-- /#contentinfo -->
+
+</body>
+</html>
