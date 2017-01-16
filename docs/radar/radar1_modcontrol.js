@@ -1,11 +1,11 @@
 ///////////////////////////////////////
 //
-// Picker 
+// radar1
 //
 // Module/Controller
 // 
 
-var a = angular.module("pickerApp", [], function($interpolateProvider) {
+var a = angular.module("radar1App", [], function($interpolateProvider) {
             $interpolateProvider.startSymbol('[[');
             $interpolateProvider.endSymbol(']]');
         }
@@ -14,10 +14,10 @@ var a = angular.module("pickerApp", [], function($interpolateProvider) {
 var datafactory = a.factory('datafactory', function($http, $q) {
 
     return {
-        getPickerData: function() {
+        getradar1data: function() {
             var deferred = $q.defer();
 
-            var json_file = 'bardonut_allcategories.json';
+            var json_file = 'radar_mon.json';
 
             $http.get(json_file).success(function(data) {
                 deferred.resolve(data);
@@ -45,17 +45,17 @@ var datafactory = a.factory('datafactory', function($http, $q) {
     }
 });
 
-function MainController($scope,datafactory) {
+function radar1Controller($scope,datafactory) {
 
     $scope.initialize = function() {
 
-        $scope.icd10code="S328";
+        $scope.icd10code="S324";
         $scope.donutFemale = 0;
         $scope.donutMale = 0;
 
-        datafactory.getPickerData().then(
+        datafactory.getradar1data().then(
             function(data) { 
-                $scope.pickerData = data;
+                $scope.radar1data = data;
             }
         );
 
@@ -70,18 +70,7 @@ function MainController($scope,datafactory) {
 
     }
 
-
-    /*
-    // This does not change the value of this 
-    // variable in everyone's parent scope.
-    // UUUUGGGGHHHHH. Stupid code.
-    $scope.update_icd10code = function(code) {
-        $scope.icd10code = code;
-        console.log("from update_icd10code:"+$scope.icd10code);
-    }
-    */
-
 }
 
-// the first few arguments of the list should correspond to the Angular-namespace stuff to feed to PickerController
-var c = a.controller("mainController", ["$scope", "datafactory", MainController]);
+// the first few arguments of the list should correspond to the Angular-namespace stuff to feed to controller
+var c = a.controller("radar1Controller", ["$scope", "datafactory", radar1Controller]);
