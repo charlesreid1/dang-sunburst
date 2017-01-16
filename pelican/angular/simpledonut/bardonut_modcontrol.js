@@ -50,6 +50,8 @@ function MainController($scope,datafactory) {
     $scope.initialize = function() {
 
         $scope.icd10code="S328";
+        $scope.donutFemale = 0;
+        $scope.donutMale = 0;
 
         datafactory.getPickerData().then(
             function(data) { 
@@ -67,6 +69,7 @@ function MainController($scope,datafactory) {
 
 
     }
+
 
     /*
     // This does not change the value of this 

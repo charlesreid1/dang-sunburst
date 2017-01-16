@@ -43,7 +43,7 @@ ng = a.directive('bardonuthead', function($compile) {
         var p = $("<p />", { 
             "class" : "normal" })
             .html("The following charts show statistics about death records, classified by ICD 10 code. Select an ICD 10 code to view statistics about gender and manner of death.")
-            .appendTo(maindiv);
+            .appendTo(dir);
         
 
     }
@@ -80,7 +80,6 @@ ng = a.directive('bardonutcontrols', function($compile) {
     };
 
     function buildButtons(element,pscope) {
-
 
         var mydiv = "div#donut_controls";
 
@@ -156,7 +155,6 @@ ng = a.directive("changecode", function($compile) {
             // first, update the scope variable 
             // that holds the current icd 10 code
             // (no need to load any new data)
-
 
 
             // This is the ICD 10 code the user has selected.
@@ -316,8 +314,9 @@ ng = a.directive('donutpickerchart', function($compile) {
         // start by initializing variables 
         // that don't depend on the data. 
 
-        var chart = $(mydiv);
-        chart.empty();
+        var el = element[0];
+        $(el).empty();
+
 
         ///////////////////////////////////
         // now draw the svg with d3
@@ -327,13 +326,16 @@ ng = a.directive('donutpickerchart', function($compile) {
 
         var margin = {
             top:    10, 
-            right:  40, 
+            right:  10, 
             bottom: 10, 
-            left:   40
+            left:   10
         };
 
-        var width   = 300 - margin.right - margin.left,
-            height  = 300 - margin.top   - margin.bottom;
+        var w = 300,
+            h = 300;
+
+        var width   = w - margin.right - margin.left,
+            height  = h - margin.top   - margin.bottom;
         
         var radius = Math.min(width, height) / 2;
         
@@ -350,6 +352,7 @@ ng = a.directive('donutpickerchart', function($compile) {
             .append("g")
             .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
 
+
         // ---------------
         // chart-specific, 
         // data-independent variables
@@ -360,6 +363,18 @@ ng = a.directive('donutpickerchart', function($compile) {
         // * colors (maybe)
         //
 
+        // This would be nice. but, donutMale and donutFemale aren't working.
+        // And once they are working, they aren't positioned correctly.
+        // And adding them as d3 text elements makes them... not appear.
+        // Just shoe-horning in the value on the pie chart label. Better anyway.
+        /////////var text = svg.append("text")
+        /////////    .attr("class", "title")
+        /////////    .attr('transform', 'translate(90,0)') 
+        /////////    .attr("x", w - 70)
+        /////////    .attr("y", 10)
+        /////////    .attr("font-size", "12px")
+        /////////    .attr("fill", "#404040")
+        /////////    .html("Females: [[donutFemale]]<br />Males: [[donutMale]]");
 
 
         // Sunburst needs these to be functions,
@@ -375,7 +390,6 @@ ng = a.directive('donutpickerchart', function($compile) {
         };
 
         // if animating, more stuff goes here.
-
 
         pscope.updateDonut = function() { 
 
@@ -406,10 +420,41 @@ ng = a.directive('donutpickerchart', function($compile) {
                     break;
                 }
             }
-
             // finished; use data
             // ---------------------------------
+
+
+
+            // ----------------------------
+            // Start with counts of 
+            // donut chart males/females
             
+            var donutFemale = 0,
+                donutMale = 0;
+            
+            for(var i=0; i<data.length; i++) { 
+                if(data[i].label=="M"){
+                    donutMale = data[i].value;
+                }
+                if( data[i].label=="F") {
+                    donutFemale = data[i].value;
+                }
+            }
+
+            ////////////////
+            // UUUUGGGGGGGGHHHHHHHHHHHH
+            //
+            // can't use pscope.$apply() here.
+            //
+            // ?????
+            // 
+            // also, this does not update these variables.
+            // WTFH
+            //pscope.donutFemale = donutFemale;
+            //pscope.donutMale = donutMale;
+
+            // ----------------------------
+
 
             var g = svg.datum(data)
                     .selectAll("g")
@@ -445,13 +490,26 @@ ng = a.directive('donutpickerchart', function($compile) {
                     return colors[d.data.label]; 
                 });
             
+
+            // clear away old labels
+            svg.selectAll("text").remove();
+
+
             g.append("text")
                 .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
                 .attr("dy", ".35em")
-                .text(function(d) { if(d.data.value > 0) {
-                                        return d.data.label; 
-                                    }
-                                });
+                .style("text-anchor", "middle")
+                .text(function(d) { 
+                    if (d.data.value > 0) {
+                        if(d.data.label=="M") {
+                            fancylabel = "Males";
+                        } else if(d.data.label=="F") {
+                            fancylabel = "Females";
+                        }
+                        var biglabel = fancylabel + ": " + d.data.value;
+                        return biglabel; 
+                    }
+                });
 
         }
 
@@ -507,7 +565,7 @@ ng = a.directive('modbarchart', function($compile) {
 
         pscope.updateBar = function() { 
 
-            console.log('in update bar');
+            //console.log('in update bar');
 
             var mydiv = "div#modbar_chart";
 
@@ -578,7 +636,6 @@ ng = a.directive('modbarchart', function($compile) {
 
                 // set excpetion handling:
                 // if no icd10code is set, problems occur.
-                //console.log(all_data[i]);
                 if(all_data[i]['code'] == pscope.icd10code) {
                     code = all_data[i]['code'];
                     data = all_data[i]['modbars'];
