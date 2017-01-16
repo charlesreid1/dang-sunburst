@@ -1,3 +1,8 @@
+/*
+ * Source: https://github.com/alangrafu/radar-chart-d3
+ * Author: alangrafu
+ * License: Apache License v2.0 https://github.com/alangrafu/radar-chart-d3/blob/master/LICENSE
+ */
 var RadarChart = {
   defaultConfig: {
     containerClass: 'radar-chart',
