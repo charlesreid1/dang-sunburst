@@ -172,13 +172,17 @@ TEMPLATE_PAGES['bar1_chart.js']           = 'objects/bar1_chart.js'
 
 
 
-# objects
+# bubbles
 TEMPLATE_PAGES['icd10codes.json']       = 'bubbles/icd10codes.json'
 TEMPLATE_PAGES['bubbles.css']           = 'bubbles/bubbles.css'
 TEMPLATE_PAGES['bubbles.html']          = 'bubbles/bubbles.html'
 TEMPLATE_PAGES['bubbles.json']          = 'bubbles/bubbles.json'
 TEMPLATE_PAGES['bubbles_chart.js']      = 'bubbles/bubbles_chart.js'
 TEMPLATE_PAGES['bubbles_modcontrol.js'] = 'bubbles/bubbles_modcontrol.js'
+
+
+
+
 
 
 
