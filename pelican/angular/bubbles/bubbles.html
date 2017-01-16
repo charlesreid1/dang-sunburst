@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% set mytitle="bubbles Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/bubbles/bubbles.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="bubblesApp">
+
+    <div ng-controller="bubblesController" ng-init="initialize()">
+
+
+        <div class="row">
+            <div class="col-sm-12" id="bubbles_title">
+                <bubbleshead></bubbleshead>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10" id="bubbles_controls">
+                <bubblescontrols></bubblescontrols>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6" id="bubbles_charts">
+                <div class="row" id="bubbles_chart">
+                    <bubbleschart></bubbleschart>
+                </div>
+            </div>
+
+            <div class="col-sm-6" id="bubbles_panels">
+                <div class="row" id="bubbles_panel">
+                    <bubblespanel></bubblespanel>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-sm-10" id="bubbles_text">
+                <div class="row" id="bubbles_md">
+                    {% include 'bubbles.md' %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/bubbles/bubbles_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/bubbles/bubbles_chart.js"></script>
+
+{% endblock %}
+
