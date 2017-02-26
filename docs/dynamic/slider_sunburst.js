@@ -304,8 +304,8 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             left:   40
         };
         
-        var width   = 400 - margin.right - margin.left,
-            height  = 400 - margin.top   - margin.bottom;
+        var width   = 600 - margin.right - margin.left,
+            height  = 600 - margin.top   - margin.bottom;
         
         var radius = Math.min(width, height) / 2;
         
@@ -398,45 +398,90 @@ ng = a.directive('sliderSunburstChart', function($compile) {
             }                                                                          
         }                                                                            
 
+
+
+        ////////////////////////////////
+        //
+        // Very important: update charts
+
         // if you build it, 
         // you must update it.
         updateChart();
 
-        // chart will be built/updated if user updates data.
-        // chart will be updated if user clicks on a point.
+
+        // chart will be built/updated if user clicks a point.
         pscope.$watch('clickedPoint',function(){ 
             if(!pscope.clickedPoint) { return };
-            console.log('clickedPoint changed'); 
+            console.log('calling updateChart() bc clickedPoint changed'); 
+            updateChart();
         });
 
+        // chart will be built/updated if user updates data.
         pscope.$watch('clickedPoint.magnitude',function(){ 
             if(!pscope.clickedPoint) { return };
-            console.log('clickedPoint.magnitude changed'); 
+            console.log('calling updateChart() bc clickedPoint.magnitude changed'); 
             pscope.clickedPoint.value = +pscope.clickedPoint.magnitude;
             updateChart();
         });
 
+        // watch for bin by count/bin by value 
+        pscope.$watch('countval_current', function() {
+            updateChart();
+        });
+
+
+
+
+
+
+        // uuuuuuuuuggggggggggghhhhhhhhhhhh
+        // now these get called twice 
+        // each time the user picks a slice.
+        // you really can't have everything...
+
 
         function updateChart() {
+
 
             console.log('in updateChart()');
 
 
             //////////////////////////////
             // deal with the slider first:
-            // show it if user has clicked an 
-            // outer slice of the sunburst,
-            // don't show it otherwise
+            // 
+            // if we are on an outer slice,
+            // show the slider.
+            // if we are on an inner slice,
+            // don't show the slider.
+            //
+            // this would be eaiser if we 
+            // pre-processed the data
+            // and set aside a list of 
+            // "inner ring" names and 
+            // "outer ring" names
+            //
             d3.select("input#TheSlider").style("visibility",function(z) {
                 if(pscope.clickedPoint) { 
-                    if(!(pscope.clickedPoint.name in ['A','B','C','D','E'])) {
-                        return "visible";
-                    } else {
-                        return "hidden";
+
+                    var inner_ring_names = ["A","B","C","D","E"];
+
+                    for( var cc = 0; cc < inner_ring_names.length; cc++ ) {
+                        if( pscope.clickedPoint.name==inner_ring_names[cc] ) {
+                            return "hidden";
+                        }
                     }
+
+                    // if we make it to this point,
+                    // we are in the outer ring.
+                    return "visible";
+
                 } else {
+
+                    // user has not clicked anything yet.
                     return "hidden";
+
                 }
+
             });
 
 

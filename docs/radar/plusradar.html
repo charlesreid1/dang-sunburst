@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+
+<script type="text/javascript" src="/theme/js/angular-1.3.15.js"></script>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body id="index" class="home">
+    <div class="container">
+        <h1><a href="/">dang-sunburst <strong></strong></a></h1>
+        <hr />
+
+
+<!--
+<div ng-app="plusradarApp">
+
+    <div ng-controller="plusradarController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-sm-12" id="plusradar_charts">
+                <plusradarchart></plusradarchart>
+-->
+                <div id="viz"></div>
+                <!--
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+                -->
+
+<script>
+  var data = [
+    {"value": 100, "name": "alpha"},
+    {"value": 70, "name": "beta"},
+    {"value": 40, "name": "gamma"},
+    {"value": 15, "name": "delta"},
+    {"value": 5, "name": "epsilon"},
+    {"value": 1, "name": "zeta"}
+  ]
+
+  d3plus.viz()
+    .container("#viz")
+    .data(data)
+    .type("pie")
+    .id("name")
+    .size("value")
+    .draw()
+
+</script>
+
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<script type="text/javascript" src="/radar/plusradar_modcontrol.js"></script>
+<script type="text/javascript" src="/radar/plusradar_chart.js"></script>
+
+    </div>
+
+
+    <script type="text/javascript" src="/theme/js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="/theme/js/bootstrap-3.3.4.js"></script>
+
+</body>
+</html>
