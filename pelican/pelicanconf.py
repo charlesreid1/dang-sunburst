@@ -149,10 +149,13 @@ TEMPLATE_PAGES['radar1.html']           = 'radar/radar1.html'
 TEMPLATE_PAGES['radar1_chart.js']       = 'radar/radar1_chart.js'
 TEMPLATE_PAGES['radar1_modcontrol.js']  = 'radar/radar1_modcontrol.js'
 
-TEMPLATE_PAGES['radar2.css']            = 'radar/radar2.css'
-TEMPLATE_PAGES['radar2.html']           = 'radar/radar2.html'
-TEMPLATE_PAGES['radar2_chart.js']       = 'radar/radar2_chart.js'
-TEMPLATE_PAGES['radar2_modcontrol.js']  = 'radar/radar2_modcontrol.js'
+TEMPLATE_PAGES['plusradar.json']           = 'radar/plusradar.json'
+TEMPLATE_PAGES['plusradar.css']            = 'radar/plusradar.css'
+TEMPLATE_PAGES['plusradar.html']           = 'radar/plusradar.html'
+TEMPLATE_PAGES['plusradar_chart.js']       = 'radar/plusradar_chart.js'
+TEMPLATE_PAGES['plusradar_modcontrol.js']  = 'radar/plusradar_modcontrol.js'
+
+TEMPLATE_PAGES['plusradar_stupid.html']    = 'radar/plusradar_stupid.html'
 
 
 
